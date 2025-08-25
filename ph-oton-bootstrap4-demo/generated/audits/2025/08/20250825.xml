@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file was generated automatically - do NOT modify!
+Written at Aug 25, 2025, 3:56:43 PM Z-->
+<items>
+  <item ldt="2025-08-25T17:45:05.520068" user="$GUEST$" type="execute" success="true">{"audit-initialized":[]}</item>
+  <item ldt="2025-08-25T17:45:05.602770" user="$GUEST$" type="modify" success="false">{"usergroup":["assign-role","ugadmin","config","already-assigned"]}</item>
+  <item ldt="2025-08-25T17:45:05.602831" user="$GUEST$" type="modify" success="false">{"usergroup":["assign-role","ugadmin","view","already-assigned"]}</item>
+  <item ldt="2025-08-25T17:45:05.602864" user="$GUEST$" type="modify" success="false">{"usergroup":["assign-role","ugconfig","config","already-assigned"]}</item>
+  <item ldt="2025-08-25T17:45:05.602894" user="$GUEST$" type="modify" success="false">{"usergroup":["assign-role","ugview","view","already-assigned"]}</item>
+  <item ldt="2025-08-25T17:45:21.610868" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:23.284251" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:24.055460" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:24.472199" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:24.966504" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:25.391682" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:38.543596" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:45.525034" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:46.489734" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:47.017517" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:47.950409" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:48.588794" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:49.200815" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:49.676305" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:50.785317" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:51.332064" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:45:51.713540" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:56:34.276950" user="$GUEST$" type="execute" success="true">{"audit-initialized":[]}</item>
+  <item ldt="2025-08-25T17:56:34.347960" user="$GUEST$" type="modify" success="false">{"usergroup":["assign-role","ugadmin","config","already-assigned"]}</item>
+  <item ldt="2025-08-25T17:56:34.348033" user="$GUEST$" type="modify" success="false">{"usergroup":["assign-role","ugadmin","view","already-assigned"]}</item>
+  <item ldt="2025-08-25T17:56:34.348076" user="$GUEST$" type="modify" success="false">{"usergroup":["assign-role","ugconfig","config","already-assigned"]}</item>
+  <item ldt="2025-08-25T17:56:34.348108" user="$GUEST$" type="modify" success="false">{"usergroup":["assign-role","ugview","view","already-assigned"]}</item>
+  <item ldt="2025-08-25T17:56:38.455360" user="$GUEST$" type="execute" success="false">{"login":["","no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:56:39.046602" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:56:40.285729" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:56:41.527826" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:56:42.391286" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+  <item ldt="2025-08-25T17:56:43.828202" user="$GUEST$" type="execute" success="false">{"login":[null,"no-such-loginname"]}</item>
+</items>
