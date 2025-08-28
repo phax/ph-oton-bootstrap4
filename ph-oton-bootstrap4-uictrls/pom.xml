@@ -28,7 +28,7 @@
   <packaging>bundle</packaging>
   <name>ph-oton-bootstrap4-uictrls</name>
   <description>Library wrapping Bootstrap 4 controls as Java web application components</description>
-  <url>https://github.com/phax/ph-oton/ph-oton-bootstrap4-uictrls</url>
+  <url>https://github.com/phax/ph-oton-bootstrap4/ph-oton-bootstrap4-uictrls</url>
   <inceptionYear>2018</inceptionYear>
   <licenses>
     <license>
