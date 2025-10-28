@@ -21,6 +21,7 @@ import java.util.Map;
 
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
+import com.helger.base.string.StringHelper;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.datetime.format.PDTToString;
@@ -64,7 +65,8 @@ import jakarta.annotation.Nullable;
  * @param <WPECTYPE>
  *        Web Page Execution Context type
  */
-public class BasePageAppInfoScheduler <WPECTYPE extends IWebPageExecutionContext> extends AbstractBootstrapWebPage <WPECTYPE>
+public class BasePageAppInfoScheduler <WPECTYPE extends IWebPageExecutionContext> extends
+                                      AbstractBootstrapWebPage <WPECTYPE>
 {
   @Translatable
   protected enum EText implements IHasDisplayText
@@ -74,11 +76,13 @@ public class BasePageAppInfoScheduler <WPECTYPE extends IWebPageExecutionContext
     MSG_EXECUTING_JOBS ("Laufende Jobs", "Currently executing jobs"),
     MSG_LISTENERS ("Job Listener", "Job listeners"),
     MSG_JOB_CLASS ("Job: ", "Job: "),
-    MSG_TRIGGER_KEY ("Key: ", "Key: "),
+    MSG_TRIGGER_CLASS ("Trigger: ", "Trigger: "),
+    MSG_TRIGGER_KEY ("Trigger Key: ", "trigger Key: "),
     MSG_START_TIME ("Startzeit: ", "Start time: "),
     MSG_END_TIME ("Endzeit: ", "End time: "),
     MSG_PREVIOUS_FIRE_TIME ("Letzter Aufruf: ", "Previous fire time: "),
     MSG_NEXT_FIRE_TIME ("Nächster Aufruf: ", "Next fire time: "),
+    MSG_MISFIRE_INSTRUCTIONS ("Verhalten bei Aussetzern", "Misfire instructions: "),
     MSG_JOB_DATA ("JobData: ", "JobData: "),
     MSG_NONE ("keine", "none"),
     MSG_NOTHING_SCHEDULED ("Es sind keine Tasks geplant", "No actions are scheduled");
@@ -108,7 +112,9 @@ public class BasePageAppInfoScheduler <WPECTYPE extends IWebPageExecutionContext
     super (sID, sName);
   }
 
-  public BasePageAppInfoScheduler (@Nonnull @Nonempty final String sID, @Nonnull final String sName, @Nullable final String sDescription)
+  public BasePageAppInfoScheduler (@Nonnull @Nonempty final String sID,
+                                   @Nonnull final String sName,
+                                   @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
@@ -148,9 +154,11 @@ public class BasePageAppInfoScheduler <WPECTYPE extends IWebPageExecutionContext
 
         final BootstrapViewForm aDetailsForm = new BootstrapViewForm ();
         aDetailsForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.MSG_SUMMARY.getDisplayText (aDisplayLocale))
-                                                            .setCtrl (HCExtHelper.nl2divList (aScheduler.getMetaData ().getSummary ())));
+                                                            .setCtrl (HCExtHelper.nl2divList (aScheduler.getMetaData ()
+                                                                                                        .getSummary ())));
         aDetailsForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.MSG_EXECUTING_JOBS.getDisplayText (aDisplayLocale))
-                                                            .setCtrl (Integer.toString (aScheduler.getCurrentlyExecutingJobs ().size ())));
+                                                            .setCtrl (Integer.toString (aScheduler.getCurrentlyExecutingJobs ()
+                                                                                                  .size ())));
 
         // All job listener
         final ICommonsList <String> aListeners = new CommonsArrayList <> ();
@@ -171,16 +179,23 @@ public class BasePageAppInfoScheduler <WPECTYPE extends IWebPageExecutionContext
             final HCLI aLI = aDetailUL.addAndReturnItem (aJobKey.getName ());
             final HCUL aUL2 = aLI.addAndReturnChild (new HCUL ());
             aUL2.addItem (EText.MSG_JOB_CLASS.getDisplayText (aDisplayLocale) + aDetail.getJobClass ().getName ());
+            aUL2.addItem (EText.MSG_TRIGGER_CLASS.getDisplayText (aDisplayLocale) + aTrigger.getClass ().getName ());
             aUL2.addItem (EText.MSG_TRIGGER_KEY.getDisplayText (aDisplayLocale) + aTrigger.getKey ().toString ());
             aUL2.addItem (EText.MSG_START_TIME.getDisplayText (aDisplayLocale) +
-                          PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getStartTime ()), aDisplayLocale));
+                          PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getStartTime ()),
+                                                   aDisplayLocale));
             if (aTrigger.getEndTime () != null)
               aUL2.addItem (EText.MSG_END_TIME.getDisplayText (aDisplayLocale) +
-                            PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getEndTime ()), aDisplayLocale));
+                            PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getEndTime ()),
+                                                     aDisplayLocale));
             aUL2.addItem (EText.MSG_PREVIOUS_FIRE_TIME.getDisplayText (aDisplayLocale) +
-                          PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getPreviousFireTime ()), aDisplayLocale));
+                          PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getPreviousFireTime ()),
+                                                   aDisplayLocale));
             aUL2.addItem (EText.MSG_NEXT_FIRE_TIME.getDisplayText (aDisplayLocale) +
-                          PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getNextFireTime ()), aDisplayLocale));
+                          PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getNextFireTime ()),
+                                                   aDisplayLocale));
+            aUL2.addItem (EText.MSG_MISFIRE_INSTRUCTIONS.getDisplayText (aDisplayLocale) +
+                          StringHelper.trimStart (aTrigger.getMisfireInstruction ().name (), "MISFIRE_INSTRUCTION_"));
 
             final BootstrapTable aJobDataTable = new BootstrapTable (HCCol.star (), HCCol.star ());
             aJobDataTable.setCondensed (true);
@@ -188,7 +203,8 @@ public class BasePageAppInfoScheduler <WPECTYPE extends IWebPageExecutionContext
               aJobDataTable.addBodyRow ().addCells (aEntry.getKey (), String.valueOf (aEntry.getValue ()));
 
             aUL2.addItem (new HCTextNode (EText.MSG_JOB_DATA.getDisplayText (aDisplayLocale)),
-                          aJobDataTable.hasBodyRows () ? aJobDataTable : em (EText.MSG_NONE.getDisplayText (aDisplayLocale)));
+                          aJobDataTable.hasBodyRows () ? aJobDataTable : em (EText.MSG_NONE.getDisplayText (
+                                                                                                            aDisplayLocale)));
           }
         aTab.addChild (aDetailUL);
 
