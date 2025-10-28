@@ -54,6 +54,9 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 ## News and noteworthy
 
+v10.0.1 - work in progress
+* Slightly improved the page with the scheduled actions
+
 v10.0.0 - 2025-08-25
 * Requires Java 17 as the minimum version
 * Updated to ph-commons 12.0.0
