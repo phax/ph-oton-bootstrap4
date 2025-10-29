@@ -194,8 +194,9 @@ public class BasePageAppInfoScheduler <WPECTYPE extends IWebPageExecutionContext
             aUL2.addItem (EText.MSG_NEXT_FIRE_TIME.getDisplayText (aDisplayLocale) +
                           PDTToString.getAsString (PDTFactory.createLocalDateTime (aTrigger.getNextFireTime ()),
                                                    aDisplayLocale));
-            aUL2.addItem (EText.MSG_MISFIRE_INSTRUCTIONS.getDisplayText (aDisplayLocale) +
-                          StringHelper.trimStart (aTrigger.getMisfireInstruction ().name (), "MISFIRE_INSTRUCTION_"));
+            if (aTrigger.getMisfireInstruction () != null)
+              aUL2.addItem (EText.MSG_MISFIRE_INSTRUCTIONS.getDisplayText (aDisplayLocale) +
+                            StringHelper.trimStart (aTrigger.getMisfireInstruction ().name (), "MISFIRE_INSTRUCTION_"));
 
             final BootstrapTable aJobDataTable = new BootstrapTable (HCCol.star (), HCCol.star ());
             aJobDataTable.setCondensed (true);
