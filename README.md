@@ -56,6 +56,7 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 v10.0.1 - work in progress
 * Slightly improved the page with the scheduled actions
+* Fixed an NPE in the "System Information / Security" page, if the file `{java.home}/lib/security/java.security` does not exist
 
 v10.0.0 - 2025-08-25
 * Requires Java 17 as the minimum version
