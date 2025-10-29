@@ -149,29 +149,33 @@ public class BasePageSysInfoSecurity <WPECTYPE extends IWebPageExecutionContext>
 
     // show all Security attributes
     {
+      NonBlockingProperties aProps = null;
       File aSecurityPropFile = new File (SystemProperties.getJavaHome () + "/lib/security", "java.security");
-      NonBlockingProperties aProps = PropertiesHelper.loadProperties (FileHelper.getInputStream (aSecurityPropFile));
-      if (aProps != null && "true".equalsIgnoreCase (aProps.get ("security.overridePropertiesFile")))
+      if (aSecurityPropFile.isFile ())
       {
-        String sExtraPropFile = SystemProperties.getPropertyValueOrNull ("java.security.properties");
-        final boolean bOverrideAll = StringHelper.startsWith (sExtraPropFile, '=');
-
-        if (bOverrideAll)
+        aProps = PropertiesHelper.loadProperties (FileHelper.getInputStream (aSecurityPropFile));
+        if (aProps != null && "true".equalsIgnoreCase (aProps.get ("security.overridePropertiesFile")))
         {
-          sExtraPropFile = sExtraPropFile.substring (1);
-          aProps.clear ();
-        }
+          String sExtraPropFile = SystemProperties.getPropertyValueOrNull ("java.security.properties");
+          final boolean bOverrideAll = StringHelper.startsWith (sExtraPropFile, '=');
 
-        // now load the user-specified file so its values
-        // will win if they conflict with the earlier values
-        if (sExtraPropFile != null)
-        {
-          sExtraPropFile = PropertiesHelper.expandSystemProperties (sExtraPropFile);
-          aSecurityPropFile = new File (sExtraPropFile);
-          if (aSecurityPropFile.exists ())
-            aProps = PropertiesHelper.loadProperties (FileHelper.getInputStream (aSecurityPropFile));
-          else
-            aProps = PropertiesHelper.loadProperties (URLResource.getInputStream (URLHelper.getAsURL (sExtraPropFile)));
+          if (bOverrideAll)
+          {
+            sExtraPropFile = sExtraPropFile.substring (1);
+            aProps.clear ();
+          }
+
+          // now load the user-specified file so its values
+          // will win if they conflict with the earlier values
+          if (sExtraPropFile != null)
+          {
+            sExtraPropFile = PropertiesHelper.expandSystemProperties (sExtraPropFile);
+            aSecurityPropFile = new File (sExtraPropFile);
+            if (aSecurityPropFile.exists ())
+              aProps = PropertiesHelper.loadProperties (FileHelper.getInputStream (aSecurityPropFile));
+            else
+              aProps = PropertiesHelper.loadProperties (URLResource.getInputStream (URLHelper.getAsURL (sExtraPropFile)));
+          }
         }
       }
 
