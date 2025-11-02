@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Width. See https://getbootstrap.com/docs/4.1/utilities/sizing/
@@ -36,12 +36,12 @@ public enum EBootstrapHeightType implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapHeightType (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapHeightType (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }
 
-  @Nonnull
+  @NonNull
   public String getCSSClass ()
   {
     return m_aCSSClass.getCSSClass ();

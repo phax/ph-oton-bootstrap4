@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.inputgroup;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.string.StringHelper;
@@ -28,9 +31,6 @@ import com.helger.html.hc.html.grouping.HCDiv;
 import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.dropdown.BootstrapDropdownMenu;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap input group. Children must be added in the correct order. Use
@@ -50,19 +50,19 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
     this (EBootstrapInputGroupSize.DEFAULT);
   }
 
-  public BootstrapInputGroup (@Nonnull final EBootstrapInputGroupSize eSize)
+  public BootstrapInputGroup (@NonNull final EBootstrapInputGroupSize eSize)
   {
     setSize (eSize);
   }
 
-  @Nonnull
+  @NonNull
   public final EBootstrapInputGroupSize getSize ()
   {
     return m_eSize;
   }
 
-  @Nonnull
-  public final BootstrapInputGroup setSize (@Nonnull final EBootstrapInputGroupSize eSize)
+  @NonNull
+  public final BootstrapInputGroup setSize (@NonNull final EBootstrapInputGroupSize eSize)
   {
     ValueEnforcer.notNull (eSize, "Size");
     m_eSize = eSize;
@@ -72,7 +72,7 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
   /**
    * @return The DIV with class "input-group-prepend". Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
   public HCDiv createGroupPrepend ()
   {
@@ -82,7 +82,7 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
   /**
    * @return The DIV with class "input-group-append". Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
   public HCDiv createGroupAppend ()
   {
@@ -97,7 +97,7 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
    * @return Never <code>null</code>.
    * @see #createGroupPrepend()
    */
-  @Nonnull
+  @NonNull
   public HCDiv getOrCreateGroupPrepend ()
   {
     // Existing "prepend" present?
@@ -114,7 +114,7 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
    * @return Never <code>null</code>.
    * @see #createGroupAppend()
    */
-  @Nonnull
+  @NonNull
   public HCDiv getOrCreateGroupAppend ()
   {
     // Existing "append" present?
@@ -122,14 +122,14 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
     return aDiv != null ? aDiv : addAndReturnChild (createGroupAppend ());
   }
 
-  @Nonnull
-  public static HCSpan getWrapped (@Nonnull final String sText)
+  @NonNull
+  public static HCSpan getWrapped (@NonNull final String sText)
   {
     return new HCSpan ().addClass (CBootstrapCSS.INPUT_GROUP_TEXT).addChild (sText);
   }
 
-  @Nonnull
-  public static IHCNode getWrapped (@Nonnull final IHCNode aNode)
+  @NonNull
+  public static IHCNode getWrapped (@NonNull final IHCNode aNode)
   {
     // Buttons and dropdowns don't need a surrounding div
     if (aNode instanceof AbstractHCButton <?> || aNode instanceof BootstrapDropdownMenu)
@@ -146,7 +146,7 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
    * @see #getOrCreateGroupPrepend()
    * @see #getWrapped(String)
    */
-  @Nonnull
+  @NonNull
   public final BootstrapInputGroup addChildPrefix (@Nullable final String sText)
   {
     if (StringHelper.isNotEmpty (sText))
@@ -163,7 +163,7 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
    * @see #getOrCreateGroupPrepend()
    * @see #getWrapped(IHCNode)
    */
-  @Nonnull
+  @NonNull
   public final BootstrapInputGroup addChildPrefix (@Nullable final IHCNode aNode)
   {
     if (aNode != null)
@@ -180,7 +180,7 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
    * @see #getOrCreateGroupAppend()
    * @see #getWrapped(String)
    */
-  @Nonnull
+  @NonNull
   public final BootstrapInputGroup addChildSuffix (@Nullable final String sText)
   {
     if (StringHelper.isNotEmpty (sText))
@@ -197,7 +197,7 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
    * @see #getOrCreateGroupAppend()
    * @see #getWrapped(IHCNode)
    */
-  @Nonnull
+  @NonNull
   public final BootstrapInputGroup addChildSuffix (@Nullable final IHCNode aNode)
   {
     if (aNode != null)
@@ -206,8 +206,8 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClasses (CBootstrapCSS.INPUT_GROUP, m_eSize);

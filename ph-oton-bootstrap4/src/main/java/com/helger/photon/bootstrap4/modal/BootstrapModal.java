@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.modal;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.string.StringHelper;
@@ -34,9 +37,6 @@ import com.helger.html.jscode.JSInvocation;
 import com.helger.html.jscode.JSPackage;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.utils.BootstrapCloseIcon;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
 {
@@ -87,20 +87,20 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
     this (EBootstrapModalSize.DEFAULT);
   }
 
-  public BootstrapModal (@Nonnull final EBootstrapModalSize eSize)
+  public BootstrapModal (@NonNull final EBootstrapModalSize eSize)
   {
     ensureID ();
     setSize (eSize);
   }
 
-  @Nonnull
+  @NonNull
   public final EBootstrapModalSize getSize ()
   {
     return m_eSize;
   }
 
-  @Nonnull
-  public final BootstrapModal setSize (@Nonnull final EBootstrapModalSize eSize)
+  @NonNull
+  public final BootstrapModal setSize (@NonNull final EBootstrapModalSize eSize)
   {
     ValueEnforcer.notNull (eSize, "Size");
     m_eSize = eSize;
@@ -112,7 +112,7 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
     return m_bFade;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setFade (final boolean bFade)
   {
     m_bFade = bFade;
@@ -124,7 +124,7 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
     return m_bVerticallyCentered;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setVerticallyCentered (final boolean bVerticallyCentered)
   {
     m_bVerticallyCentered = bVerticallyCentered;
@@ -136,7 +136,7 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
     return m_bScrollBody;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setScrollBody (final boolean bScrollBody)
   {
     m_bScrollBody = bScrollBody;
@@ -148,96 +148,96 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
     return m_bShowClose;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setShowClose (final boolean bShowClose)
   {
     m_bShowClose = bShowClose;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setHeader (@Nullable final String sHeader)
   {
     return setHeader (HCTextNode.createOnDemand (sHeader));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setHeader (@Nullable final IHCNode aHeader)
   {
     m_aHeader = aHeader;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setHeader (@Nullable final IHCNode... aHeader)
   {
     return setHeader (new HCNodeList ().addChildren (aHeader));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setHeader (@Nullable final Iterable <? extends IHCNode> aHeader)
   {
     return setHeader (new HCNodeList ().addChildren (aHeader));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setBody (@Nullable final String sBody)
   {
     return setBody (HCTextNode.createOnDemand (sBody));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setBody (@Nullable final IHCNode aBody)
   {
     m_aBody = aBody;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setBody (@Nullable final IHCNode... aBody)
   {
     return setBody (new HCNodeList ().addChildren (aBody));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setBody (@Nullable final Iterable <? extends IHCNode> aBody)
   {
     return setBody (new HCNodeList ().addChildren (aBody));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setFooter (@Nullable final String sFooter)
   {
     return setFooter (HCTextNode.createOnDemand (sFooter));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setFooter (@Nullable final IHCNode aFooter)
   {
     m_aFooter = aFooter;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setFooter (@Nullable final IHCNode... aFooter)
   {
     return setFooter (new HCNodeList ().addChildren (aFooter));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapModal setFooter (@Nullable final Iterable <? extends IHCNode> aFooter)
   {
     return setFooter (new HCNodeList ().addChildren (aFooter));
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   private String _getContentID ()
   {
     return getID () + "content";
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   private String _getTitleID ()
   {
@@ -245,8 +245,8 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.MODAL).setRole (EHTMLRole.DIALOG).setTabIndex (-1);
@@ -286,7 +286,7 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
   /**
    * @return JS invocation to open this modal dialog.
    */
-  @Nonnull
+  @NonNull
   public JSInvocation jsModal ()
   {
     return JQuery.idRef (this).invoke ("modal");
@@ -309,7 +309,7 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
    *        jQuery's load method and injected into the .modal-content div.
    * @return JS invocation to open this modal dialog with the specified options.
    */
-  @Nonnull
+  @NonNull
   public JSPackage openModal (@Nullable final EBootstrapModalOptionBackdrop aBackdrop,
                               @Nullable final Boolean aKeyboard,
                               @Nullable final Boolean aFocus,
@@ -344,7 +344,7 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
    *
    * @return JS invocation
    */
-  @Nonnull
+  @NonNull
   public JSInvocation jsModalToggle ()
   {
     return jsModal ().arg ("toggle");
@@ -356,7 +356,7 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
    *
    * @return JS invocation
    */
-  @Nonnull
+  @NonNull
   public JSInvocation jsModalShow ()
   {
     return jsModal ().arg ("show");
@@ -368,7 +368,7 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
    *
    * @return JS invocation
    */
-  @Nonnull
+  @NonNull
   public JSInvocation jsModalHide ()
   {
     return jsModal ().arg ("hide");
@@ -381,13 +381,13 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
    *
    * @return JS invocation
    */
-  @Nonnull
+  @NonNull
   public JSInvocation jsModalHandleUpdate ()
   {
     return jsModal ().arg ("handleUpdate");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsModalDispose ()
   {
     return jsModal ().arg ("dispose");

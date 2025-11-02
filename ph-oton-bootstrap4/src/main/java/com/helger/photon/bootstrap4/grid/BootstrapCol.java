@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap4.grid;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BootstrapCol extends AbstractBootstrapDiv <BootstrapCol>
 {
@@ -36,7 +36,7 @@ public class BootstrapCol extends AbstractBootstrapDiv <BootstrapCol>
     setOrder (eOrder);
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapCol setOrder (@Nullable final EBootstrapColOrder eOrder)
   {
     m_eOrder = eOrder;
@@ -50,8 +50,8 @@ public class BootstrapCol extends AbstractBootstrapDiv <BootstrapCol>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (m_eOrder);

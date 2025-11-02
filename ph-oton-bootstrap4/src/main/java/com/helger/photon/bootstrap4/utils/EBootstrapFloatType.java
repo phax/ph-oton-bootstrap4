@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.grid.EBootstrapGridType;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Floating. See https://getbootstrap.com/docs/4.1/utilities/float/
@@ -49,13 +49,13 @@ public enum EBootstrapFloatType implements ICSSClassProvider
   private final ICSSClassProvider m_aCSSClass;
   private final EBootstrapGridType m_eGridType;
 
-  EBootstrapFloatType (@Nonnull final ICSSClassProvider aCSSClass, @Nonnull final EBootstrapGridType eGridType)
+  EBootstrapFloatType (@NonNull final ICSSClassProvider aCSSClass, @NonNull final EBootstrapGridType eGridType)
   {
     m_aCSSClass = aCSSClass;
     m_eGridType = eGridType;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCSSClass ()
   {
@@ -65,7 +65,7 @@ public enum EBootstrapFloatType implements ICSSClassProvider
   /**
    * @return The grid type to be used. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public EBootstrapGridType getGridType ()
   {
     return m_eGridType;

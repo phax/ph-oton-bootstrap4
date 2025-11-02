@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap.demo.pub.page.icon;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.hc.impl.HCNodeList;
 import com.helger.photon.icon.bootstrapicons.EBootstrapIcon;
 import com.helger.photon.uicore.page.WebPageExecutionContext;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Show all Material Design icons in action
@@ -30,7 +30,7 @@ import jakarta.annotation.Nonnull;
  */
 public final class PagePublicIconBootstrapIcons extends AbstractPagePublicIcon
 {
-  public PagePublicIconBootstrapIcons (@Nonnull @Nonempty final String sID)
+  public PagePublicIconBootstrapIcons (@NonNull @Nonempty final String sID)
   {
     super (sID, "Bootstrap Icons Test");
   }

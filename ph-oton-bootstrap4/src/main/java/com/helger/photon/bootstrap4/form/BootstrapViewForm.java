@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap4.form;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.annotation.concurrent.NotThreadSafe;
@@ -33,8 +35,6 @@ import com.helger.photon.bootstrap4.CBootstrap;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
 import com.helger.photon.bootstrap4.grid.BootstrapGridSpec;
 import com.helger.photon.bootstrap4.grid.IBootstrapGridElement;
-
-import jakarta.annotation.Nonnull;
 
 @NotThreadSafe
 public class BootstrapViewForm extends AbstractBootstrapDiv <BootstrapViewForm> implements IBootstrapFormGroupContainer <BootstrapViewForm>
@@ -55,7 +55,7 @@ public class BootstrapViewForm extends AbstractBootstrapDiv <BootstrapViewForm> 
     setFormType (EBootstrapFormType.DEFAULT);
   }
 
-  @Nonnull
+  @NonNull
   public final EBootstrapFormType getFormType ()
   {
     return m_eFormType;
@@ -66,27 +66,27 @@ public class BootstrapViewForm extends AbstractBootstrapDiv <BootstrapViewForm> 
    *        The form type to be used. May not be <code>null</code>.
    * @return this
    */
-  @Nonnull
-  public final BootstrapViewForm setFormType (@Nonnull final EBootstrapFormType eFormType)
+  @NonNull
+  public final BootstrapViewForm setFormType (@NonNull final EBootstrapFormType eFormType)
   {
     ValueEnforcer.notNull (eFormType, "FormType");
     m_eFormType = eFormType;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapGridSpec getLeft ()
   {
     return m_aLeftGrid;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapGridSpec getRight ()
   {
     return m_aRightGrid;
   }
 
-  @Nonnull
+  @NonNull
   @OverridingMethodsMustInvokeSuper
   public final BootstrapViewForm setLeft (@Nonnegative final int nLeftPartsXS,
                                           @Nonnegative final int nLeftPartsSM,
@@ -109,9 +109,9 @@ public class BootstrapViewForm extends AbstractBootstrapDiv <BootstrapViewForm> 
     return setSplitting (aNewLeft, aNewRight);
   }
 
-  @Nonnull
+  @NonNull
   @OverridingMethodsMustInvokeSuper
-  public final BootstrapViewForm setSplitting (@Nonnull final BootstrapGridSpec aLeft, @Nonnull final BootstrapGridSpec aRight)
+  public final BootstrapViewForm setSplitting (@NonNull final BootstrapGridSpec aLeft, @NonNull final BootstrapGridSpec aRight)
   {
     ValueEnforcer.notNull (aLeft, "Left");
     ValueEnforcer.notNull (aRight, "Right");
@@ -120,29 +120,29 @@ public class BootstrapViewForm extends AbstractBootstrapDiv <BootstrapViewForm> 
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public IBootstrapFormGroupRenderer getFormGroupRenderer ()
   {
     return m_aFormGroupRenderer;
   }
 
-  @Nonnull
-  public final BootstrapViewForm setFormGroupRenderer (@Nonnull final IBootstrapFormGroupRenderer aFormGroupRenderer)
+  @NonNull
+  public final BootstrapViewForm setFormGroupRenderer (@NonNull final IBootstrapFormGroupRenderer aFormGroupRenderer)
   {
     m_aFormGroupRenderer = ValueEnforcer.notNull (aFormGroupRenderer, "FormGroupRenderer");
     return this;
   }
 
-  @Nonnull
-  public IHCElementWithChildren <?> getRenderedFormGroup (@Nonnull final BootstrapFormGroup aFormGroup)
+  @NonNull
+  public IHCElementWithChildren <?> getRenderedFormGroup (@NonNull final BootstrapFormGroup aFormGroup)
   {
     // TODO find Locale for rendering
     // Usually no error texts are used; so this is not sooo important
     return m_aFormGroupRenderer.renderFormGroup (this, aFormGroup, Locale.US);
   }
 
-  @Nonnull
-  public final BootstrapViewForm addFormGroup (@Nonnull final BootstrapFormGroup aFormGroup)
+  @NonNull
+  public final BootstrapViewForm addFormGroup (@NonNull final BootstrapFormGroup aFormGroup)
   {
     // Must be added directly and cannot be added via a proxy, because
     // otherwise, the adding may happen after the out of band nodes were
@@ -153,8 +153,8 @@ public class BootstrapViewForm extends AbstractBootstrapDiv <BootstrapViewForm> 
   @Override
   @OverrideOnDemand
   @OverridingMethodsMustInvokeSuper
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (m_eFormType);

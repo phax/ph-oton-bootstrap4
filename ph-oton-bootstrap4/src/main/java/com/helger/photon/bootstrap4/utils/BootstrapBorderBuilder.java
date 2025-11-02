@@ -18,11 +18,11 @@ package com.helger.photon.bootstrap4.utils;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.html.IHCHasCSSClasses;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Utility class to build border classes.
@@ -45,8 +45,8 @@ public class BootstrapBorderBuilder implements Serializable
    *        Border type. May not be <code>null</code>.
    * @return this for chaining
    */
-  @Nonnull
-  public BootstrapBorderBuilder type (@Nonnull final EBootstrapBorderType eType)
+  @NonNull
+  public BootstrapBorderBuilder type (@NonNull final EBootstrapBorderType eType)
   {
     ValueEnforcer.notNull (eType, "Type");
     m_eType = eType;
@@ -60,7 +60,7 @@ public class BootstrapBorderBuilder implements Serializable
    *        Color to use. May be <code>null</code>.
    * @return this for chaining
    */
-  @Nonnull
+  @NonNull
   public BootstrapBorderBuilder color (@Nullable final EBootstrapBorderColorType eColor)
   {
     m_eColor = eColor;
@@ -74,15 +74,15 @@ public class BootstrapBorderBuilder implements Serializable
    *        Border type. May not be <code>null</code>.
    * @return this for chaining
    */
-  @Nonnull
-  public BootstrapBorderBuilder radius (@Nonnull final EBootstrapBorderRadiusType eRadius)
+  @NonNull
+  public BootstrapBorderBuilder radius (@NonNull final EBootstrapBorderRadiusType eRadius)
   {
     ValueEnforcer.notNull (eRadius, "Radius");
     m_eRadius = eRadius;
     return this;
   }
 
-  public void applyTo (@Nonnull final IHCHasCSSClasses <?> aObj)
+  public void applyTo (@NonNull final IHCHasCSSClasses <?> aObj)
   {
     aObj.addClasses (m_eType, m_eColor, m_eRadius);
   }

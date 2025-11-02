@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap4.breadcrumb;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.sections.AbstractHCNav;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Breadcrumb container. Use {@link #getList()} to access the main item list.
@@ -38,15 +38,15 @@ public class BootstrapBreadcrumb extends AbstractHCNav <BootstrapBreadcrumb>
     m_aList = new BootstrapBreadcrumbList ();
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapBreadcrumbList getList ()
   {
     return m_aList;
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addChild (m_aList);

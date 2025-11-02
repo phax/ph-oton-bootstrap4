@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap4.alert;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Type of alert
@@ -40,7 +40,7 @@ public enum EBootstrapAlertType implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapAlertType (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapAlertType (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }

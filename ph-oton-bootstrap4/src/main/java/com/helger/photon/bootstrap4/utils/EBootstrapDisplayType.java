@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.css.ICSSClassProvider;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Display type. See https://getbootstrap.com/docs/4.1/utilities/display/
@@ -40,19 +40,19 @@ public enum EBootstrapDisplayType implements ICSSClassProvider
 
   private final String m_sCSSClassNamePart;
 
-  EBootstrapDisplayType (@Nonnull @Nonempty final String sCSSClassNamePart)
+  EBootstrapDisplayType (@NonNull @Nonempty final String sCSSClassNamePart)
   {
     m_sCSSClassNamePart = sCSSClassNamePart;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCSSClassNamePart ()
   {
     return m_sCSSClassNamePart;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCSSClass ()
   {

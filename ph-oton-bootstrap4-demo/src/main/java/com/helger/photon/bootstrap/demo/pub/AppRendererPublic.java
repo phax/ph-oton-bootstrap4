@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap.demo.pub;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.html.css.DefaultCSSClassProvider;
@@ -65,8 +67,6 @@ import com.helger.url.ISimpleURL;
 import com.helger.url.SimpleURL;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
-import jakarta.annotation.Nonnull;
-
 /**
  * The viewport renderer (menu + content area)
  *
@@ -89,8 +89,8 @@ public final class AppRendererPublic
   private AppRendererPublic ()
   {}
 
-  @Nonnull
-  private static BootstrapNavbar _getNavbar (@Nonnull final ILayoutExecutionContext aLEC)
+  @NonNull
+  private static BootstrapNavbar _getNavbar (@NonNull final ILayoutExecutionContext aLEC)
   {
     final Locale aDisplayLocale = aLEC.getDisplayLocale ();
     final ISimpleURL aLinkToStartPage = aLEC.getLinkToMenuItem (aLEC.getMenuTree ().getDefaultMenuItemID ());
@@ -117,8 +117,8 @@ public final class AppRendererPublic
     return aNavbar;
   }
 
-  @Nonnull
-  public static IHCNode getMenuContent (@Nonnull final ILayoutExecutionContext aLEC)
+  @NonNull
+  public static IHCNode getMenuContent (@NonNull final ILayoutExecutionContext aLEC)
   {
     // Main menu
     final IMenuTree aMenuTree = aLEC.getMenuTree ();
@@ -126,7 +126,7 @@ public final class AppRendererPublic
                                                                                      aLEC.getSelectedMenuItemID ())
     {
       @Override
-      protected boolean isMenuItemValidToBeDisplayed (@Nonnull final IMenuObject aMenuObj)
+      protected boolean isMenuItemValidToBeDisplayed (@NonNull final IMenuObject aMenuObj)
       {
         // Don't show items that belong to the footer
         if (aMenuObj.attrs ().containsKey (CMenuPublic.FLAG_FOOTER))
@@ -139,8 +139,8 @@ public final class AppRendererPublic
     return BootstrapMenuItemRenderer.createSideBarMenu (aLEC, aCallback);
   }
 
-  @Nonnull
-  public static IHCNode getContent (@Nonnull final ILayoutExecutionContext aLEC)
+  @NonNull
+  public static IHCNode getContent (@NonNull final ILayoutExecutionContext aLEC)
   {
     final Locale aDisplayLocale = aLEC.getDisplayLocale ();
     final HCNodeList ret = new HCNodeList ();

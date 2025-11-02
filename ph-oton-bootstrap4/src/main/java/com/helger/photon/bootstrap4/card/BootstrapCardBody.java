@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap4.card;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.html.embedded.HCImg;
 import com.helger.html.hc.html.grouping.HCP;
 import com.helger.html.hc.html.sections.HCH5;
@@ -23,8 +25,6 @@ import com.helger.html.hc.html.sections.HCH6;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Special Bootstrap 4 card body.
@@ -38,73 +38,73 @@ public class BootstrapCardBody extends AbstractBootstrapDiv <BootstrapCardBody>
     addClass (CBootstrapCSS.CARD_BODY);
   }
 
-  @Nonnull
+  @NonNull
   public static HCImg createImgTop ()
   {
     return new HCImg ().addClass (CBootstrapCSS.CARD_IMG_TOP);
   }
 
-  @Nonnull
+  @NonNull
   public HCImg createAndAddImgTop ()
   {
     return addAndReturnChild (createImgTop ());
   }
 
-  @Nonnull
+  @NonNull
   public static HCImg createImgBottom ()
   {
     return new HCImg ().addClass (CBootstrapCSS.CARD_IMG_BOTTOM);
   }
 
-  @Nonnull
+  @NonNull
   public HCImg createAndAddImgBottom ()
   {
     return addAndReturnChild (createImgBottom ());
   }
 
-  @Nonnull
+  @NonNull
   public static HCH5 createTitle ()
   {
     return new HCH5 ().addClass (CBootstrapCSS.CARD_TITLE);
   }
 
-  @Nonnull
+  @NonNull
   public HCH5 createAndAddTitle ()
   {
     return addAndReturnChild (createTitle ());
   }
 
-  @Nonnull
+  @NonNull
   public static HCH6 createSubtitle ()
   {
     return new HCH6 ().addClass (CBootstrapCSS.CARD_SUBTITLE);
   }
 
-  @Nonnull
+  @NonNull
   public HCH6 createAndAddSubtitle ()
   {
     return addAndReturnChild (createSubtitle ());
   }
 
-  @Nonnull
+  @NonNull
   public static HCP createText ()
   {
     return new HCP ().addClass (CBootstrapCSS.CARD_TEXT);
   }
 
-  @Nonnull
+  @NonNull
   public HCP createAndAddText ()
   {
     return addAndReturnChild (createText ());
   }
 
-  @Nonnull
+  @NonNull
   public static HCA createLink ()
   {
     return new HCA ().addClass (CBootstrapCSS.CARD_LINK);
   }
 
-  @Nonnull
+  @NonNull
   public HCA createAndAddLink ()
   {
     return addAndReturnChild (createLink ());

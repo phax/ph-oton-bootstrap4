@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.pages;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -28,9 +31,6 @@ import com.helger.photon.bootstrap4.traits.IHCBootstrap4Trait;
 import com.helger.photon.uicore.page.AbstractWebPageForm;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.text.IMultilingualText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract base class for a Bootstrap based web page that has the common form
@@ -48,25 +48,25 @@ public abstract class AbstractBootstrapWebPageForm <DATATYPE extends IHasID <Str
                                                    implements
                                                    IHCBootstrap4Trait
 {
-  public AbstractBootstrapWebPageForm (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public AbstractBootstrapWebPageForm (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, getAsMLT (sName), null, BootstrapWebPageUIHandler.INSTANCE);
   }
 
-  public AbstractBootstrapWebPageForm (@Nonnull @Nonempty final String sID, @Nonnull final IMultilingualText aName)
+  public AbstractBootstrapWebPageForm (@NonNull @Nonempty final String sID, @NonNull final IMultilingualText aName)
   {
     super (sID, aName, null, BootstrapWebPageUIHandler.INSTANCE);
   }
 
-  public AbstractBootstrapWebPageForm (@Nonnull @Nonempty final String sID,
-                                       @Nonnull final String sName,
+  public AbstractBootstrapWebPageForm (@NonNull @Nonempty final String sID,
+                                       @NonNull final String sName,
                                        @Nullable final String sDescription)
   {
     super (sID, getAsMLT (sName), getAsMLT (sDescription), BootstrapWebPageUIHandler.INSTANCE);
   }
 
-  public AbstractBootstrapWebPageForm (@Nonnull @Nonempty final String sID,
-                                       @Nonnull final IMultilingualText aName,
+  public AbstractBootstrapWebPageForm (@NonNull @Nonempty final String sID,
+                                       @NonNull final IMultilingualText aName,
                                        @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription, BootstrapWebPageUIHandler.INSTANCE);
@@ -75,15 +75,15 @@ public abstract class AbstractBootstrapWebPageForm <DATATYPE extends IHasID <Str
   @Override
   @Nullable
   @OverrideOnDemand
-  public IHCNode getHeaderNode (@Nonnull final WPECTYPE aWPEC)
+  public IHCNode getHeaderNode (@NonNull final WPECTYPE aWPEC)
   {
     final String sHeaderText = getHeaderText (aWPEC);
     return getUIHandler ().createPageHeader (sHeaderText);
   }
 
   @Override
-  protected void modifyFormBeforeShowInputForm (@Nonnull final WPECTYPE aWPEC,
-                                                @Nonnull final BootstrapForm aForm,
+  protected void modifyFormBeforeShowInputForm (@NonNull final WPECTYPE aWPEC,
+                                                @NonNull final BootstrapForm aForm,
                                                 final boolean bIsFormSubmitted)
   {
     // That class is only suitable when using JS only validation, because it

@@ -20,6 +20,9 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.UsedViaReflection;
 import com.helger.base.charset.CharsetHelper;
@@ -58,9 +61,6 @@ import com.helger.text.locale.LocaleFormatter;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 import com.helger.web.scope.singleton.AbstractSessionWebSingleton;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Base64 decoder
  *
@@ -82,7 +82,7 @@ public class BasePageUtilsBase64Decode <WPECTYPE extends IWebPageExecutionContex
     public Decoded ()
     {}
 
-    @Nonnull
+    @NonNull
     public static Decoded getInstance ()
     {
       return getSessionSingleton (Decoded.class);
@@ -123,32 +123,32 @@ public class BasePageUtilsBase64Decode <WPECTYPE extends IWebPageExecutionContex
     });
   }
 
-  public BasePageUtilsBase64Decode (@Nonnull @Nonempty final String sID)
+  public BasePageUtilsBase64Decode (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_UTILS_BASE64_DECODE.getAsMLT ());
   }
 
-  public BasePageUtilsBase64Decode (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageUtilsBase64Decode (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageUtilsBase64Decode (@Nonnull @Nonempty final String sID,
-                                    @Nonnull final String sName,
+  public BasePageUtilsBase64Decode (@NonNull @Nonempty final String sID,
+                                    @NonNull final String sName,
                                     @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageUtilsBase64Decode (@Nonnull @Nonempty final String sID,
-                                    @Nonnull final IMultilingualText aName,
+  public BasePageUtilsBase64Decode (@NonNull @Nonempty final String sID,
+                                    @NonNull final IMultilingualText aName,
                                     @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  public void fillContent (@Nonnull final WPECTYPE aWPEC)
+  public void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

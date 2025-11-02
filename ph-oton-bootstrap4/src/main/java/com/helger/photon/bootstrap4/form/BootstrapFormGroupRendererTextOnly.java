@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap4.form;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.base.reflection.GenericReflection;
@@ -35,9 +38,6 @@ import com.helger.html.hc.impl.HCNodeList;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.grid.BootstrapRow;
 import com.helger.photon.uicore.html.formlabel.HCFormLabel;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This is an implementation of {@link IBootstrapFormGroupRenderer} for
@@ -60,7 +60,7 @@ public class BootstrapFormGroupRendererTextOnly implements IBootstrapFormGroupRe
   }
 
   @Override
-  @Nonnull
+  @NonNull
   public BootstrapFormGroupRendererTextOnly setUseIcons (final boolean bUseIcons)
   {
     m_bUseIcons = bUseIcons;
@@ -74,9 +74,9 @@ public class BootstrapFormGroupRendererTextOnly implements IBootstrapFormGroupRe
    *        The source help text. Never <code>null</code>.
    * @return Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
-  protected IHCElementWithChildren <?> createHelpTextNode (@Nonnull final IHCNode aHelpText)
+  protected IHCElementWithChildren <?> createHelpTextNode (@NonNull final IHCNode aHelpText)
   {
     return BootstrapFormHelper.createDefaultHelpTextNode (aHelpText);
   }
@@ -92,7 +92,7 @@ public class BootstrapFormGroupRendererTextOnly implements IBootstrapFormGroupRe
    */
   @Nullable
   @OverrideOnDemand
-  protected IHCElement <?> createSingleErrorNode (@Nonnull final IError aError, @Nonnull final Locale aContentLocale)
+  protected IHCElement <?> createSingleErrorNode (@NonNull final IError aError, @NonNull final Locale aContentLocale)
   {
     return BootstrapFormHelper.createDefaultErrorNode (aError, aContentLocale);
   }
@@ -109,9 +109,9 @@ public class BootstrapFormGroupRendererTextOnly implements IBootstrapFormGroupRe
    *        The created node so far. Never <code>null</code>.
    */
   @OverrideOnDemand
-  protected void modifyFinalNode (@Nonnull final IBootstrapFormGroupContainer <?> aForm,
-                                  @Nonnull final BootstrapFormGroup aFormGroup,
-                                  @Nonnull final AbstractHCDiv <?> aFinalNode)
+  protected void modifyFinalNode (@NonNull final IBootstrapFormGroupContainer <?> aForm,
+                                  @NonNull final BootstrapFormGroup aFormGroup,
+                                  @NonNull final AbstractHCDiv <?> aFinalNode)
   {}
 
   @Nullable
@@ -125,10 +125,10 @@ public class BootstrapFormGroupRendererTextOnly implements IBootstrapFormGroupRe
   }
 
   @Override
-  @Nonnull
-  public AbstractHCDiv <?> renderFormGroup (@Nonnull final IBootstrapFormGroupContainer <?> aForm,
-                                            @Nonnull final BootstrapFormGroup aFormGroup,
-                                            @Nonnull final Locale aDisplayLocale)
+  @NonNull
+  public AbstractHCDiv <?> renderFormGroup (@NonNull final IBootstrapFormGroupContainer <?> aForm,
+                                            @NonNull final BootstrapFormGroup aFormGroup,
+                                            @NonNull final Locale aDisplayLocale)
   {
     final HCFormLabel aLabel = aFormGroup.getLabel ();
     final var aLabelRenderContent = aLabel == null ? null : aLabel.isTextLabel () ? new HCSpan ().addChild (aLabel

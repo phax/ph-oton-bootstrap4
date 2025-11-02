@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap4.form;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.base.string.StringHelper;
@@ -32,9 +35,6 @@ import com.helger.photon.bootstrap4.base.AbstractBootstrapObject;
 import com.helger.photon.core.EPhotonCoreText;
 import com.helger.photon.uicore.html.formlabel.ELabelType;
 import com.helger.photon.uicore.html.formlabel.HCFormLabel;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represents a single form group.
@@ -52,49 +52,49 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
   public BootstrapFormGroup ()
   {}
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setLabel (@Nullable final String sLabel)
   {
     return setLabel (sLabel == null ? null : HCFormLabel.createOptional (sLabel));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setLabel (@Nullable final IHCElementWithChildren <?> aLabel)
   {
     return setLabel (aLabel == null ? null : HCFormLabel.createOptional (aLabel));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setLabelMandatory (@Nullable final String sLabel)
   {
     return setLabel (sLabel == null ? null : HCFormLabel.createMandatory (sLabel));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setLabelMandatory (@Nullable final IHCElementWithChildren <?> aLabel)
   {
     return setLabel (aLabel == null ? null : HCFormLabel.createMandatory (aLabel));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setLabelAlternative (@Nullable final String sLabel)
   {
     return setLabel (sLabel == null ? null : HCFormLabel.createAlternative (sLabel));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setLabelAlternative (@Nullable final IHCElementWithChildren <?> aLabel)
   {
     return setLabel (aLabel == null ? null : HCFormLabel.createAlternative (aLabel));
   }
 
-  @Nonnull
-  public final BootstrapFormGroup setLabel (@Nullable final String sLabel, @Nonnull final ELabelType eLabelType)
+  @NonNull
+  public final BootstrapFormGroup setLabel (@Nullable final String sLabel, @NonNull final ELabelType eLabelType)
   {
     return setLabel (sLabel == null ? null : new HCFormLabel (sLabel, eLabelType));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setLabelForCheckBox (@Nullable final String sLabel)
   {
     return setLabel (sLabel == null ? null : HCFormLabel.createForCheckBox (sLabel));
@@ -110,7 +110,7 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
   protected void onLabelModified (@Nullable final HCFormLabel aLabel)
   {}
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setLabel (@Nullable final HCFormLabel aLabel)
   {
     m_aLabel = aLabel;
@@ -134,7 +134,7 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
   protected void onCtrlModified (@Nullable final IHCNode aCtrl)
   {}
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setCtrl (@Nullable final String sValue)
   {
     if (StringHelper.isEmpty (sValue))
@@ -143,7 +143,7 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
     return setCtrl (new HCDiv ().addChild (sValue));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setCtrl (@Nullable final String... aValues)
   {
     final HCNodeList aNodeList = new HCNodeList ();
@@ -153,13 +153,13 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
     return setCtrl (aNodeList);
   }
 
-  @Nonnull
-  public final BootstrapFormGroup setCtrl (final boolean bYesOrNo, @Nonnull final Locale aDisplayLocale)
+  @NonNull
+  public final BootstrapFormGroup setCtrl (final boolean bYesOrNo, @NonNull final Locale aDisplayLocale)
   {
     return setCtrl (EPhotonCoreText.getYesOrNo (bYesOrNo, aDisplayLocale));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setCtrl (@Nullable final IHCNode aCtrl)
   {
     m_aCtrl = aCtrl;
@@ -167,13 +167,13 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setCtrl (@Nullable final IHCNode... aCtrls)
   {
     return setCtrl (new HCNodeList ().addChildren (aCtrls));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setCtrl (@Nullable final Iterable <? extends IHCNode> aCtrls)
   {
     return setCtrl (new HCNodeList ().addChildren (aCtrls));
@@ -185,7 +185,7 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
     return m_aCtrl;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setErrorList (@Nullable final IErrorList aErrorList)
   {
     m_aErrorList = aErrorList;
@@ -208,14 +208,14 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
   protected void onHelpTextModified (@Nullable final IHCNode aNote)
   {}
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setHelpText (@Nullable final String sHelpText)
   {
     // Use <br> to avoid <div> in parent <span>
     return setHelpText (new HCNodeList ().addChildren (HCExtHelper.nl2brList (sHelpText)));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setHelpText (@Nullable final HCNodeList aHelpText)
   {
     m_aHelpText = aHelpText;
@@ -223,38 +223,38 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setHelpText (@Nullable final IHCNode aHelpText)
   {
     return setHelpText (aHelpText instanceof HCNodeList ? (HCNodeList) aHelpText : new HCNodeList ().addChild (
                                                                                                                aHelpText));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setHelpText (@Nullable final String... aHelpTexts)
   {
     return setHelpText (new HCNodeList ().addChildren (aHelpTexts));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setHelpText (@Nullable final IHCNode... aHelpTexts)
   {
     return setHelpText (new HCNodeList ().addChildren (aHelpTexts));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup setHelpText (@Nullable final Iterable <? extends IHCNode> aHelpTexts)
   {
     return setHelpText (new HCNodeList ().addChildren (aHelpTexts));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup addHelpText (@Nullable final String sHelpText)
   {
     return addHelpText (HCTextNode.createOnDemand (sHelpText));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup addHelpText (@Nullable final IHCNode aHelpText)
   {
     if (aHelpText != null)
@@ -267,19 +267,19 @@ public class BootstrapFormGroup extends AbstractBootstrapObject <BootstrapFormGr
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup addHelpText (@Nullable final String... aHelpTexts)
   {
     return addHelpText (new HCNodeList ().addChildren (aHelpTexts));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup addHelpText (@Nullable final IHCNode... aHelpTexts)
   {
     return addHelpText (new HCNodeList ().addChildren (aHelpTexts));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFormGroup addHelpText (@Nullable final Iterable <? extends IHCNode> aHelpTexts)
   {
     return addHelpText (new HCNodeList ().addChildren (aHelpTexts));

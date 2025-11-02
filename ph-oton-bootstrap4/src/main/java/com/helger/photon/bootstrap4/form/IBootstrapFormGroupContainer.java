@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap4.form;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.html.hc.html.IHCElement;
 import com.helger.html.hc.html.IHCElementWithChildren;
 import com.helger.photon.bootstrap4.grid.BootstrapGridSpec;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Base interface for a form group container.
@@ -36,7 +36,7 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    * @return The form type for aligning the form groups. Never <code>null</code>
    *         .
    */
-  @Nonnull
+  @NonNull
   EBootstrapFormType getFormType ();
 
   /**
@@ -47,7 +47,7 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    *        The left parts. Must be &ge; 1 and &le; 12!
    * @return this
    */
-  @Nonnull
+  @NonNull
   default IMPLTYPE setLeft (@Nonnegative final int nLeftParts)
   {
     return setLeft (nLeftParts, nLeftParts, nLeftParts, nLeftParts, nLeftParts);
@@ -69,7 +69,7 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    *        The left parts XL. Must be &ge; 1 and &le; 12!
    * @return this
    */
-  @Nonnull
+  @NonNull
   IMPLTYPE setLeft (@Nonnegative int nLeftPartsXS,
                     @Nonnegative int nLeftPartsSM,
                     @Nonnegative int nLeftPartsMD,
@@ -80,7 +80,7 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    * @return The left parts. Always &ge; 1 and &le; CBootstrap.GRID_SYSTEM_MAX.
    *         Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   BootstrapGridSpec getLeft ();
 
   /**
@@ -89,7 +89,7 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    *         <code>CBootstrap.GRID_SYSTEM_MAX</code> than right is also
    *         <code>CBootstrap.GRID_SYSTEM_MAX</code>. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   BootstrapGridSpec getRight ();
 
   /**
@@ -101,14 +101,14 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    *        The right parts. Must not be <code>null</code>.
    * @return this
    */
-  @Nonnull
-  IMPLTYPE setSplitting (@Nonnull BootstrapGridSpec aLeft, @Nonnull BootstrapGridSpec aRight);
+  @NonNull
+  IMPLTYPE setSplitting (@NonNull BootstrapGridSpec aLeft, @NonNull BootstrapGridSpec aRight);
 
   /**
    * @return The renderer used to convert form groups into HC nodes. Never
    *         <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   IBootstrapFormGroupRenderer getFormGroupRenderer ();
 
   /**
@@ -118,8 +118,8 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    *        The from group renderer. May not be <code>null</code>.
    * @return this
    */
-  @Nonnull
-  IMPLTYPE setFormGroupRenderer (@Nonnull IBootstrapFormGroupRenderer aFormGroupRenderer);
+  @NonNull
+  IMPLTYPE setFormGroupRenderer (@NonNull IBootstrapFormGroupRenderer aFormGroupRenderer);
 
   /**
    * Add a new form group at the end.
@@ -128,8 +128,8 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    *        The form group to be added. May not be <code>null</code>.
    * @return this
    */
-  @Nonnull
-  IMPLTYPE addFormGroup (@Nonnull BootstrapFormGroup aFormGroup);
+  @NonNull
+  IMPLTYPE addFormGroup (@NonNull BootstrapFormGroup aFormGroup);
 
   /**
    * Get the rendered form group based on the contained form group renderer. The
@@ -139,6 +139,6 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
    *        The form group to be rendered. May not be <code>null</code>.
    * @return The rendered form group and never <code>null</code>.
    */
-  @Nonnull
-  IHCElementWithChildren <?> getRenderedFormGroup (@Nonnull BootstrapFormGroup aFormGroup);
+  @NonNull
+  IHCElementWithChildren <?> getRenderedFormGroup (@NonNull BootstrapFormGroup aFormGroup);
 }

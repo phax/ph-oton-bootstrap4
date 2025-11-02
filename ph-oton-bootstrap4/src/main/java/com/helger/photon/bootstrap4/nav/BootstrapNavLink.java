@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.nav;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
@@ -23,9 +26,6 @@ import com.helger.html.hc.html.textlevel.AbstractHCA;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.url.ISimpleURL;
 import com.helger.url.SimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BootstrapNavLink extends AbstractHCA <BootstrapNavLink>
 {
@@ -49,7 +49,7 @@ public class BootstrapNavLink extends AbstractHCA <BootstrapNavLink>
     return m_bActive;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNavLink setActive (final boolean bActive)
   {
     m_bActive = bActive;
@@ -61,7 +61,7 @@ public class BootstrapNavLink extends AbstractHCA <BootstrapNavLink>
     return m_bDisabled;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNavLink setDisabled (final boolean bDisabled)
   {
     m_bDisabled = bDisabled;
@@ -69,8 +69,8 @@ public class BootstrapNavLink extends AbstractHCA <BootstrapNavLink>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.NAV_LINK);

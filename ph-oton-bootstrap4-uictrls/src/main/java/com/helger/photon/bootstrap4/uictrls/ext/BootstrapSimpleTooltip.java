@@ -16,43 +16,43 @@
  */
 package com.helger.photon.bootstrap4.uictrls.ext;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.IHCElement;
 import com.helger.html.hc.impl.HCNodeList;
 import com.helger.photon.bootstrap4.tooltip.BootstrapTooltip;
 import com.helger.photon.icon.fontawesome.EFontAwesome4Icon;
 
-import jakarta.annotation.Nonnull;
-
 public class BootstrapSimpleTooltip
 {
   private BootstrapSimpleTooltip ()
   {}
 
-  @Nonnull
-  public static IHCNode createSimpleTooltip (@Nonnull final String sTitle)
+  @NonNull
+  public static IHCNode createSimpleTooltip (@NonNull final String sTitle)
   {
     final IHCElement <?> aIcon = EFontAwesome4Icon.QUESTION_CIRCLE.getAsNode ();
     final BootstrapTooltip aTooltip = new BootstrapTooltip (aIcon).setTooltipTitle (sTitle);
     return new HCNodeList ().addChild (aIcon).addChild (aTooltip);
   }
 
-  @Nonnull
-  public static IHCNode createSimpleTooltip (@Nonnull final IHCNode aTitle)
+  @NonNull
+  public static IHCNode createSimpleTooltip (@NonNull final IHCNode aTitle)
   {
     final IHCElement <?> aIcon = EFontAwesome4Icon.QUESTION_CIRCLE.getAsNode ();
     final BootstrapTooltip aTooltip = new BootstrapTooltip (aIcon).setTooltipTitle (aTitle);
     return new HCNodeList ().addChild (aIcon).addChild (aTooltip);
   }
 
-  @Nonnull
-  public static IHCNode createSimpleTooltip (@Nonnull final Iterable <? extends IHCNode> aTitle)
+  @NonNull
+  public static IHCNode createSimpleTooltip (@NonNull final Iterable <? extends IHCNode> aTitle)
   {
     return createSimpleTooltip (new HCNodeList ().addChildren (aTitle));
   }
 
-  @Nonnull
-  public static IHCNode createSimpleTooltip (@Nonnull final IHCNode... aTitle)
+  @NonNull
+  public static IHCNode createSimpleTooltip (@NonNull final IHCNode... aTitle)
   {
     return createSimpleTooltip (new HCNodeList ().addChildren (aTitle));
   }

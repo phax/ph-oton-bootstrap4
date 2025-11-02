@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap4.form;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.html.forms.AbstractHCCheckBox;
 import com.helger.html.hc.html.forms.AbstractHCRadioButton;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Special wrapper for a DIV with class "form-check" to handle check boxes and
@@ -36,14 +36,14 @@ public class BootstrapFormCheck extends AbstractHCDiv <BootstrapFormCheck>
     addClass (CBootstrapCSS.FORM_CHECK);
   }
 
-  public BootstrapFormCheck (@Nonnull final AbstractHCCheckBox <?> aCheckBox)
+  public BootstrapFormCheck (@NonNull final AbstractHCCheckBox <?> aCheckBox)
   {
     _init ();
     addChild (aCheckBox);
     aCheckBox.addClass (CBootstrapCSS.FORM_CHECK_INPUT);
   }
 
-  public BootstrapFormCheck (@Nonnull final AbstractHCRadioButton <?> aRadioButton)
+  public BootstrapFormCheck (@NonNull final AbstractHCRadioButton <?> aRadioButton)
   {
     _init ();
     addChild (aRadioButton);

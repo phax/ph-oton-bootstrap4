@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap4.uictrls.ext;
 
 import java.util.function.BiFunction;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.base.reflection.GenericReflection;
 import com.helger.base.string.StringHelper;
 import com.helger.html.hc.IHCNode;
@@ -43,8 +45,6 @@ import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 import com.helger.xservlet.forcedredirect.ForcedRedirectException;
 import com.helger.xservlet.forcedredirect.ForcedRedirectManager;
 
-import jakarta.annotation.Nonnull;
-
 /**
  * Common page part renderings.
  *
@@ -56,16 +56,16 @@ public final class BootstrapPageRenderer
   private BootstrapPageRenderer ()
   {}
 
-  @Nonnull
-  public static BootstrapBreadcrumb getBreadcrumb (@Nonnull final ILayoutExecutionContext aLEC)
+  @NonNull
+  public static BootstrapBreadcrumb getBreadcrumb (@NonNull final ILayoutExecutionContext aLEC)
   {
     final BootstrapBreadcrumb aBreadcrumbs = BootstrapBreadcrumbProvider.createBreadcrumb (aLEC);
     aBreadcrumbs.addClasses (CBootstrapCSS.D_NONE, CBootstrapCSS.D_SM_BLOCK);
     return aBreadcrumbs;
   }
 
-  @Nonnull
-  public static IHCElement <?> getMenuContent (@Nonnull final ILayoutExecutionContext aLEC)
+  @NonNull
+  public static IHCElement <?> getMenuContent (@NonNull final ILayoutExecutionContext aLEC)
   {
     // Main menu
     final IMenuTree aMenuTree = aLEC.getMenuTree ();
@@ -73,9 +73,9 @@ public final class BootstrapPageRenderer
     return BootstrapMenuItemRenderer.createSideBarMenu (aLEC, aMenuTree, aCallback);
   }
 
-  @Nonnull
-  public static <LEC extends ILayoutExecutionContext, WPEC extends IWebPageExecutionContext> HCNodeList getPageContent (@Nonnull final LEC aLEC,
-                                                                                                                        @Nonnull final BiFunction <LEC, IWebPage <WPEC>, WPEC> aWPECFactory)
+  @NonNull
+  public static <LEC extends ILayoutExecutionContext, WPEC extends IWebPageExecutionContext> HCNodeList getPageContent (@NonNull final LEC aLEC,
+                                                                                                                        @NonNull final BiFunction <LEC, IWebPage <WPEC>, WPEC> aWPECFactory)
   {
     // Get the requested menu item
     final IMenuItemPage aSelectedMenuItem = aLEC.getSelectedMenuItem ();
@@ -154,14 +154,14 @@ public final class BootstrapPageRenderer
     return ret;
   }
 
-  @Nonnull
-  public static HCNodeList getPageContent (@Nonnull final ILayoutExecutionContext aLEC)
+  @NonNull
+  public static HCNodeList getPageContent (@NonNull final ILayoutExecutionContext aLEC)
   {
     return getPageContent (aLEC, WebPageExecutionContext::new);
   }
 
-  @Nonnull
-  public static HCDiv getMenuAndPageNextToEachOther (@Nonnull final ILayoutExecutionContext aLEC)
+  @NonNull
+  public static HCDiv getMenuAndPageNextToEachOther (@NonNull final ILayoutExecutionContext aLEC)
   {
     final HCDiv aRow = new HCDiv ().addClass (CBootstrapCSS.D_MD_FLEX).addClass (CBootstrapCSS.MT_1);
     final HCDiv aCol1 = aRow.addAndReturnChild (new HCDiv ().addClass (CBootstrapCSS.D_MD_FLEX));

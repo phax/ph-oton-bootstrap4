@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.uictrls.datatables;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.annotation.OutOfBandNode;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.html.tabular.AbstractHCTable;
@@ -29,15 +32,12 @@ import com.helger.photon.uictrls.datatables.EDataTablesB4CSSPathProvider;
 import com.helger.photon.uictrls.datatables.EDataTablesB4JSPathProvider;
 import com.helger.photon.uictrls.datatables.EDataTablesCSSPathProvider;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 @OutOfBandNode
 public class BootstrapDataTables extends DataTables
 {
   private static IBootstrapDataTablesConfigurator s_aConfigurator;
 
-  public BootstrapDataTables (@Nonnull final IHCTable <?> aTable)
+  public BootstrapDataTables (@NonNull final IHCTable <?> aTable)
   {
     super (aTable);
 
@@ -50,7 +50,7 @@ public class BootstrapDataTables extends DataTables
   }
 
   @Override
-  protected void onRegisterExternalResources (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
+  protected void onRegisterExternalResources (@NonNull final IHCConversionSettingsToNode aConversionSettings,
                                               final boolean bForceRegistration)
   {
     super.onRegisterExternalResources (aConversionSettings, bForceRegistration);
@@ -72,9 +72,9 @@ public class BootstrapDataTables extends DataTables
     s_aConfigurator = aConfigurator;
   }
 
-  @Nonnull
-  public static BootstrapDataTables createDefaultDataTables (@Nonnull final ILayoutExecutionContext aLEC,
-                                                             @Nonnull final IHCTable <?> aTable)
+  @NonNull
+  public static BootstrapDataTables createDefaultDataTables (@NonNull final ILayoutExecutionContext aLEC,
+                                                             @NonNull final IHCTable <?> aTable)
   {
     // Assign special table class for Bootstrap look and feel
     aTable.addClass (CBootstrapCSS.TABLE).addClass (CBootstrapCSS.TABLE_STRIPED).addClass (CBootstrapCSS.TABLE_SM);

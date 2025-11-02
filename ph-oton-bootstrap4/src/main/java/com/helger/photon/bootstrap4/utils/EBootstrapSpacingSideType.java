@@ -16,7 +16,7 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
-import jakarta.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Spacing side. See https://getbootstrap.com/docs/4.1/utilities/spacing/
@@ -43,12 +43,12 @@ public enum EBootstrapSpacingSideType
 
   private final String m_sCSSClassNamePart;
 
-  EBootstrapSpacingSideType (@Nonnull final String sCSSClassNamePart)
+  EBootstrapSpacingSideType (@NonNull final String sCSSClassNamePart)
   {
     m_sCSSClassNamePart = sCSSClassNamePart;
   }
 
-  @Nonnull
+  @NonNull
   public String getCSSClassNamePart ()
   {
     return m_sCSSClassNamePart;

@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.html.IHCElement;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Helper for the collapse functionality
@@ -32,7 +32,7 @@ public final class BootstrapCollapseHelper
   private BootstrapCollapseHelper ()
   {}
 
-  public static void makeCollapsible (@Nonnull final IHCElement <?> aToggle, @Nonnull final IHCElement <?> aCollapsible)
+  public static void makeCollapsible (@NonNull final IHCElement <?> aToggle, @NonNull final IHCElement <?> aCollapsible)
   {
     aCollapsible.ensureID ().addClass (CBootstrapCSS.COLLAPSE);
     aToggle.customAttrs ().setDataAttr ("toggle", "collapse");

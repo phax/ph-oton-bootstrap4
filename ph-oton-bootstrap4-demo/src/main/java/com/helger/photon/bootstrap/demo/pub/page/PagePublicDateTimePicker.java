@@ -19,6 +19,8 @@ package com.helger.photon.bootstrap.demo.pub.page;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.datetime.helper.PDTFactory;
 import com.helger.html.hc.html.forms.EHCInputType;
 import com.helger.html.hc.html.forms.HCInput;
@@ -32,8 +34,6 @@ import com.helger.photon.bootstrap4.uictrls.datetimepicker.BootstrapDateTimePick
 import com.helger.photon.uicore.html.formlabel.HCFormLabel;
 import com.helger.photon.uicore.page.WebPageExecutionContext;
 
-import jakarta.annotation.Nonnull;
-
 public class PagePublicDateTimePicker extends AbstractAppWebPage
 {
   public PagePublicDateTimePicker (final String sID)
@@ -42,7 +42,7 @@ public class PagePublicDateTimePicker extends AbstractAppWebPage
   }
 
   @Override
-  protected void fillContent (@Nonnull final WebPageExecutionContext aWPEC)
+  protected void fillContent (@NonNull final WebPageExecutionContext aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

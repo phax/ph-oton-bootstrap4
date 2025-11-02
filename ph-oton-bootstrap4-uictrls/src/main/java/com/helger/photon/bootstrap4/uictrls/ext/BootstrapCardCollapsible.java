@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.uictrls.ext;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.html.css.DefaultCSSClassProvider;
 import com.helger.html.css.ICSSClassProvider;
@@ -32,9 +35,6 @@ import com.helger.photon.bootstrap4.card.BootstrapCardHeader;
 import com.helger.photon.bootstrap4.uictrls.EBootstrapUICtrlsCSSPathProvider;
 import com.helger.photon.icon.fontawesome.EFontAwesome4Icon;
 import com.helger.url.SimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap 4 collapsible card. It contains a fixed header that is clickable.
@@ -72,7 +72,7 @@ public class BootstrapCardCollapsible extends AbstractBootstrapDiv <BootstrapCar
     m_aBody = m_aCollapseDiv.addAndReturnChild (new BootstrapCardBody ());
   }
 
-  @Nonnull
+  @NonNull
   public final IHCNode getHeaderText ()
   {
     return m_aHeaderText;
@@ -83,32 +83,32 @@ public class BootstrapCardCollapsible extends AbstractBootstrapDiv <BootstrapCar
     return m_bIsOpen;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapCardHeader getHeader ()
   {
     return m_aHeader;
   }
 
-  @Nonnull
+  @NonNull
   public final HCDiv getCollapseDiv ()
   {
     return m_aCollapseDiv;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapCardBody getBody ()
   {
     return m_aBody;
   }
 
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
   protected IHCNode createCloseIcon ()
   {
     return EFontAwesome4Icon.CHEVRON_DOWN.getAsNode ();
   }
 
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
   protected HCA createToggle ()
   {
@@ -126,8 +126,8 @@ public class BootstrapCardCollapsible extends AbstractBootstrapDiv <BootstrapCar
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.CARD);

@@ -20,6 +20,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.UsedViaReflection;
 import com.helger.base.charset.EUnicodeBOM;
@@ -54,9 +57,6 @@ import com.helger.web.fileupload.IFileItem;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 import com.helger.web.scope.singleton.AbstractSessionWebSingleton;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Base64 encoder
  *
@@ -77,7 +77,7 @@ public class BasePageUtilsBase64Encode <WPECTYPE extends IWebPageExecutionContex
     public Encoded ()
     {}
 
-    @Nonnull
+    @NonNull
     public static Encoded getInstance ()
     {
       return getSessionSingleton (Encoded.class);
@@ -118,32 +118,32 @@ public class BasePageUtilsBase64Encode <WPECTYPE extends IWebPageExecutionContex
     });
   }
 
-  public BasePageUtilsBase64Encode (@Nonnull @Nonempty final String sID)
+  public BasePageUtilsBase64Encode (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_UTILS_BASE64_ENCODE.getAsMLT ());
   }
 
-  public BasePageUtilsBase64Encode (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageUtilsBase64Encode (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageUtilsBase64Encode (@Nonnull @Nonempty final String sID,
-                                    @Nonnull final String sName,
+  public BasePageUtilsBase64Encode (@NonNull @Nonempty final String sID,
+                                    @NonNull final String sName,
                                     @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageUtilsBase64Encode (@Nonnull @Nonempty final String sID,
-                                    @Nonnull final IMultilingualText aName,
+  public BasePageUtilsBase64Encode (@NonNull @Nonempty final String sID,
+                                    @NonNull final IMultilingualText aName,
                                     @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  public void fillContent (@Nonnull final WPECTYPE aWPEC)
+  public void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.grid;
 
-import com.helger.base.lang.EnumHelper;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
+import com.helger.base.lang.EnumHelper;
 
 /**
  * Grid breakpoint name
@@ -39,14 +39,14 @@ public enum EBootstrapGridType
   private final int m_nMinWidthIncl;
   private final int m_nMaxWidthExcl;
 
-  EBootstrapGridType (@Nonnull final String sCSSClassNamePart, final int nMinWidthIncl, final int nMaxWidthExcl)
+  EBootstrapGridType (@NonNull final String sCSSClassNamePart, final int nMinWidthIncl, final int nMaxWidthExcl)
   {
     m_sCSSClassNamePart = sCSSClassNamePart;
     m_nMinWidthIncl = nMinWidthIncl;
     m_nMaxWidthExcl = nMaxWidthExcl;
   }
 
-  @Nonnull
+  @NonNull
   public String getCSSClassNamePart ()
   {
     return m_sCSSClassNamePart;

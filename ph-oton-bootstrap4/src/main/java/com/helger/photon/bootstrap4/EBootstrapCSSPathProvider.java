@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap4;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.css.media.ICSSMediaList;
 import com.helger.html.resource.css.ConstantCSSPathProvider;
 import com.helger.html.resource.css.ICSSPathProvider;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Contains default CSS paths within this library.
@@ -41,12 +41,12 @@ public enum EBootstrapCSSPathProvider implements ICSSPathProvider
 
   private final ConstantCSSPathProvider m_aPP;
 
-  EBootstrapCSSPathProvider (@Nonnull @Nonempty final String sPath)
+  EBootstrapCSSPathProvider (@NonNull @Nonempty final String sPath)
   {
     m_aPP = ConstantCSSPathProvider.builder ().path (sPath).minifiedPathFromPath ().build ();
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCSSItemPath (final boolean bRegular)
   {
@@ -59,7 +59,7 @@ public enum EBootstrapCSSPathProvider implements ICSSPathProvider
     return m_aPP.getConditionalComment ();
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICSSMediaList getMediaList ()
   {

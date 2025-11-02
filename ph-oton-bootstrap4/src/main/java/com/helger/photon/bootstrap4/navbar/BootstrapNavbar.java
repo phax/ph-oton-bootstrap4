@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.navbar;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.id.factory.GlobalIDFactory;
@@ -29,9 +32,6 @@ import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.utils.EBootstrapBackgroundType;
 import com.helger.url.ISimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap 4 NavBar
@@ -51,28 +51,28 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
   public BootstrapNavbar ()
   {}
 
-  @Nonnull
+  @NonNull
   public final EBootstrapNavbarColorSchemeType getColorScheme ()
   {
     return m_eColorScheme;
   }
 
-  @Nonnull
-  public final BootstrapNavbar setColorScheme (@Nonnull final EBootstrapNavbarColorSchemeType eColorScheme)
+  @NonNull
+  public final BootstrapNavbar setColorScheme (@NonNull final EBootstrapNavbarColorSchemeType eColorScheme)
   {
     ValueEnforcer.notNull (eColorScheme, "ColorScheme");
     m_eColorScheme = eColorScheme;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final EBootstrapNavbarExpandType getExpand ()
   {
     return m_eExpand;
   }
 
-  @Nonnull
-  public final BootstrapNavbar setExpand (@Nonnull final EBootstrapNavbarExpandType eExpand)
+  @NonNull
+  public final BootstrapNavbar setExpand (@NonNull final EBootstrapNavbarExpandType eExpand)
   {
     ValueEnforcer.notNull (eExpand, "Expand");
     m_eExpand = eExpand;
@@ -85,15 +85,15 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
     return m_eBackground;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapNavbar setBackground (@Nullable final EBootstrapBackgroundType eBackground)
   {
     m_eBackground = eBackground;
     return this;
   }
 
-  @Nonnull
-  public static IHCElementWithChildren <?> createBrand (@Nonnull final IHCNode aLabel, @Nullable final ISimpleURL aURL)
+  @NonNull
+  public static IHCElementWithChildren <?> createBrand (@NonNull final IHCNode aLabel, @Nullable final ISimpleURL aURL)
   {
     IHCElementWithChildren <?> aBrand;
     if (aURL != null)
@@ -108,15 +108,15 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
     return aBrand;
   }
 
-  @Nonnull
-  public final BootstrapNavbar addBrand (@Nonnull final IHCNode aLabel, @Nullable final ISimpleURL aURL)
+  @NonNull
+  public final BootstrapNavbar addBrand (@NonNull final IHCNode aLabel, @Nullable final ISimpleURL aURL)
   {
     addChild (createBrand (aLabel, aURL));
     return this;
   }
 
-  @Nonnull
-  public final BootstrapNavbar addToggler (@Nonnull @Nonempty final String sIDToToggle)
+  @NonNull
+  public final BootstrapNavbar addToggler (@NonNull @Nonempty final String sIDToToggle)
   {
     addChild (new BootstrapNavbarToggler (sIDToToggle));
     return this;
@@ -128,7 +128,7 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
    *
    * @return The toggleable to be filled
    */
-  @Nonnull
+  @NonNull
   public BootstrapNavbarToggleable addAndReturnToggleable ()
   {
     final String sIDToToggle = GlobalIDFactory.getNewStringID ();
@@ -136,28 +136,28 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
     return addAndReturnToggleable (sIDToToggle);
   }
 
-  @Nonnull
-  public BootstrapNavbarToggleable addAndReturnToggleable (@Nonnull @Nonempty final String sIDToToggle)
+  @NonNull
+  public BootstrapNavbarToggleable addAndReturnToggleable (@NonNull @Nonempty final String sIDToToggle)
   {
     final BootstrapNavbarToggleable ret = new BootstrapNavbarToggleable ().setID (sIDToToggle);
     return addAndReturnChild (ret);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNavbarText addAndReturnText ()
   {
     return addAndReturnChild (new BootstrapNavbarText ());
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNavbarNav addAndReturnNav ()
   {
     return addAndReturnChild (new BootstrapNavbarNav ());
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.NAVBAR);

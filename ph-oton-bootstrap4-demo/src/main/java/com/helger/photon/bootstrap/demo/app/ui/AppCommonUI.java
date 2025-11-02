@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap.demo.app.ui;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.html.css.DefaultCSSClassProvider;
 import com.helger.html.css.ICSSClassProvider;
@@ -35,9 +38,6 @@ import com.helger.photon.core.execcontext.ILayoutExecutionContext;
 import com.helger.photon.core.form.RequestField;
 import com.helger.photon.core.login.CLogin;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 @Immutable
 public final class AppCommonUI
 {
@@ -48,10 +48,10 @@ public final class AppCommonUI
   private AppCommonUI ()
   {}
 
-  @Nonnull
-  public static BootstrapForm createViewLoginForm (@Nonnull final ILayoutExecutionContext aLEC,
+  @NonNull
+  public static BootstrapForm createViewLoginForm (@NonNull final ILayoutExecutionContext aLEC,
                                                    @Nullable final String sPreselectedUserName,
-                                                   @Nonnull final EBootstrapFormType eFormType)
+                                                   @NonNull final EBootstrapFormType eFormType)
   {
     final Locale aDisplayLocale = aLEC.getDisplayLocale ();
 

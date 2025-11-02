@@ -20,6 +20,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.function.Predicate;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -77,9 +80,6 @@ import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.url.ISimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecutionContext> extends
                                                  AbstractWebPageSecurityToken <IUserToken, WPECTYPE>
 {
@@ -126,7 +126,7 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -155,8 +155,8 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
     {
       @Override
       @OverrideOnDemand
-      protected void showQuery (@Nonnull final WPECTYPE aWPEC,
-                                @Nonnull final BootstrapForm aForm,
+      protected void showQuery (@NonNull final WPECTYPE aWPEC,
+                                @NonNull final BootstrapForm aForm,
                                 @Nullable final IUserToken aSelectedObject)
       {
         ValueEnforcer.notNull (aSelectedObject, "SelectedObject");
@@ -168,7 +168,7 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
 
       @Override
       @OverrideOnDemand
-      protected void performAction (@Nonnull final WPECTYPE aWPEC, @Nullable final IUserToken aSelectedObject)
+      protected void performAction (@NonNull final WPECTYPE aWPEC, @Nullable final IUserToken aSelectedObject)
       {
         ValueEnforcer.notNull (aSelectedObject, "SelectedObject");
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -186,7 +186,7 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
                       new AbstractBootstrapWebPageActionHandler <IUserToken, WPECTYPE> (true)
                       {
                         @Override
-                        public boolean canHandleAction (@Nonnull final WPECTYPE aWPEC,
+                        public boolean canHandleAction (@NonNull final WPECTYPE aWPEC,
                                                         @Nullable final IUserToken aSelectedObject)
                         {
                           assert aSelectedObject != null;
@@ -194,8 +194,8 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
                           return canCreateNewAccessToken (aSelectedObject);
                         }
 
-                        @Nonnull
-                        public EShowList handleAction (@Nonnull final WPECTYPE aWPEC,
+                        @NonNull
+                        public EShowList handleAction (@NonNull final WPECTYPE aWPEC,
                                                        @Nullable final IUserToken aSelectedObject)
                         {
                           assert aSelectedObject != null;
@@ -292,15 +292,15 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
                       new AbstractBootstrapWebPageActionHandler <IUserToken, WPECTYPE> (true)
                       {
                         @Override
-                        public boolean canHandleAction (@Nonnull final WPECTYPE aWPEC,
-                                                        @Nonnull final IUserToken aSelectedObject)
+                        public boolean canHandleAction (@NonNull final WPECTYPE aWPEC,
+                                                        @NonNull final IUserToken aSelectedObject)
                         {
                           return canRevokeAccessToken (aSelectedObject);
                         }
 
-                        @Nonnull
-                        public EShowList handleAction (@Nonnull final WPECTYPE aWPEC,
-                                                       @Nonnull final IUserToken aSelectedObject)
+                        @NonNull
+                        public EShowList handleAction (@NonNull final WPECTYPE aWPEC,
+                                                       @NonNull final IUserToken aSelectedObject)
                         {
                           final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
                           final HCNodeList aNodeList = aWPEC.getNodeList ();
@@ -347,29 +347,29 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
                       });
   }
 
-  public BasePageSecurityUserTokenManagement (@Nonnull @Nonempty final String sID)
+  public BasePageSecurityUserTokenManagement (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SECURITY_USER_TOKENS.getAsMLT ());
     _init ();
   }
 
-  public BasePageSecurityUserTokenManagement (@Nonnull @Nonempty final String sID,
-                                              @Nonnull @Nonempty final String sName)
+  public BasePageSecurityUserTokenManagement (@NonNull @Nonempty final String sID,
+                                              @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
     _init ();
   }
 
-  public BasePageSecurityUserTokenManagement (@Nonnull @Nonempty final String sID,
-                                              @Nonnull final String sName,
+  public BasePageSecurityUserTokenManagement (@NonNull @Nonempty final String sID,
+                                              @NonNull final String sName,
                                               @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
     _init ();
   }
 
-  public BasePageSecurityUserTokenManagement (@Nonnull @Nonempty final String sID,
-                                              @Nonnull final IMultilingualText aName,
+  public BasePageSecurityUserTokenManagement (@NonNull @Nonempty final String sID,
+                                              @NonNull final IMultilingualText aName,
                                               @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
@@ -377,7 +377,7 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
   }
 
   @Override
-  protected IValidityIndicator isValidToDisplayPage (@Nonnull final WPECTYPE aWPEC)
+  protected IValidityIndicator isValidToDisplayPage (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -396,15 +396,15 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
 
   @Override
   @Nullable
-  protected IUserToken getSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nullable final String sID)
+  protected IUserToken getSelectedObject (@NonNull final WPECTYPE aWPEC, @Nullable final String sID)
   {
     final IUserTokenManager aUserTokenMgr = PhotonSecurityManager.getUserTokenMgr ();
     return aUserTokenMgr.getUserTokenOfID (sID);
   }
 
   @Override
-  protected boolean isActionAllowed (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final EWebPageFormAction eFormAction,
+  protected boolean isActionAllowed (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final EWebPageFormAction eFormAction,
                                      @Nullable final IUserToken aSelectedObject)
   {
     if (eFormAction.isEdit ())
@@ -414,8 +414,8 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
     return true;
   }
 
-  @Nonnull
-  public static IHCNode createUserLink (@Nonnull final IWebPageExecutionContext aWPEC, @Nonnull final IUser aUser)
+  @NonNull
+  public static IHCNode createUserLink (@NonNull final IWebPageExecutionContext aWPEC, @NonNull final IUser aUser)
   {
     if (aWPEC.getMenuTree ().containsItemWithID (BootstrapPagesMenuConfigurator.MENU_ADMIN_SECURITY_USER))
       return new HCA (createViewURL (aWPEC,
@@ -425,7 +425,7 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
   }
 
   @Override
-  protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final IUserToken aSelectedObject)
+  protected void showSelectedObject (@NonNull final WPECTYPE aWPEC, @NonNull final IUserToken aSelectedObject)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -485,12 +485,12 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
   }
 
   @Override
-  protected void showInputForm (@Nonnull final WPECTYPE aWPEC,
+  protected void showInputForm (@NonNull final WPECTYPE aWPEC,
                                 @Nullable final IUserToken aSelectedObject,
-                                @Nonnull final BootstrapForm aForm,
+                                @NonNull final BootstrapForm aForm,
                                 final boolean bIsFormSubmitted,
-                                @Nonnull final EWebPageFormAction eFormAction,
-                                @Nonnull final FormErrorList aFormErrors)
+                                @NonNull final EWebPageFormAction eFormAction,
+                                @NonNull final FormErrorList aFormErrors)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final boolean bEdit = eFormAction.isEdit ();
@@ -521,10 +521,10 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
   }
 
   @Override
-  protected void validateAndSaveInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected void validateAndSaveInputParameters (@NonNull final WPECTYPE aWPEC,
                                                  @Nullable final IUserToken aSelectedObject,
-                                                 @Nonnull final FormErrorList aFormErrors,
-                                                 @Nonnull final EWebPageFormAction eFormAction)
+                                                 @NonNull final FormErrorList aFormErrors,
+                                                 @NonNull final EWebPageFormAction eFormAction)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final IUserManager aUserMgr = PhotonSecurityManager.getUserMgr ();
@@ -583,10 +583,10 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
     }
   }
 
-  @Nonnull
-  private IHCNode _createList (@Nonnull final WPECTYPE aWPEC,
-                               @Nonnull final String sIDSuffix,
-                               @Nonnull final ICommonsList <IUserToken> aUserTokens,
+  @NonNull
+  private IHCNode _createList (@NonNull final WPECTYPE aWPEC,
+                               @NonNull final String sIDSuffix,
+                               @NonNull final ICommonsList <IUserToken> aUserTokens,
                                @Nullable final Predicate <? super IUserToken> aFilter)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -663,7 +663,7 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
   }
 
   @Override
-  protected void showListOfExistingObjects (@Nonnull final WPECTYPE aWPEC)
+  protected void showListOfExistingObjects (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

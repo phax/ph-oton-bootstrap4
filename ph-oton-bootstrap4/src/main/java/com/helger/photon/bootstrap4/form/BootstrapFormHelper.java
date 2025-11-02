@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap4.form;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,9 +46,6 @@ import com.helger.html.hc.impl.HCTextNode;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.uicore.html.formlabel.HCFormLabel;
 import com.helger.photon.uicore.html.formlabel.HCFormLabelHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 @Immutable
 public final class BootstrapFormHelper
@@ -222,16 +221,16 @@ public final class BootstrapFormHelper
     }
   }
 
-  @Nonnull
-  public static BootstrapInvalidFeedback createDefaultErrorNode (@Nonnull final IError aError,
-                                                                 @Nonnull final Locale aContentLocale)
+  @NonNull
+  public static BootstrapInvalidFeedback createDefaultErrorNode (@NonNull final IError aError,
+                                                                 @NonNull final Locale aContentLocale)
   {
     return createDefaultErrorNode (aError, aContentLocale, false);
   }
 
-  @Nonnull
-  public static BootstrapInvalidFeedback createDefaultErrorNode (@Nonnull final IError aError,
-                                                                 @Nonnull final Locale aContentLocale,
+  @NonNull
+  public static BootstrapInvalidFeedback createDefaultErrorNode (@NonNull final IError aError,
+                                                                 @NonNull final Locale aContentLocale,
                                                                  final boolean bWithLocation)
   {
     final StringBuilder sText = new StringBuilder ();
@@ -263,16 +262,16 @@ public final class BootstrapFormHelper
     return aErrorBlock;
   }
 
-  @Nonnull
+  @NonNull
   public static HCNodeList createDefaultErrorNode (@Nullable final IErrorList aErrorList,
-                                                   @Nonnull final Locale aContentLocale)
+                                                   @NonNull final Locale aContentLocale)
   {
     return createDefaultErrorNode (aErrorList, aContentLocale, false);
   }
 
-  @Nonnull
+  @NonNull
   public static HCNodeList createDefaultErrorNode (@Nullable final IErrorList aErrorList,
-                                                   @Nonnull final Locale aContentLocale,
+                                                   @NonNull final Locale aContentLocale,
                                                    final boolean bWithLocation)
   {
     final HCNodeList ret = new HCNodeList ();
@@ -301,8 +300,8 @@ public final class BootstrapFormHelper
     return aHelpBlock;
   }
 
-  @Nonnull
-  public static String getDefaultPlaceholderText (@Nonnull final IHCElementWithChildren <?> aLabel)
+  @NonNull
+  public static String getDefaultPlaceholderText (@NonNull final IHCElementWithChildren <?> aLabel)
   {
     if (aLabel instanceof HCFormLabel)
     {
@@ -315,10 +314,10 @@ public final class BootstrapFormHelper
     return HCFormLabelHelper.trimAllKnownSuffixes (aLabel.getPlainText ());
   }
 
-  @Nonnull
+  @NonNull
   public static HCNodeList createStandaloneFormCtrl (@Nullable final IHCNode aCtrl,
                                                      @Nullable final IErrorList aErrorList,
-                                                     @Nonnull final Locale aContentLocale)
+                                                     @NonNull final Locale aContentLocale)
   {
     markAsFormControl (aCtrl);
     if (aCtrl instanceof IHCElement <?>)

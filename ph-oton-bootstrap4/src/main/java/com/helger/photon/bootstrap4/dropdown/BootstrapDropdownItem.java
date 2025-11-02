@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap4.dropdown;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.textlevel.AbstractHCA;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 public class BootstrapDropdownItem extends AbstractHCA <BootstrapDropdownItem>
 {
@@ -40,7 +40,7 @@ public class BootstrapDropdownItem extends AbstractHCA <BootstrapDropdownItem>
     return m_bActive;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapDropdownItem setActive (final boolean bActive)
   {
     m_bActive = bActive;
@@ -52,7 +52,7 @@ public class BootstrapDropdownItem extends AbstractHCA <BootstrapDropdownItem>
     return m_bDisabled;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapDropdownItem setDisabled (final boolean bDisabled)
   {
     m_bDisabled = bDisabled;
@@ -60,8 +60,8 @@ public class BootstrapDropdownItem extends AbstractHCA <BootstrapDropdownItem>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.DROPDOWN_ITEM);

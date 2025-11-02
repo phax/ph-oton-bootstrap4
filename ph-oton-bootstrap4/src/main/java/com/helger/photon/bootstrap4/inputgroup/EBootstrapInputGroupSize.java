@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.inputgroup;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Size of a Bootstrap input group

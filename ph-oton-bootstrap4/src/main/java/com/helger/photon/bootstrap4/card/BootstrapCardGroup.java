@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap4.card;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Card group
@@ -35,7 +35,7 @@ public class BootstrapCardGroup extends AbstractBootstrapDiv <BootstrapCardGroup
   public BootstrapCardGroup ()
   {}
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public BootstrapCard createAndAddCard ()
   {
@@ -43,8 +43,8 @@ public class BootstrapCardGroup extends AbstractBootstrapDiv <BootstrapCardGroup
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.CARD_GROUP);

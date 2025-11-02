@@ -22,6 +22,8 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.Configurator;
 import org.apache.logging.log4j.core.config.LoggerConfig;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,9 +47,6 @@ import com.helger.photon.core.form.RequestField;
 import com.helger.photon.uicore.css.CPageParam;
 import com.helger.photon.uicore.html.select.HCExtSelect;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Keep in separate class, so that the stuff is only loaded once we checked
@@ -102,26 +101,26 @@ final class InternalLog4J2Handler implements IHCBootstrap4Trait
 
     private final Level m_aLevel;
 
-    ELevel (@Nonnull final Level aLevel)
+    ELevel (@NonNull final Level aLevel)
     {
       m_aLevel = aLevel;
     }
 
-    @Nonnull
+    @NonNull
     @Nonempty
     public String getID ()
     {
       return "L" + Integer.toString (m_aLevel.intLevel ());
     }
 
-    @Nonnull
+    @NonNull
     @Nonempty
     public String getDisplayName ()
     {
       return name () + " (" + m_aLevel.intLevel () + ")";
     }
 
-    @Nonnull
+    @NonNull
     public Level getLevel ()
     {
       return m_aLevel;
@@ -146,7 +145,7 @@ final class InternalLog4J2Handler implements IHCBootstrap4Trait
 
   private static class LevelSelect extends HCExtSelect
   {
-    public LevelSelect (@Nonnull final IHCRequestField aRF, @Nonnull final Locale aDisplayLocale)
+    public LevelSelect (@NonNull final IHCRequestField aRF, @NonNull final Locale aDisplayLocale)
     {
       super (aRF);
       for (final ELevel e : ELevel.values ())
@@ -158,7 +157,7 @@ final class InternalLog4J2Handler implements IHCBootstrap4Trait
   private static final Logger LOGGER = LoggerFactory.getLogger (InternalLog4J2Handler.class);
   private static final String FIELD_NEW_LEVEL = "level";
 
-  public void handle (@Nonnull final IWebPageExecutionContext aWPEC)
+  public void handle (@NonNull final IWebPageExecutionContext aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

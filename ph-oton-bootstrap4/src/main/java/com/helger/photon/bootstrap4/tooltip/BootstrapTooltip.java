@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap4.tooltip;
 import java.util.Collection;
 import java.util.Set;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.CodingStyleguideUnaware;
 import com.helger.annotation.style.ReturnsMutableCopy;
@@ -42,9 +45,6 @@ import com.helger.html.jquery.JQuerySelector;
 import com.helger.html.jscode.JSAnonymousFunction;
 import com.helger.html.jscode.JSAssocArray;
 import com.helger.html.jscode.JSInvocation;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap Tooltip
@@ -104,12 +104,12 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
   private EBootstrapTooltipFallbackPlacement m_eFallbackPlacement = DEFAULT_FALLBACK_PLACEMENT;
   private EBootstrapTooltipBoundary m_eBoundary = DEFAULT_BOUNDARY;
 
-  public BootstrapTooltip (@Nonnull final IHCElement <?> aElement)
+  public BootstrapTooltip (@NonNull final IHCElement <?> aElement)
   {
     this (JQuerySelector.id (aElement));
   }
 
-  public BootstrapTooltip (@Nonnull final IJQuerySelector aSelector)
+  public BootstrapTooltip (@NonNull final IJQuerySelector aSelector)
   {
     ValueEnforcer.notNull (aSelector, "Selector");
     m_aSelector = aSelector;
@@ -120,7 +120,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_bAnimation;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setAnimation (final boolean bAnimation)
   {
     m_bAnimation = bAnimation;
@@ -132,7 +132,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_bHTML;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setHTML (final boolean bHTML)
   {
     m_bHTML = bHTML;
@@ -151,8 +151,8 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_aPlacementFunc;
   }
 
-  @Nonnull
-  public BootstrapTooltip setPlacement (@Nonnull final EBootstrapTooltipPosition ePosition)
+  @NonNull
+  public BootstrapTooltip setPlacement (@NonNull final EBootstrapTooltipPosition ePosition)
   {
     ValueEnforcer.notNull (ePosition, "Position");
     m_ePlacement = ePosition;
@@ -167,8 +167,8 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
    *        instance.
    * @return this
    */
-  @Nonnull
-  public BootstrapTooltip setPlacement (@Nonnull final JSAnonymousFunction aFunction)
+  @NonNull
+  public BootstrapTooltip setPlacement (@NonNull final JSAnonymousFunction aFunction)
   {
     ValueEnforcer.notNull (aFunction, "Function");
     m_ePlacement = null;
@@ -182,7 +182,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_sSelector;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setSelector (@Nullable final String sSelector)
   {
     m_sSelector = sSelector;
@@ -201,7 +201,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_aTooltipTitleFunc;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setTooltipTitle (@Nullable final String sTitle)
   {
     m_sTooltipTitle = sTitle;
@@ -209,7 +209,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setTooltipTitle (@Nullable final IHCNode aTooltipTitle)
   {
     setHTML (true);
@@ -224,7 +224,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
    *        Callback function with 1 parameter: <code>(this.$element[0])</code>
    * @return this
    */
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setTooltipTitle (@Nullable final JSAnonymousFunction aFunction)
   {
     m_sTooltipTitle = null;
@@ -239,7 +239,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return new CommonsArrayList <> (m_aTrigger);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setTrigger (@Nullable final EBootstrapTooltipTrigger... aTrigger)
   {
     // Avoid duplicates!
@@ -247,7 +247,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setTrigger (@Nullable final Collection <EBootstrapTooltipTrigger> aTrigger)
   {
     // Avoid duplicates!
@@ -267,13 +267,13 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_nDelayHide;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setDelay (@Nonnegative final int nDelay)
   {
     return setDelay (nDelay, nDelay);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setDelay (@Nonnegative final int nShowDelay, @Nonnegative final int nHideDelay)
   {
     ValueEnforcer.isGE0 (nShowDelay, "ShowDelay");
@@ -290,15 +290,15 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_aContainer;
   }
 
-  @Nonnull
-  public BootstrapTooltip setContainer (@Nonnull final EHTMLElement eContainer)
+  @NonNull
+  public BootstrapTooltip setContainer (@NonNull final EHTMLElement eContainer)
   {
     ValueEnforcer.notNull (eContainer, "Container");
 
     return setContainer (JQuerySelector.element (eContainer));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setContainer (@Nullable final IJQuerySelector aContainer)
   {
     m_aContainer = aContainer;
@@ -311,14 +311,14 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_sOffset;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setOffset (@Nullable final String sOffset)
   {
     m_sOffset = sOffset;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setOffset (final int nOffset)
   {
     return setOffset (Integer.toString (nOffset));
@@ -330,7 +330,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_eFallbackPlacement;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setFallbackPlacement (@Nullable final EBootstrapTooltipFallbackPlacement eFallbackPlacement)
   {
     m_eFallbackPlacement = eFallbackPlacement;
@@ -343,14 +343,14 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return m_eBoundary;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTooltip setBoundary (@Nullable final EBootstrapTooltipBoundary eBoundary)
   {
     m_eBoundary = eBoundary;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public JSAssocArray getJSOptions ()
   {
     final JSAssocArray aOptions = new JSAssocArray ();
@@ -387,69 +387,69 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     return aOptions;
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsInvoke ()
   {
     return m_aSelector.invoke ().invoke ("tooltip");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsAttach ()
   {
     return jsInvoke ().arg (getJSOptions ());
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsShow ()
   {
     return jsInvoke ().arg ("show");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsHide ()
   {
     return jsInvoke ().arg ("hide");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsToggle ()
   {
     return jsInvoke ().arg ("toggle");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsDispose ()
   {
     return jsInvoke ().arg ("dispose");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsEnable ()
   {
     return jsInvoke ().arg ("enable");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsDisable ()
   {
     return jsInvoke ().arg ("disable");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsToggleEnabled ()
   {
     return jsInvoke ().arg ("toggleEnabled");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation jsUpdate ()
   {
     return jsInvoke ().arg ("update");
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     setOnDocumentReadyCode (jsAttach ());

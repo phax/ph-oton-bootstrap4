@@ -28,6 +28,8 @@ import org.apache.hc.core5.http.Header;
 import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.io.HttpClientResponseHandler;
 import org.apache.hc.core5.http.message.StatusLine;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -73,9 +75,6 @@ import com.helger.photon.uictrls.datatables.column.DTCol;
 import com.helger.text.IMultilingualText;
 import com.helger.url.SimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Page with the possibility to perform a remote query to check if the network connectivity is
  * given. Using {@link HttpClientConfigRegistry} external configurations can be added.
@@ -95,8 +94,8 @@ public class BasePageUtilsHttpClient <WPECTYPE extends IWebPageExecutionContext>
      *        The target URL to be accessed. May neither be <code>null</code> nor empty.
      * @return The HTTP client settings to use. May not be <code>null</code>.
      */
-    @Nonnull
-    HttpClientSettings getHttpClientSettings (@Nonnull @Nonempty String sTargetURI);
+    @NonNull
+    HttpClientSettings getHttpClientSettings (@NonNull @Nonempty String sTargetURI);
   }
 
   public interface IHttpClientConfig extends IHasID <String>, IHasDisplayName, IHttpClientMetaProvider
@@ -110,9 +109,9 @@ public class BasePageUtilsHttpClient <WPECTYPE extends IWebPageExecutionContext>
     private final String m_sDisplayName;
     private final IHttpClientMetaProvider m_aHCMP;
 
-    public HttpClientConfig (@Nonnull @Nonempty final String sID,
-                             @Nonnull @Nonempty final String sDisplayName,
-                             @Nonnull final IHttpClientMetaProvider aHCMP)
+    public HttpClientConfig (@NonNull @Nonempty final String sID,
+                             @NonNull @Nonempty final String sDisplayName,
+                             @NonNull final IHttpClientMetaProvider aHCMP)
     {
       ValueEnforcer.notEmpty (sID, "ID");
       ValueEnforcer.notEmpty (sDisplayName, "DisplayName");
@@ -122,22 +121,22 @@ public class BasePageUtilsHttpClient <WPECTYPE extends IWebPageExecutionContext>
       m_aHCMP = aHCMP;
     }
 
-    @Nonnull
+    @NonNull
     @Nonempty
     public String getID ()
     {
       return m_sID;
     }
 
-    @Nonnull
+    @NonNull
     @Nonempty
     public String getDisplayName ()
     {
       return m_sDisplayName;
     }
 
-    @Nonnull
-    public HttpClientSettings getHttpClientSettings (@Nonnull @Nonempty final String sTargetURI)
+    @NonNull
+    public HttpClientSettings getHttpClientSettings (@NonNull @Nonempty final String sTargetURI)
     {
       return m_aHCMP.getHttpClientSettings (sTargetURI);
     }
@@ -159,7 +158,7 @@ public class BasePageUtilsHttpClient <WPECTYPE extends IWebPageExecutionContext>
      * @param aHCC
      *        The configuration to register. May not be <code>null</code>.
      */
-    public static void register (@Nonnull final IHttpClientConfig aHCC)
+    public static void register (@NonNull final IHttpClientConfig aHCC)
     {
       ValueEnforcer.notNull (aHCC, "HCC");
       final String sID = aHCC.getID ();
@@ -168,7 +167,7 @@ public class BasePageUtilsHttpClient <WPECTYPE extends IWebPageExecutionContext>
       s_aMap.put (sID, aHCC);
     }
 
-    @Nonnull
+    @NonNull
     public static EChange unregister (@Nullable final String sID)
     {
       if (StringHelper.isEmpty (sID))
@@ -184,7 +183,7 @@ public class BasePageUtilsHttpClient <WPECTYPE extends IWebPageExecutionContext>
       return s_aMap.get (sID);
     }
 
-    @Nonnull
+    @NonNull
     public static Iterable <IHttpClientConfig> iterate ()
     {
       return s_aMap.values ();
@@ -213,13 +212,13 @@ public class BasePageUtilsHttpClient <WPECTYPE extends IWebPageExecutionContext>
     private Charset m_aUsedCharset;
     private final HttpHeaderMap m_aUsedHeaders = new HttpHeaderMap ();
 
-    public DebugResponseHandler (@Nonnull final Charset aDefaultCharset)
+    public DebugResponseHandler (@NonNull final Charset aDefaultCharset)
     {
       m_aDefaultCharset = aDefaultCharset;
     }
 
     @Nullable
-    public String handleResponse (@Nonnull final ClassicHttpResponse aHttpResponse) throws IOException
+    public String handleResponse (@NonNull final ClassicHttpResponse aHttpResponse) throws IOException
     {
       // Convert to entity
       final HttpEntity aEntity = ResponseHandlerHttpEntity.INSTANCE.handleResponse (aHttpResponse);
@@ -250,32 +249,32 @@ public class BasePageUtilsHttpClient <WPECTYPE extends IWebPageExecutionContext>
   private static final String FIELD_HTTP_METHOD = "http_method";
   private static final String FIELD_URI = "uri";
 
-  public BasePageUtilsHttpClient (@Nonnull @Nonempty final String sID)
+  public BasePageUtilsHttpClient (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_UTILS_HTTP_CLIENT.getAsMLT ());
   }
 
-  public BasePageUtilsHttpClient (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageUtilsHttpClient (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageUtilsHttpClient (@Nonnull @Nonempty final String sID,
-                                  @Nonnull final String sName,
+  public BasePageUtilsHttpClient (@NonNull @Nonempty final String sID,
+                                  @NonNull final String sName,
                                   @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageUtilsHttpClient (@Nonnull @Nonempty final String sID,
-                                  @Nonnull final IMultilingualText aName,
+  public BasePageUtilsHttpClient (@NonNull @Nonempty final String sID,
+                                  @NonNull final IMultilingualText aName,
                                   @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

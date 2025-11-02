@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.nav;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.string.StringHelper;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
@@ -25,9 +28,6 @@ import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.uicore.html.tabbox.AbstractTabBox;
 import com.helger.photon.uicore.html.tabbox.Tab;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Represent a single tab box
@@ -85,7 +85,7 @@ public class BootstrapTabBox extends AbstractTabBox <BootstrapTabBox>
    * @return this for chaining
    * @since 8.3.1
    */
-  @Nonnull
+  @NonNull
   public final BootstrapTabBox setNavID (@Nullable final String sNavID)
   {
     m_sNavID = sNavID;
@@ -93,14 +93,14 @@ public class BootstrapTabBox extends AbstractTabBox <BootstrapTabBox>
   }
 
   @Override
-  public boolean canConvertToMicroNode (@Nonnull final IHCConversionSettingsToNode aConversionSettings)
+  public boolean canConvertToMicroNode (@NonNull final IHCConversionSettingsToNode aConversionSettings)
   {
     return !m_aTabs.isEmpty ();
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
 

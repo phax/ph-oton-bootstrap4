@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.sections.AbstractHCFooter;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 public class BootstrapBlockquoteFooter extends AbstractHCFooter <BootstrapBlockquoteFooter>
 {
@@ -30,8 +30,8 @@ public class BootstrapBlockquoteFooter extends AbstractHCFooter <BootstrapBlockq
   {}
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.BLOCKQUOTE_FOOTER);

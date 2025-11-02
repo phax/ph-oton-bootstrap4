@@ -18,12 +18,12 @@ package com.helger.photon.bootstrap4.utils;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.grid.EBootstrapGridType;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Utility class to build a generic spacing.
@@ -47,8 +47,8 @@ public class BootstrapSpacingBuilder implements ICSSClassProvider, Serializable
    *        Property type. May not be <code>null</code>.
    * @return this for chaining
    */
-  @Nonnull
-  public BootstrapSpacingBuilder property (@Nonnull final EBootstrapSpacingPropertyType eProperty)
+  @NonNull
+  public BootstrapSpacingBuilder property (@NonNull final EBootstrapSpacingPropertyType eProperty)
   {
     ValueEnforcer.notNull (eProperty, "Property");
     m_eProperty = eProperty;
@@ -62,8 +62,8 @@ public class BootstrapSpacingBuilder implements ICSSClassProvider, Serializable
    *        Edge type. May not be <code>null</code>.
    * @return this for chaining
    */
-  @Nonnull
-  public BootstrapSpacingBuilder side (@Nonnull final EBootstrapSpacingSideType eSide)
+  @NonNull
+  public BootstrapSpacingBuilder side (@NonNull final EBootstrapSpacingSideType eSide)
   {
     ValueEnforcer.notNull (eSide, "Side");
     m_eSide = eSide;
@@ -77,8 +77,8 @@ public class BootstrapSpacingBuilder implements ICSSClassProvider, Serializable
    *        Grid type. May not be <code>null</code>.
    * @return this for chaining
    */
-  @Nonnull
-  public BootstrapSpacingBuilder grid (@Nonnull final EBootstrapGridType eGrid)
+  @NonNull
+  public BootstrapSpacingBuilder grid (@NonNull final EBootstrapGridType eGrid)
   {
     ValueEnforcer.notNull (eGrid, "Grid");
     m_eGrid = eGrid;
@@ -94,7 +94,7 @@ public class BootstrapSpacingBuilder implements ICSSClassProvider, Serializable
    * @return this for chaining
    * @see #sizeAuto() for automatic
    */
-  @Nonnull
+  @NonNull
   public BootstrapSpacingBuilder size (final int nSize)
   {
     ValueEnforcer.isBetweenInclusive (nSize, "Size", 0, 5);
@@ -109,14 +109,14 @@ public class BootstrapSpacingBuilder implements ICSSClassProvider, Serializable
    * @return this for chaining
    * @see #size(int)
    */
-  @Nonnull
+  @NonNull
   public BootstrapSpacingBuilder sizeAuto ()
   {
     m_nSize = -1;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public String getCSSClass ()
   {
     String ret = m_eProperty.getCSSClassNamePart () + m_eSide.getCSSClassNamePart () + m_eGrid.getCSSClassNamePart () + '-';
@@ -127,14 +127,14 @@ public class BootstrapSpacingBuilder implements ICSSClassProvider, Serializable
     return ret;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static BootstrapSpacingBuilder createMarginBuilder ()
   {
     return new BootstrapSpacingBuilder ().property (EBootstrapSpacingPropertyType.MARGIN);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static BootstrapSpacingBuilder createPaddingBuilder ()
   {

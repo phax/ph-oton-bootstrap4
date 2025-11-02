@@ -19,6 +19,7 @@ package com.helger.photon.bootstrap4.supplementary.tools;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,8 +37,6 @@ import com.helger.css.reader.CSSReaderSettings;
 import com.helger.io.resource.ClassPathResource;
 import com.helger.photon.bootstrap4.EBootstrapCSSPathProvider;
 
-import jakarta.annotation.Nonnull;
-
 public final class MainExtractBootstrap4CSSClasses
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (MainExtractBootstrap4CSSClasses.class);
@@ -51,7 +50,7 @@ public final class MainExtractBootstrap4CSSClasses
     CSSVisitor.visitCSS (aCSS, new DefaultCSSVisitor ()
     {
       @Override
-      public void onStyleRuleSelector (@Nonnull final CSSSelector aSelector)
+      public void onStyleRuleSelector (@NonNull final CSSSelector aSelector)
       {
         for (final ICSSSelectorMember aMember : aSelector.getAllMembers ())
           if (aMember instanceof CSSSelectorSimpleMember)

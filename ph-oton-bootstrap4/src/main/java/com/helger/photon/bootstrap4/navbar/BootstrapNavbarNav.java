@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap4.navbar;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCULBase;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.nav.BootstrapNavItem;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap 4 Navbar nav
@@ -44,8 +44,8 @@ public class BootstrapNavbarNav extends AbstractHCULBase <BootstrapNavbarNav, Bo
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.NAVBAR_NAV);

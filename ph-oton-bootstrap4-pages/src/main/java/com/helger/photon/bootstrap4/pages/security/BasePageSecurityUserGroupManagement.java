@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap4.pages.security;
 import java.util.Locale;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -78,9 +81,6 @@ import com.helger.text.util.TextHelper;
 import com.helger.typeconvert.collection.IStringMap;
 import com.helger.url.ISimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecutionContext> extends
                                                  AbstractWebPageSecurityObjectWithAttributes <IUserGroup, WPECTYPE>
 {
@@ -125,13 +125,13 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
 
     private final IMultilingualText m_aTP;
 
-    EText (@Nonnull final String sDE, @Nonnull final String sEN)
+    EText (@NonNull final String sDE, @NonNull final String sEN)
     {
       m_aTP = TextHelper.create_DE_EN (sDE, sEN);
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -146,8 +146,8 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
     setDeleteHandler (new AbstractBootstrapWebPageActionHandlerDelete <IUserGroup, WPECTYPE> ()
     {
       @Override
-      protected void showQuery (@Nonnull final WPECTYPE aWPEC,
-                                @Nonnull final BootstrapForm aForm,
+      protected void showQuery (@NonNull final WPECTYPE aWPEC,
+                                @NonNull final BootstrapForm aForm,
                                 @Nullable final IUserGroup aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -156,7 +156,7 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
       }
 
       @Override
-      protected void performAction (@Nonnull final WPECTYPE aWPEC, @Nullable final IUserGroup aSelectedObject)
+      protected void performAction (@NonNull final WPECTYPE aWPEC, @Nullable final IUserGroup aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
         final IUserGroupManager aUserGroupMgr = PhotonSecurityManager.getUserGroupMgr ();
@@ -172,8 +172,8 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
     setUndeleteHandler (new AbstractBootstrapWebPageActionHandlerUndelete <IUserGroup, WPECTYPE> ()
     {
       @Override
-      protected void showQuery (@Nonnull final WPECTYPE aWPEC,
-                                @Nonnull final BootstrapForm aForm,
+      protected void showQuery (@NonNull final WPECTYPE aWPEC,
+                                @NonNull final BootstrapForm aForm,
                                 @Nullable final IUserGroup aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -182,7 +182,7 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
       }
 
       @Override
-      protected void performAction (@Nonnull final WPECTYPE aWPEC, @Nullable final IUserGroup aSelectedObject)
+      protected void performAction (@NonNull final WPECTYPE aWPEC, @Nullable final IUserGroup aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
         final IUserGroupManager aUserGroupMgr = PhotonSecurityManager.getUserGroupMgr ();
@@ -197,29 +197,29 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
     });
   }
 
-  public BasePageSecurityUserGroupManagement (@Nonnull @Nonempty final String sID)
+  public BasePageSecurityUserGroupManagement (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SECURITY_USER_GROUPS.getAsMLT ());
     _init ();
   }
 
-  public BasePageSecurityUserGroupManagement (@Nonnull @Nonempty final String sID,
-                                              @Nonnull @Nonempty final String sName)
+  public BasePageSecurityUserGroupManagement (@NonNull @Nonempty final String sID,
+                                              @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
     _init ();
   }
 
-  public BasePageSecurityUserGroupManagement (@Nonnull @Nonempty final String sID,
-                                              @Nonnull final String sName,
+  public BasePageSecurityUserGroupManagement (@NonNull @Nonempty final String sID,
+                                              @NonNull final String sName,
                                               @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
     _init ();
   }
 
-  public BasePageSecurityUserGroupManagement (@Nonnull @Nonempty final String sID,
-                                              @Nonnull final IMultilingualText aName,
+  public BasePageSecurityUserGroupManagement (@NonNull @Nonempty final String sID,
+                                              @NonNull final IMultilingualText aName,
                                               @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
@@ -228,14 +228,14 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
 
   @Override
   @Nullable
-  protected String getObjectDisplayName (@Nonnull final WPECTYPE aWPEC, @Nonnull final IUserGroup aSelectedObject)
+  protected String getObjectDisplayName (@NonNull final WPECTYPE aWPEC, @NonNull final IUserGroup aSelectedObject)
   {
     return aSelectedObject.getName ();
   }
 
   @Override
-  protected boolean isActionAllowed (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final EWebPageFormAction eFormAction,
+  protected boolean isActionAllowed (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final EWebPageFormAction eFormAction,
                                      @Nullable final IUserGroup aSelectedObject)
   {
     if (eFormAction.isDelete ())
@@ -247,14 +247,14 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
 
   @Override
   @Nullable
-  protected IUserGroup getSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nullable final String sID)
+  protected IUserGroup getSelectedObject (@NonNull final WPECTYPE aWPEC, @Nullable final String sID)
   {
     final IUserGroupManager aUserGroupMgr = PhotonSecurityManager.getUserGroupMgr ();
     return aUserGroupMgr.getUserGroupOfID (sID);
   }
 
   @Override
-  protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final IUserGroup aSelectedObject)
+  protected void showSelectedObject (@NonNull final WPECTYPE aWPEC, @NonNull final IUserGroup aSelectedObject)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -361,10 +361,10 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
   }
 
   @Override
-  protected void validateAndSaveInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected void validateAndSaveInputParameters (@NonNull final WPECTYPE aWPEC,
                                                  @Nullable final IUserGroup aSelectedObject,
-                                                 @Nonnull final FormErrorList aFormErrors,
-                                                 @Nonnull final EWebPageFormAction eFormAction)
+                                                 @NonNull final FormErrorList aFormErrors,
+                                                 @NonNull final EWebPageFormAction eFormAction)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final String sName = aWPEC.params ().getAsString (FIELD_NAME);
@@ -437,12 +437,12 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
   }
 
   @Override
-  protected void showInputForm (@Nonnull final WPECTYPE aWPEC,
+  protected void showInputForm (@NonNull final WPECTYPE aWPEC,
                                 @Nullable final IUserGroup aSelectedObject,
-                                @Nonnull final BootstrapForm aForm,
+                                @NonNull final BootstrapForm aForm,
                                 final boolean bIsFormSubmitted,
-                                @Nonnull final EWebPageFormAction eFormAction,
-                                @Nonnull final FormErrorList aFormErrors)
+                                @NonNull final EWebPageFormAction eFormAction,
+                                @NonNull final FormErrorList aFormErrors)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     aForm.addChild (getUIHandler ().createActionHeader (eFormAction.isEdit () ? EText.TITLE_EDIT.getDisplayTextWithArgs (aDisplayLocale,
@@ -499,10 +499,10 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
     return aUserGroup != null && aUserGroup.isDeleted ();
   }
 
-  @Nonnull
-  protected IHCNode getTabWithUserGroups (@Nonnull final WPECTYPE aWPEC,
-                                          @Nonnull final ICommonsList <IUserGroup> aUserGroups,
-                                          @Nonnull @Nonempty final String sTableID)
+  @NonNull
+  protected IHCNode getTabWithUserGroups (@NonNull final WPECTYPE aWPEC,
+                                          @NonNull final ICommonsList <IUserGroup> aUserGroups,
+                                          @NonNull @Nonempty final String sTableID)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
 
@@ -557,7 +557,7 @@ public class BasePageSecurityUserGroupManagement <WPECTYPE extends IWebPageExecu
   }
 
   @Override
-  protected void showListOfExistingObjects (@Nonnull final WPECTYPE aWPEC)
+  protected void showListOfExistingObjects (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap.demo.servlet;
 
 import java.io.IOException;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.http.CHttpHeader;
 import com.helger.http.csp.CSPDirective;
 import com.helger.http.csp.CSPPolicy;
@@ -28,7 +30,6 @@ import com.helger.photon.core.servlet.AbstractApplicationXServletHandler;
 import com.helger.servlet.response.UnifiedResponse;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
-import jakarta.annotation.Nonnull;
 import jakarta.servlet.ServletException;
 
 /**
@@ -40,7 +41,7 @@ public abstract class AbstractApplicationXServletHandlerWithCSP extends Abstract
 {
   private final ECSPMode m_eCSPMode;
 
-  protected AbstractApplicationXServletHandlerWithCSP (@Nonnull final ECSPMode eCSPMode)
+  protected AbstractApplicationXServletHandlerWithCSP (@NonNull final ECSPMode eCSPMode)
   {
     m_eCSPMode = eCSPMode;
   }

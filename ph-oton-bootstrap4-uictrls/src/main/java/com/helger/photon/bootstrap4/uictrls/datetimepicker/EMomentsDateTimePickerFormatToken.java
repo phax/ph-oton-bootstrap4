@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap4.uictrls.datetimepicker;
 
-import com.helger.annotation.Nonempty;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.Nonempty;
 
 /**
  * Defines the possible tokens for the moments.js format. Works for JS and Java
@@ -48,19 +48,19 @@ public enum EMomentsDateTimePickerFormatToken
   private final String m_sJSToken;
   private final String m_sJavaToken;
 
-  EMomentsDateTimePickerFormatToken (@Nonnull @Nonempty final String sJSToken, @Nonnull @Nonempty final String sJavaToken)
+  EMomentsDateTimePickerFormatToken (@NonNull @Nonempty final String sJSToken, @NonNull @Nonempty final String sJavaToken)
   {
     m_sJSToken = sJSToken;
     m_sJavaToken = sJavaToken;
   }
 
-  @Nonnull
+  @NonNull
   public String getJSToken ()
   {
     return m_sJSToken;
   }
 
-  @Nonnull
+  @NonNull
   public String getJavaToken ()
   {
     return m_sJavaToken;

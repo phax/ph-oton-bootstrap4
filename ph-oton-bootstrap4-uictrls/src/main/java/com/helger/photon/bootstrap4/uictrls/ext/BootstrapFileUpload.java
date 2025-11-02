@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap4.uictrls.ext;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -50,9 +53,6 @@ import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Custom file upload.
  *
@@ -74,7 +74,7 @@ public class BootstrapFileUpload extends AbstractHCDiv <BootstrapFileUpload>
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -86,7 +86,7 @@ public class BootstrapFileUpload extends AbstractHCDiv <BootstrapFileUpload>
   private String m_sCustomPlaceholder;
   private String m_sCustomButtonText;
 
-  public BootstrapFileUpload (@Nonnull @Nonempty final String sName, @Nonnull final Locale aDisplayLocale)
+  public BootstrapFileUpload (@NonNull @Nonempty final String sName, @NonNull final Locale aDisplayLocale)
   {
     ValueEnforcer.notEmpty (sName, "Name");
     ValueEnforcer.notNull (aDisplayLocale, "DisplayLocale");
@@ -98,14 +98,14 @@ public class BootstrapFileUpload extends AbstractHCDiv <BootstrapFileUpload>
     m_aEditFile.ensureID ();
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public final String getFieldName ()
   {
     return m_sFieldName;
   }
 
-  @Nonnull
+  @NonNull
   public final HCEditFile getEditFile ()
   {
     return m_aEditFile;
@@ -117,7 +117,7 @@ public class BootstrapFileUpload extends AbstractHCDiv <BootstrapFileUpload>
     return m_sCustomPlaceholder;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFileUpload setCustomPlaceholder (@Nullable final String sCustomPlaceholder)
   {
     m_sCustomPlaceholder = sCustomPlaceholder;
@@ -130,7 +130,7 @@ public class BootstrapFileUpload extends AbstractHCDiv <BootstrapFileUpload>
     return m_sCustomButtonText;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapFileUpload setCustomButtonText (@Nullable final String sCustomButtonText)
   {
     m_sCustomButtonText = sCustomButtonText;
@@ -146,9 +146,9 @@ public class BootstrapFileUpload extends AbstractHCDiv <BootstrapFileUpload>
    * @return A non-<code>null</code> element to use.
    * @since 8.3.1
    */
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
-  protected IHCElement <?> createPlaceholderNode (@Nonnull final String sPlaceholder)
+  protected IHCElement <?> createPlaceholderNode (@NonNull final String sPlaceholder)
   {
     final HCLabel aLabel = new HCLabel ();
     aLabel.setFor (m_aEditFile);
@@ -158,8 +158,8 @@ public class BootstrapFileUpload extends AbstractHCDiv <BootstrapFileUpload>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.CUSTOM_FILE);

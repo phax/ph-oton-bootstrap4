@@ -18,9 +18,8 @@ package com.helger.photon.bootstrap4.uictrls.datetimepicker;
 
 import static org.junit.Assert.assertEquals;
 
+import org.jspecify.annotations.NonNull;
 import org.junit.Test;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Test class for class {@link Bootstrap4DateTimePickerFormatBuilder}.
@@ -29,8 +28,8 @@ import jakarta.annotation.Nonnull;
  */
 public final class Bootstrap4DateTimePickerFormatBuilderTest
 {
-  @Nonnull
-  private static String _getAsJS (@Nonnull final String s)
+  @NonNull
+  private static String _getAsJS (@NonNull final String s)
   {
     return Bootstrap4DateTimePickerFormatBuilder.fromJavaPattern (s).getJSCalendarFormatString ();
   }

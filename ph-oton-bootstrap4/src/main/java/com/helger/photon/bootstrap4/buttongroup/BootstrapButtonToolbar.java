@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.buttongroup;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.EHTMLRole;
 import com.helger.html.js.IHasJSCode;
@@ -29,9 +32,6 @@ import com.helger.photon.uicore.icon.IIcon;
 import com.helger.url.ISimpleURL;
 import com.helger.url.SimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Bootstrap3 button toolbar. Should only be used to group button groups and not
  * simple buttons.
@@ -42,25 +42,25 @@ public class BootstrapButtonToolbar extends AbstractBootstrapDiv <BootstrapButto
 {
   private final SimpleURL m_aSelfHref;
 
-  public BootstrapButtonToolbar (@Nonnull final ILayoutExecutionContext aLEC)
+  public BootstrapButtonToolbar (@NonNull final ILayoutExecutionContext aLEC)
   {
     this (aLEC.getSelfHref ());
   }
 
-  public BootstrapButtonToolbar (@Nonnull final SimpleURL aSelfHref)
+  public BootstrapButtonToolbar (@NonNull final SimpleURL aSelfHref)
   {
     m_aSelfHref = ValueEnforcer.notNull (aSelfHref, "SelfHref");
     addClass (CBootstrapCSS.BTN_TOOLBAR);
     setRole (EHTMLRole.TOOLBAR);
   }
 
-  @Nonnull
+  @NonNull
   public ISimpleURL getSelfHref ()
   {
     return m_aSelfHref;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapButton addAndReturnButton (@Nullable final String sCaption,
                                                    @Nullable final IHasJSCode aJSCode,
                                                    @Nullable final IIcon aIcon)
@@ -68,7 +68,7 @@ public class BootstrapButtonToolbar extends AbstractBootstrapDiv <BootstrapButto
     return addAndReturnChild (new BootstrapButton ().setIcon (aIcon).addChild (sCaption).setOnClick (aJSCode));
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapButton addAndReturnSubmitButton (@Nullable final String sCaption,
                                                          @Nullable final IHasJSCode aOnClick,
                                                          @Nullable final IIcon aIcon)

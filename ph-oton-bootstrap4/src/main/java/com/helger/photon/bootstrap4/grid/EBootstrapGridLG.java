@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap4.grid;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap4 grid columns. Large (&ge;992px)
@@ -55,7 +55,7 @@ public enum EBootstrapGridLG implements IBootstrapGridElement
     m_aCSSClassOffset = aCSSClassOffset;
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapGridType getGridType ()
   {
     return EBootstrapGridType.LG;

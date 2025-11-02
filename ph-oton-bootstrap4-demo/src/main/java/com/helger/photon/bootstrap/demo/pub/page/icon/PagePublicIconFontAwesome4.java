@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap.demo.pub.page.icon;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.hc.impl.HCNodeList;
 import com.helger.photon.icon.fontawesome.EFontAwesome4Icon;
 import com.helger.photon.uicore.page.WebPageExecutionContext;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Show all Font Awesome icons in action
@@ -30,7 +30,7 @@ import jakarta.annotation.Nonnull;
  */
 public final class PagePublicIconFontAwesome4 extends AbstractPagePublicIcon
 {
-  public PagePublicIconFontAwesome4 (@Nonnull @Nonempty final String sID)
+  public PagePublicIconFontAwesome4 (@NonNull @Nonempty final String sID)
   {
     super (sID, "Font Awesome v4 Icon Test");
   }

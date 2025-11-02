@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.uictrls.datetimepicker;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Defines the different views of DTP.
@@ -37,25 +37,25 @@ public enum EBootstrap4DateTimePickerViewModeType
   private final int m_nOrder;
   private final String m_sJSValue;
 
-  EBootstrap4DateTimePickerViewModeType (@Nonnegative final int nJSValue, @Nonnull @Nonempty final String sJSValue)
+  EBootstrap4DateTimePickerViewModeType (@Nonnegative final int nJSValue, @NonNull @Nonempty final String sJSValue)
   {
     m_nOrder = nJSValue;
     m_sJSValue = sJSValue;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getJSValueString ()
   {
     return m_sJSValue;
   }
 
-  public boolean isLessThan (@Nonnull final EBootstrap4DateTimePickerViewModeType eOther)
+  public boolean isLessThan (@NonNull final EBootstrap4DateTimePickerViewModeType eOther)
   {
     return m_nOrder < eOther.m_nOrder;
   }
 
-  public boolean isGreaterThan (@Nonnull final EBootstrap4DateTimePickerViewModeType eOther)
+  public boolean isGreaterThan (@NonNull final EBootstrap4DateTimePickerViewModeType eOther)
   {
     return m_nOrder > eOther.m_nOrder;
   }

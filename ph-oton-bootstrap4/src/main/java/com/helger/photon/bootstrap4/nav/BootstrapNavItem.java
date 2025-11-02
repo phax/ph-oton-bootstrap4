@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.nav;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.EHTMLRole;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
@@ -25,9 +28,6 @@ import com.helger.html.hc.impl.HCTextNode;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.dropdown.BootstrapDropdownMenu;
 import com.helger.url.ISimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BootstrapNavItem extends AbstractHCLI <BootstrapNavItem>
 {
@@ -45,7 +45,7 @@ public class BootstrapNavItem extends AbstractHCLI <BootstrapNavItem>
     return m_bIsActive;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapNavItem setActive (final boolean bIsActive)
   {
     m_bIsActive = bIsActive;
@@ -57,24 +57,24 @@ public class BootstrapNavItem extends AbstractHCLI <BootstrapNavItem>
     return m_bIsDropDown;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNavLink addNavLink ()
   {
     return addAndReturnChild (new BootstrapNavLink ());
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNavLink addNavLink (@Nullable final ISimpleURL aURL)
   {
     return addAndReturnChild (new BootstrapNavLink (aURL));
   }
 
-  public void addNavDropDown (@Nonnull final String sLabel, @Nonnull final BootstrapDropdownMenu aDropDown)
+  public void addNavDropDown (@NonNull final String sLabel, @NonNull final BootstrapDropdownMenu aDropDown)
   {
     addNavDropDown (new HCTextNode (sLabel), aDropDown);
   }
 
-  public void addNavDropDown (@Nonnull final IHCNode aLabelText, @Nonnull final BootstrapDropdownMenu aDropDown)
+  public void addNavDropDown (@NonNull final IHCNode aLabelText, @NonNull final BootstrapDropdownMenu aDropDown)
   {
     final BootstrapNavLink aLabel = new BootstrapNavLink ();
     aLabel.addClass (CBootstrapCSS.DROPDOWN_TOGGLE).ensureID ().setRole (EHTMLRole.BUTTON);
@@ -91,8 +91,8 @@ public class BootstrapNavItem extends AbstractHCLI <BootstrapNavItem>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.NAV_ITEM);

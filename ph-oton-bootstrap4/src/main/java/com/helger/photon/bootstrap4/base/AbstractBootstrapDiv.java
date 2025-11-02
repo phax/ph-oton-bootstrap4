@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.base;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -28,9 +31,6 @@ import com.helger.photon.bootstrap4.utils.BootstrapDisplayBuilder;
 import com.helger.photon.bootstrap4.utils.BootstrapSpacingBuilder;
 import com.helger.photon.bootstrap4.utils.EBootstrapBackgroundType;
 import com.helger.photon.bootstrap4.utils.EBootstrapTextAlignType;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Base class for common bootstrap DIVs.
@@ -58,7 +58,7 @@ public abstract class AbstractBootstrapDiv <IMPLTYPE extends AbstractBootstrapDi
     return m_aPadding;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setPadding (@Nullable final BootstrapSpacingBuilder aPadding)
   {
     m_aPadding = aPadding;
@@ -71,7 +71,7 @@ public abstract class AbstractBootstrapDiv <IMPLTYPE extends AbstractBootstrapDi
     return m_aMargin;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setMargin (@Nullable final BootstrapSpacingBuilder aMargin)
   {
     m_aMargin = aMargin;
@@ -84,7 +84,7 @@ public abstract class AbstractBootstrapDiv <IMPLTYPE extends AbstractBootstrapDi
     return m_aDisplay;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setDisplay (@Nullable final BootstrapDisplayBuilder aDisplay)
   {
     m_aDisplay = aDisplay;
@@ -97,7 +97,7 @@ public abstract class AbstractBootstrapDiv <IMPLTYPE extends AbstractBootstrapDi
     return m_aBorder;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setBorder (@Nullable final BootstrapBorderBuilder aBorder)
   {
     m_aBorder = aBorder;
@@ -110,7 +110,7 @@ public abstract class AbstractBootstrapDiv <IMPLTYPE extends AbstractBootstrapDi
     return m_eTextAlign;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setTextAlign (@Nullable final EBootstrapTextAlignType eTextAlign)
   {
     m_eTextAlign = eTextAlign;
@@ -123,7 +123,7 @@ public abstract class AbstractBootstrapDiv <IMPLTYPE extends AbstractBootstrapDi
     return m_eBackground;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setBackground (@Nullable final EBootstrapBackgroundType eBackground)
   {
     m_eBackground = eBackground;
@@ -133,8 +133,8 @@ public abstract class AbstractBootstrapDiv <IMPLTYPE extends AbstractBootstrapDi
   @Override
   @OverrideOnDemand
   @OverridingMethodsMustInvokeSuper
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (m_aPadding);

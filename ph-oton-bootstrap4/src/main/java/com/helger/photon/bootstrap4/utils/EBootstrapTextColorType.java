@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Text color. See https://getbootstrap.com/docs/4.1/utilities/colors/
@@ -46,12 +46,12 @@ public enum EBootstrapTextColorType implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapTextColorType (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapTextColorType (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }
 
-  @Nonnull
+  @NonNull
   public String getCSSClass ()
   {
     return m_aCSSClass.getCSSClass ();

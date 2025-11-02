@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap4.supplementary.tools;
 
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,9 +38,6 @@ import com.helger.photon.bootstrap4.alert.BootstrapWarnBox;
 import com.helger.photon.bootstrap4.badge.BootstrapBadge;
 import com.helger.photon.bootstrap4.traits.IHCBootstrap4Trait;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Code creator for {@link IHCBootstrap4Trait}.
  *
@@ -53,7 +52,7 @@ public class MainCreateHCBootstrap4TraitsCode
     private final String m_sType;
     private final ICommonsList <String> m_aParams;
 
-    Details (@Nonnull final Class <?> aClass, @Nullable final String... aParams)
+    Details (@NonNull final Class <?> aClass, @Nullable final String... aParams)
     {
       m_sType = ClassHelper.getClassLocalName (aClass);
       m_aParams = new CommonsArrayList <> (aParams);
@@ -85,10 +84,10 @@ public class MainCreateHCBootstrap4TraitsCode
       final String sParams = StringImplode.getImploded (", ", aDetails.m_aParams);
       final boolean bAddNumeric = sMethod.startsWith ("badge");
 
-      aSB.append ("@Nonnull default " + sType + " " + sMethod + " (){return new " + sType + " (" + sParams + ");}\n");
+      aSB.append ("@NonNull default " + sType + " " + sMethod + " (){return new " + sType + " (" + sParams + ");}\n");
       if (bAddNumeric)
       {
-        aSB.append ("@Nonnull default " +
+        aSB.append ("@NonNull default " +
                     sType +
                     " " +
                     sMethod +
@@ -97,7 +96,7 @@ public class MainCreateHCBootstrap4TraitsCode
                     "(" +
                     sParams +
                     ").addChild (Integer.toString(nValue));}\n");
-        aSB.append ("@Nonnull default " +
+        aSB.append ("@NonNull default " +
                     sType +
                     " " +
                     sMethod +
@@ -107,7 +106,7 @@ public class MainCreateHCBootstrap4TraitsCode
                     sParams +
                     ").addChild (Long.toString(nValue));}\n");
       }
-      aSB.append ("@Nonnull default " +
+      aSB.append ("@NonNull default " +
                   sType +
                   " " +
                   sMethod +
@@ -116,7 +115,7 @@ public class MainCreateHCBootstrap4TraitsCode
                   "(" +
                   sParams +
                   ").addChild (aNode);}\n");
-      aSB.append ("@Nonnull default " +
+      aSB.append ("@NonNull default " +
                   sType +
                   " " +
                   sMethod +
@@ -125,7 +124,7 @@ public class MainCreateHCBootstrap4TraitsCode
                   "(" +
                   sParams +
                   ").addChild (s);}\n");
-      aSB.append ("@Nonnull default " +
+      aSB.append ("@NonNull default " +
                   sType +
                   " " +
                   sMethod +
@@ -134,7 +133,7 @@ public class MainCreateHCBootstrap4TraitsCode
                   " (" +
                   sParams +
                   ").addChildren (aNodes);}\n");
-      aSB.append ("@Nonnull default " +
+      aSB.append ("@NonNull default " +
                   sType +
                   " " +
                   sMethod +

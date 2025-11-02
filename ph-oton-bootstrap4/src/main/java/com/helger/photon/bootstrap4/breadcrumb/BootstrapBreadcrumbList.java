@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.breadcrumb;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
@@ -24,9 +27,6 @@ import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.hc.impl.HCTextNode;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.url.ISimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Breadcrumb list. The only member of {@link BootstrapBreadcrumb}.
@@ -46,32 +46,32 @@ public class BootstrapBreadcrumbList extends AbstractHCOLBase <BootstrapBreadcru
     return new BootstrapBreadcrumbItem ();
   }
 
-  @Nonnull
-  public BootstrapBreadcrumbList addLink (@Nonnull final ISimpleURL aURL, @Nullable final String sLabel)
+  @NonNull
+  public BootstrapBreadcrumbList addLink (@NonNull final ISimpleURL aURL, @Nullable final String sLabel)
   {
     return addLink (aURL, HCTextNode.createOnDemand (sLabel));
   }
 
-  @Nonnull
-  public BootstrapBreadcrumbList addLink (@Nonnull final ISimpleURL aURL, @Nullable final IHCNode aLabel)
+  @NonNull
+  public BootstrapBreadcrumbList addLink (@NonNull final ISimpleURL aURL, @Nullable final IHCNode aLabel)
   {
     return addLink (new HCA ().setHref (aURL).addChild (aLabel));
   }
 
-  @Nonnull
-  public BootstrapBreadcrumbList addLink (@Nonnull final HCA aLink)
+  @NonNull
+  public BootstrapBreadcrumbList addLink (@NonNull final HCA aLink)
   {
     addChild (new BootstrapBreadcrumbItem ().addChild (aLink));
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapBreadcrumbList addActive (@Nullable final String sLabel)
   {
     return addActive (HCTextNode.createOnDemand (sLabel));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapBreadcrumbList addActive (@Nullable final IHCNode aLabel)
   {
     addChild (new BootstrapBreadcrumbItem ().addChild (aLabel).setActive (true));
@@ -79,8 +79,8 @@ public class BootstrapBreadcrumbList extends AbstractHCOLBase <BootstrapBreadcru
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.BREADCRUMB);

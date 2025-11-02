@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.grid;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
@@ -25,9 +28,6 @@ import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.HCDiv;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Defines a Bootstrap row that contains columns.
@@ -44,7 +44,7 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
     addClass (CBootstrapCSS.ROW);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapRow setVerticalAlign (@Nullable final EBootstrapRowVerticalAlign eVertAlign)
   {
     m_eVertAlign = eVertAlign;
@@ -57,7 +57,7 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
     return m_eVertAlign;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapRow setWithPadding (final boolean bWithPadding)
   {
     m_bWithPadding = bWithPadding;
@@ -69,19 +69,19 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
     return m_bWithPadding;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapCol createColumn (final int nParts)
   {
     return createColumn (BootstrapGridSpec.create (nParts));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapCol createColumn (final int nPartsXS, final int nPartsSM, final int nPartsMD, final int nPartsLG, final int nPartsXL)
   {
     return createColumn (BootstrapGridSpec.create (nPartsXS, nPartsSM, nPartsMD, nPartsLG, nPartsXL));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapCol createColumn (@Nullable final EBootstrapGridXS eXS,
                                     @Nullable final EBootstrapGridSM eSM,
                                     @Nullable final EBootstrapGridMD eMD,
@@ -91,8 +91,8 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
     return createColumn (new BootstrapGridSpec (eXS, eSM, eMD, eLG, eXL));
   }
 
-  @Nonnull
-  public BootstrapCol createColumn (@Nonnull final BootstrapGridSpec aGridSpec)
+  @NonNull
+  public BootstrapCol createColumn (@NonNull final BootstrapGridSpec aGridSpec)
   {
     ValueEnforcer.notNull (aGridSpec, "GridSpec");
 
@@ -101,7 +101,7 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
     return aDiv;
   }
 
-  @Nonnull
+  @NonNull
   public HCDiv createNewLine ()
   {
     return addAndReturnChild (new HCDiv ().addClass (CBootstrapCSS.W_100));
@@ -137,8 +137,8 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (m_eVertAlign);
@@ -146,32 +146,32 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
       addClass (CBootstrapCSS.NO_GUTTERS);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
-  public static BootstrapRow createRowWithOneColumn (final int nParts, @Nonnull final IHCNode aCtrl)
+  public static BootstrapRow createRowWithOneColumn (final int nParts, @NonNull final IHCNode aCtrl)
   {
     final BootstrapRow aRow = new BootstrapRow ();
     aRow.createColumn (nParts).addChild (aCtrl);
     return aRow;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public static BootstrapRow createRowWithOneColumn (final int nPartsXS,
                                                      final int nPartsSM,
                                                      final int nPartsMD,
                                                      final int nPartsLG,
                                                      final int nPartsXL,
-                                                     @Nonnull final IHCNode aCtrl)
+                                                     @NonNull final IHCNode aCtrl)
   {
     final BootstrapRow aRow = new BootstrapRow ();
     aRow.createColumn (nPartsXS, nPartsSM, nPartsMD, nPartsLG, nPartsXL).addChild (aCtrl);
     return aRow;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
-  public static BootstrapRow createRowWithOneColumn (@Nonnull final BootstrapGridSpec aParts, @Nonnull final IHCNode aCtrl)
+  public static BootstrapRow createRowWithOneColumn (@NonNull final BootstrapGridSpec aParts, @NonNull final IHCNode aCtrl)
   {
     final BootstrapRow aRow = new BootstrapRow ();
     aRow.createColumn (aParts).addChild (aCtrl);

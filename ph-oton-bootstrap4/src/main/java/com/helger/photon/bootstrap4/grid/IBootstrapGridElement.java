@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.grid;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrap;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap3 grid element
@@ -36,7 +36,7 @@ public interface IBootstrapGridElement extends ICSSClassProvider
   /**
    * @return The grid type. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   EBootstrapGridType getGridType ();
 
   /**

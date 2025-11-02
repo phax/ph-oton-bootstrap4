@@ -16,15 +16,15 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap responsive embed. See
@@ -36,7 +36,7 @@ public class BootstrapEmbed extends AbstractBootstrapDiv <BootstrapEmbed>
 {
   private EBootstrapEmbedAspectRatio m_eAspectRatio;
 
-  public BootstrapEmbed (@Nonnull final EBootstrapEmbedAspectRatio eAspectRatio)
+  public BootstrapEmbed (@NonNull final EBootstrapEmbedAspectRatio eAspectRatio)
   {
     setAspectRatio (eAspectRatio);
   }
@@ -47,8 +47,8 @@ public class BootstrapEmbed extends AbstractBootstrapDiv <BootstrapEmbed>
     return m_eAspectRatio;
   }
 
-  @Nonnull
-  public final BootstrapEmbed setAspectRatio (@Nonnull final EBootstrapEmbedAspectRatio eAspectRatio)
+  @NonNull
+  public final BootstrapEmbed setAspectRatio (@NonNull final EBootstrapEmbedAspectRatio eAspectRatio)
   {
     ValueEnforcer.notNull (eAspectRatio, "AspectRatio");
     m_eAspectRatio = eAspectRatio;
@@ -56,8 +56,8 @@ public class BootstrapEmbed extends AbstractBootstrapDiv <BootstrapEmbed>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClasses (CBootstrapCSS.EMBED_RESPONSIVE, m_eAspectRatio);

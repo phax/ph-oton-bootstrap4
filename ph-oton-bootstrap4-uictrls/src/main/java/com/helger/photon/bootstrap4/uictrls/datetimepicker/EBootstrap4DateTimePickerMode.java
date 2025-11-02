@@ -19,9 +19,9 @@ package com.helger.photon.bootstrap4.uictrls.datetimepicker;
 import java.util.Locale;
 import java.util.function.Function;
 
-import com.helger.datetime.format.PDTFormatPatterns;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.datetime.format.PDTFormatPatterns;
 
 /**
  * Action mode for the {@link BootstrapDateTimePicker}.
@@ -38,7 +38,7 @@ public enum EBootstrap4DateTimePickerMode
 
   private final Function <Locale, String> m_aJavaFormatSupplier;
 
-  EBootstrap4DateTimePickerMode (@Nonnull final Function <Locale, String> aFormatSupplier)
+  EBootstrap4DateTimePickerMode (@NonNull final Function <Locale, String> aFormatSupplier)
   {
     m_aJavaFormatSupplier = aFormatSupplier;
   }
@@ -53,8 +53,8 @@ public enum EBootstrap4DateTimePickerMode
     return this == DATE || this == DATE_TIME;
   }
 
-  @Nonnull
-  public String getJSFormat (@Nonnull final Locale aDisplayLocale)
+  @NonNull
+  public String getJSFormat (@NonNull final Locale aDisplayLocale)
   {
     final String s = m_aJavaFormatSupplier.apply (aDisplayLocale);
     return Bootstrap4DateTimePickerFormatBuilder.fromJavaPattern (s).getJSCalendarFormatString ();

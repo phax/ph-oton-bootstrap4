@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.navbar;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Navbar color schemes. See
@@ -34,12 +34,12 @@ public enum EBootstrapNavbarColorSchemeType implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapNavbarColorSchemeType (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapNavbarColorSchemeType (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }
 
-  @Nonnull
+  @NonNull
   public String getCSSClass ()
   {
     return m_aCSSClass.getCSSClass ();

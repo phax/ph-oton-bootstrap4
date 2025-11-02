@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap4.pages.handler;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.id.IHasID;
 import com.helger.photon.bootstrap4.buttongroup.BootstrapButtonToolbar;
@@ -24,15 +26,13 @@ import com.helger.photon.bootstrap4.pages.BootstrapWebPageUIHandler;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.photon.uicore.page.handler.AbstractWebPageActionHandlerWithQuery;
 
-import jakarta.annotation.Nonnull;
-
 public abstract class AbstractBootstrapWebPageActionHandlerWithQuery <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext>
                                                                      extends
                                                                      AbstractWebPageActionHandlerWithQuery <DATATYPE, WPECTYPE, BootstrapForm, BootstrapButtonToolbar>
 {
   public AbstractBootstrapWebPageActionHandlerWithQuery (final boolean bSelectedObjectRequired,
-                                                         @Nonnull @Nonempty final String sAction,
-                                                         @Nonnull @Nonempty final String sFormID)
+                                                         @NonNull @Nonempty final String sAction,
+                                                         @NonNull @Nonempty final String sFormID)
   {
     super (bSelectedObjectRequired, BootstrapWebPageUIHandler.INSTANCE, sAction, sFormID);
   }

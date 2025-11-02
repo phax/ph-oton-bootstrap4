@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap4.pages.settings;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.reflection.GenericReflection;
@@ -28,9 +31,6 @@ import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Base page to be able to change the log level for all logs during execution
@@ -68,36 +68,36 @@ public class BasePageSettingsLogLevel <WPECTYPE extends IWebPageExecutionContext
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageSettingsLogLevel (@Nonnull @Nonempty final String sID)
+  public BasePageSettingsLogLevel (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SETTINGS_LOG_LEVEL.getAsMLT ());
   }
 
-  public BasePageSettingsLogLevel (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageSettingsLogLevel (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageSettingsLogLevel (@Nonnull @Nonempty final String sID, @Nonnull final String sName, @Nullable final String sDescription)
+  public BasePageSettingsLogLevel (@NonNull @Nonempty final String sID, @NonNull final String sName, @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageSettingsLogLevel (@Nonnull @Nonempty final String sID,
-                                   @Nonnull final IMultilingualText aName,
+  public BasePageSettingsLogLevel (@NonNull @Nonempty final String sID,
+                                   @NonNull final IMultilingualText aName,
                                    @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     if (GenericReflection.getClassFromNameSafe ("org.apache.logging.log4j.core.config.Configurator") != null)
     {

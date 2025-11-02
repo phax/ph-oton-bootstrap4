@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap4.buttongroup;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.EHTMLRole;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
-
-import jakarta.annotation.Nonnull;
 
 public class BootstrapButtonGroup extends AbstractBootstrapDiv <BootstrapButtonGroup>
 {
@@ -31,17 +31,17 @@ public class BootstrapButtonGroup extends AbstractBootstrapDiv <BootstrapButtonG
     this (EBootstrapButtonGroupType.DEFAULT, EBootstrapButtonGroupSize.DEFAULT);
   }
 
-  public BootstrapButtonGroup (@Nonnull final EBootstrapButtonGroupType eType)
+  public BootstrapButtonGroup (@NonNull final EBootstrapButtonGroupType eType)
   {
     this (eType, EBootstrapButtonGroupSize.DEFAULT);
   }
 
-  public BootstrapButtonGroup (@Nonnull final EBootstrapButtonGroupSize eSize)
+  public BootstrapButtonGroup (@NonNull final EBootstrapButtonGroupSize eSize)
   {
     this (EBootstrapButtonGroupType.DEFAULT, eSize);
   }
 
-  public BootstrapButtonGroup (@Nonnull final EBootstrapButtonGroupType eType, @Nonnull final EBootstrapButtonGroupSize eSize)
+  public BootstrapButtonGroup (@NonNull final EBootstrapButtonGroupType eType, @NonNull final EBootstrapButtonGroupSize eSize)
   {
     addClasses (eType, eSize);
     setRole (EHTMLRole.GROUP);
@@ -49,13 +49,13 @@ public class BootstrapButtonGroup extends AbstractBootstrapDiv <BootstrapButtonG
     m_eSize = eSize;
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapButtonGroupType getType ()
   {
     return m_eType;
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapButtonGroupSize getSize ()
   {
     return m_eSize;

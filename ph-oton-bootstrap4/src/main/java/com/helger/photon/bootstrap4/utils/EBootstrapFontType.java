@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap4.utils;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Font properties. See https://getbootstrap.com/docs/4.1/utilities/text/
@@ -37,12 +37,12 @@ public enum EBootstrapFontType implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapFontType (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapFontType (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCSSClass ()
   {

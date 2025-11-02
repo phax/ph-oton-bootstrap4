@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap.demo.pub.page;
 
 import java.util.function.Function;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.css.DefaultCSSClassProvider;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.html.hc.html.IHCElementWithChildren;
@@ -33,8 +35,6 @@ import com.helger.photon.uicore.html.formlabel.ELabelType;
 import com.helger.photon.uicore.html.formlabel.HCFormLabelHelper;
 import com.helger.photon.uicore.page.WebPageExecutionContext;
 
-import jakarta.annotation.Nonnull;
-
 public class PagePublicFormGroups extends AbstractAppWebPage
 {
   private static final ICSSClassProvider CSS_CLASS_RED = DefaultCSSClassProvider.create ("red");
@@ -45,7 +45,7 @@ public class PagePublicFormGroups extends AbstractAppWebPage
   }
 
   @Override
-  protected void fillContent (@Nonnull final WebPageExecutionContext aWPEC)
+  protected void fillContent (@NonNull final WebPageExecutionContext aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
 

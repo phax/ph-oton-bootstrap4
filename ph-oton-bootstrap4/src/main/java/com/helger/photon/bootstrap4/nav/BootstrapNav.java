@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap4.nav;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCULBase;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap 4 nav
@@ -44,7 +44,7 @@ public class BootstrapNav extends AbstractHCULBase <BootstrapNav, BootstrapNavIt
     this (EBootstrapNavType.DEFAULT);
   }
 
-  public BootstrapNav (@Nonnull final EBootstrapNavType eNavType)
+  public BootstrapNav (@NonNull final EBootstrapNavType eNavType)
   {
     super (BootstrapNavItem.class);
     setType (eNavType);
@@ -56,14 +56,14 @@ public class BootstrapNav extends AbstractHCULBase <BootstrapNav, BootstrapNavIt
     return new BootstrapNavItem ();
   }
 
-  @Nonnull
+  @NonNull
   public final EBootstrapNavType getNavType ()
   {
     return m_eNavType;
   }
 
-  @Nonnull
-  public final BootstrapNav setType (@Nonnull final EBootstrapNavType eNavType)
+  @NonNull
+  public final BootstrapNav setType (@NonNull final EBootstrapNavType eNavType)
   {
     ValueEnforcer.notNull (eNavType, "NavType");
     m_eNavType = eNavType;
@@ -75,7 +75,7 @@ public class BootstrapNav extends AbstractHCULBase <BootstrapNav, BootstrapNavIt
     return m_bFill;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapNav setFill (final boolean bFill)
   {
     m_bFill = bFill;
@@ -87,7 +87,7 @@ public class BootstrapNav extends AbstractHCULBase <BootstrapNav, BootstrapNavIt
     return m_bJustified;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapNav setJustified (final boolean bJustified)
   {
     m_bJustified = bJustified;
@@ -95,8 +95,8 @@ public class BootstrapNav extends AbstractHCULBase <BootstrapNav, BootstrapNavIt
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.NAV);

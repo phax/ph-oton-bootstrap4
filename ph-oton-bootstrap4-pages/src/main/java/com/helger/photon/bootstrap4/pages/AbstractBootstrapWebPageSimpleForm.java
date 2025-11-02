@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.pages;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -27,9 +30,6 @@ import com.helger.photon.bootstrap4.traits.IHCBootstrap4Trait;
 import com.helger.photon.uicore.page.AbstractWebPageSimpleForm;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.text.IMultilingualText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract base class for a web page that has the common form handling, with a
@@ -49,25 +49,25 @@ public abstract class AbstractBootstrapWebPageSimpleForm <DATATYPE extends IHasI
                                                          implements
                                                          IHCBootstrap4Trait
 {
-  public AbstractBootstrapWebPageSimpleForm (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public AbstractBootstrapWebPageSimpleForm (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, getAsMLT (sName), null, BootstrapWebPageUIHandler.INSTANCE);
   }
 
-  public AbstractBootstrapWebPageSimpleForm (@Nonnull @Nonempty final String sID, @Nonnull final IMultilingualText aName)
+  public AbstractBootstrapWebPageSimpleForm (@NonNull @Nonempty final String sID, @NonNull final IMultilingualText aName)
   {
     super (sID, aName, null, BootstrapWebPageUIHandler.INSTANCE);
   }
 
-  public AbstractBootstrapWebPageSimpleForm (@Nonnull @Nonempty final String sID,
-                                             @Nonnull final String sName,
+  public AbstractBootstrapWebPageSimpleForm (@NonNull @Nonempty final String sID,
+                                             @NonNull final String sName,
                                              @Nullable final String sDescription)
   {
     super (sID, getAsMLT (sName), getAsMLT (sDescription), BootstrapWebPageUIHandler.INSTANCE);
   }
 
-  public AbstractBootstrapWebPageSimpleForm (@Nonnull @Nonempty final String sID,
-                                             @Nonnull final IMultilingualText aName,
+  public AbstractBootstrapWebPageSimpleForm (@NonNull @Nonempty final String sID,
+                                             @NonNull final IMultilingualText aName,
                                              @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription, BootstrapWebPageUIHandler.INSTANCE);
@@ -76,7 +76,7 @@ public abstract class AbstractBootstrapWebPageSimpleForm <DATATYPE extends IHasI
   @Override
   @Nullable
   @OverrideOnDemand
-  public IHCNode getHeaderNode (@Nonnull final WPECTYPE aWPEC)
+  public IHCNode getHeaderNode (@NonNull final WPECTYPE aWPEC)
   {
     final String sHeaderText = getHeaderText (aWPEC);
     return getUIHandler ().createPageHeader (sHeaderText);

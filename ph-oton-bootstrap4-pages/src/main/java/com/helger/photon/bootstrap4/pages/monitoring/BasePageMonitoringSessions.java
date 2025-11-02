@@ -21,6 +21,9 @@ import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.CGlobal;
@@ -59,9 +62,6 @@ import com.helger.text.util.TextHelper;
 import com.helger.url.ISimpleURL;
 import com.helger.web.scope.ISessionWebScope;
 import com.helger.web.scope.mgr.WebScopeManager;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Show information on all active sessions
@@ -106,31 +106,31 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageMonitoringSessions (@Nonnull @Nonempty final String sID)
+  public BasePageMonitoringSessions (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_MONITORING_SESSIONS.getAsMLT ());
   }
 
-  public BasePageMonitoringSessions (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageMonitoringSessions (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageMonitoringSessions (@Nonnull @Nonempty final String sID,
-                                     @Nonnull final String sName,
+  public BasePageMonitoringSessions (@NonNull @Nonempty final String sID,
+                                     @NonNull final String sName,
                                      @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageMonitoringSessions (@Nonnull @Nonempty final String sID,
-                                     @Nonnull final IMultilingualText aName,
+  public BasePageMonitoringSessions (@NonNull @Nonempty final String sID,
+                                     @NonNull final IMultilingualText aName,
                                      @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
@@ -138,14 +138,14 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
 
   @Override
   @Nullable
-  protected ISessionScope getSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nullable final String sID)
+  protected ISessionScope getSelectedObject (@NonNull final WPECTYPE aWPEC, @Nullable final String sID)
   {
     return ScopeSessionManager.getInstance ().getSessionScopeOfID (sID);
   }
 
   @Override
-  protected boolean isActionAllowed (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final EWebPageFormAction eFormAction,
+  protected boolean isActionAllowed (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final EWebPageFormAction eFormAction,
                                      @Nullable final ISessionScope aSelectedObject)
   {
     if (eFormAction.isEdit ())
@@ -153,8 +153,8 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
     return super.isActionAllowed (aWPEC, eFormAction, aSelectedObject);
   }
 
-  @Nonnull
-  private IHCNode _getSessionScopeInfo (@Nonnull final WPECTYPE aWPEC, @Nonnull final ISessionScope aScope)
+  @NonNull
+  private IHCNode _getSessionScopeInfo (@NonNull final WPECTYPE aWPEC, @NonNull final ISessionScope aScope)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList ret = new HCNodeList ();
@@ -234,7 +234,7 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
   }
 
   @Override
-  protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final ISessionScope aScope)
+  protected void showSelectedObject (@NonNull final WPECTYPE aWPEC, @NonNull final ISessionScope aScope)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -253,27 +253,27 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
   }
 
   @Override
-  protected void validateAndSaveInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected void validateAndSaveInputParameters (@NonNull final WPECTYPE aWPEC,
                                                  @Nullable final ISessionScope aSelectedObject,
-                                                 @Nonnull final FormErrorList aFormErrors,
-                                                 @Nonnull final EWebPageFormAction eFormAction)
+                                                 @NonNull final FormErrorList aFormErrors,
+                                                 @NonNull final EWebPageFormAction eFormAction)
   {
     throw new UnsupportedOperationException ();
   }
 
   @Override
-  protected void showInputForm (@Nonnull final WPECTYPE aWPEC,
+  protected void showInputForm (@NonNull final WPECTYPE aWPEC,
                                 @Nullable final ISessionScope aSelectedObject,
-                                @Nonnull final BootstrapForm aForm,
+                                @NonNull final BootstrapForm aForm,
                                 final boolean bIsFormSubmitted,
-                                @Nonnull final EWebPageFormAction eFormAction,
-                                @Nonnull final FormErrorList aFormErrors)
+                                @NonNull final EWebPageFormAction eFormAction,
+                                @NonNull final FormErrorList aFormErrors)
   {
     throw new UnsupportedOperationException ();
   }
 
   @Override
-  protected void showListOfExistingObjects (@Nonnull final WPECTYPE aWPEC)
+  protected void showListOfExistingObjects (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

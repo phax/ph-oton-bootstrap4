@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap4.buttongroup;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Button group types
@@ -34,12 +34,12 @@ public enum EBootstrapButtonGroupType implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapButtonGroupType (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapButtonGroupType (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCSSClass ()
   {

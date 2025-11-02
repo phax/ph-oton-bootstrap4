@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap4.dropdown;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.EHTMLElement;
 import com.helger.html.EHTMLRole;
 import com.helger.html.hc.IHCConversionSettingsToNode;
@@ -27,9 +30,6 @@ import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
 import com.helger.photon.bootstrap4.buttongroup.BootstrapButtonGroup;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap dropdown menu, without integration into surrounding objects.
@@ -70,32 +70,32 @@ public class BootstrapDropdownMenu extends AbstractBootstrapDiv <BootstrapDropdo
     return m_bAlignRight;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapDropdownMenu setAlignRight (final boolean bAlignRight)
   {
     m_bAlignRight = bAlignRight;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownItem createAndAddItem ()
   {
     return addAndReturnChild (new BootstrapDropdownItem ());
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownDivider createAndAddDivider ()
   {
     return addAndReturnChild (new BootstrapDropdownDivider ());
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownText createAndAddText ()
   {
     return addAndReturnChild (new BootstrapDropdownText ());
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownText createAndAddText (@Nullable final String sText)
   {
     final BootstrapDropdownText aText = new BootstrapDropdownText ();
@@ -103,15 +103,15 @@ public class BootstrapDropdownMenu extends AbstractBootstrapDiv <BootstrapDropdo
     return addAndReturnChild (aText);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownHeader createAndAddHeader ()
   {
     return addAndReturnChild (new BootstrapDropdownHeader ());
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.DROPDOWN_MENU);
@@ -119,10 +119,10 @@ public class BootstrapDropdownMenu extends AbstractBootstrapDiv <BootstrapDropdo
       addClass (CBootstrapCSS.DROPDOWN_MENU_RIGHT);
   }
 
-  public static void assignMenuToButton (@Nonnull final IHCElementWithChildren <?> aContainer,
-                                         @Nonnull final IHCElementWithChildren <?> aButton,
-                                         @Nonnull final BootstrapDropdownMenu aMenu,
-                                         @Nonnull final EBootstrapDropType eDropType,
+  public static void assignMenuToButton (@NonNull final IHCElementWithChildren <?> aContainer,
+                                         @NonNull final IHCElementWithChildren <?> aButton,
+                                         @NonNull final BootstrapDropdownMenu aMenu,
+                                         @NonNull final EBootstrapDropType eDropType,
                                          final boolean bUseSplitButton)
   {
     // Container div

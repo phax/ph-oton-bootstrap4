@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap4.uictrls.ext;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.lang.clazz.ClassHelper;
@@ -28,9 +31,6 @@ import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * UI helper class for technical details.
@@ -55,7 +55,7 @@ public final class BootstrapTechnicalUI
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -64,14 +64,14 @@ public final class BootstrapTechnicalUI
   private BootstrapTechnicalUI ()
   {}
 
-  @Nonnull
-  private static String _getString (@Nonnull final Throwable t)
+  @NonNull
+  private static String _getString (@NonNull final Throwable t)
   {
     return StringHelper.getConcatenatedOnDemand (ClassHelper.getClassLocalName (t.getClass ()), " - ", t.getMessage ());
   }
 
   @Nullable
-  public static HCNodeList getTechnicalDetailsNode (@Nullable final Throwable t, @Nonnull final Locale aDisplayLocale)
+  public static HCNodeList getTechnicalDetailsNode (@Nullable final Throwable t, @NonNull final Locale aDisplayLocale)
   {
     if (t == null)
       return null;
@@ -90,7 +90,7 @@ public final class BootstrapTechnicalUI
   }
 
   @Nullable
-  public static String getTechnicalDetailsString (@Nullable final Throwable t, @Nonnull final Locale aDisplayLocale)
+  public static String getTechnicalDetailsString (@Nullable final Throwable t, @NonNull final Locale aDisplayLocale)
   {
     if (t == null)
       return null;

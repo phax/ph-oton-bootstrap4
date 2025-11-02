@@ -25,6 +25,9 @@ import java.security.cert.X509Certificate;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -56,9 +59,6 @@ import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Page showing "cacerts" file
@@ -113,40 +113,40 @@ public class BasePageSysInfoCACerts <WPECTYPE extends IWebPageExecutionContext> 
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageSysInfoCACerts (@Nonnull @Nonempty final String sID)
+  public BasePageSysInfoCACerts (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SYSINFO_CACERTS.getAsMLT ());
   }
 
-  public BasePageSysInfoCACerts (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageSysInfoCACerts (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageSysInfoCACerts (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final String sName,
+  public BasePageSysInfoCACerts (@NonNull @Nonempty final String sID,
+                                 @NonNull final String sName,
                                  @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageSysInfoCACerts (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final IMultilingualText aName,
+  public BasePageSysInfoCACerts (@NonNull @Nonempty final String sID,
+                                 @NonNull final IMultilingualText aName,
                                  @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
-  private void _showKeyStore (@Nonnull final WPECTYPE aWPEC,
+  private void _showKeyStore (@NonNull final WPECTYPE aWPEC,
                               final int nFileIndex,
-                              @Nonnull final IHCElementWithChildren <?> aTarget,
-                              @Nonnull final KeyStore aKS)
+                              @NonNull final IHCElementWithChildren <?> aTarget,
+                              @NonNull final KeyStore aKS)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
 
@@ -221,7 +221,7 @@ public class BasePageSysInfoCACerts <WPECTYPE extends IWebPageExecutionContext> 
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

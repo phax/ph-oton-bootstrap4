@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap4.breadcrumb;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCLI;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Single item inside a {@link BootstrapBreadcrumbList}.
@@ -43,7 +43,7 @@ public class BootstrapBreadcrumbItem extends AbstractHCLI <BootstrapBreadcrumbIt
     return m_bActive;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapBreadcrumbItem setActive (final boolean bActive)
   {
     m_bActive = bActive;
@@ -51,8 +51,8 @@ public class BootstrapBreadcrumbItem extends AbstractHCLI <BootstrapBreadcrumbIt
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.BREADCRUMB_ITEM);

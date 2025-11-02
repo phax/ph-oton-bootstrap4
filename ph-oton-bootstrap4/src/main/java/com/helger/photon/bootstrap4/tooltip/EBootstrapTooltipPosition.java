@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap4.tooltip;
 
-import com.helger.annotation.Nonempty;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.Nonempty;
 
 public enum EBootstrapTooltipPosition
 {
@@ -30,12 +30,12 @@ public enum EBootstrapTooltipPosition
 
   private final String m_sValue;
 
-  EBootstrapTooltipPosition (@Nonnull @Nonempty final String sValue)
+  EBootstrapTooltipPosition (@NonNull @Nonempty final String sValue)
   {
     m_sValue = sValue;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getValue ()
   {

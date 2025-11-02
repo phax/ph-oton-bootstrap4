@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap4.uictrls.select2;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.jscode.JSAssocArray;
 import com.helger.html.request.IHCRequestField;
@@ -23,8 +25,6 @@ import com.helger.html.request.IHCRequestFieldMultiValue;
 import com.helger.photon.app.html.PhotonCSS;
 import com.helger.photon.uictrls.EUICtrlsCSSPathProvider;
 import com.helger.photon.uictrls.select2.HCSelect2;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap 4 version of Select2
@@ -34,12 +34,12 @@ import jakarta.annotation.Nonnull;
  */
 public class BootstrapSelect2 extends HCSelect2
 {
-  public BootstrapSelect2 (@Nonnull final IHCRequestField aRF)
+  public BootstrapSelect2 (@NonNull final IHCRequestField aRF)
   {
     super (aRF);
   }
 
-  public BootstrapSelect2 (@Nonnull final IHCRequestFieldMultiValue aRF)
+  public BootstrapSelect2 (@NonNull final IHCRequestFieldMultiValue aRF)
   {
     super (aRF);
   }

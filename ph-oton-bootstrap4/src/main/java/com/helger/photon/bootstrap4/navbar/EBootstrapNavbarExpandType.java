@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap4.navbar;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.grid.EBootstrapGridType;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Navbar expansion type. See
@@ -39,13 +39,13 @@ public enum EBootstrapNavbarExpandType implements ICSSClassProvider
   private final ICSSClassProvider m_aCSSClass;
   private final EBootstrapGridType m_eGridType;
 
-  EBootstrapNavbarExpandType (@Nonnull final ICSSClassProvider aCSSClass, @Nonnull final EBootstrapGridType eGridType)
+  EBootstrapNavbarExpandType (@NonNull final ICSSClassProvider aCSSClass, @NonNull final EBootstrapGridType eGridType)
   {
     m_aCSSClass = aCSSClass;
     m_eGridType = eGridType;
   }
 
-  @Nonnull
+  @NonNull
   public String getCSSClass ()
   {
     return m_aCSSClass.getCSSClass ();
@@ -54,7 +54,7 @@ public enum EBootstrapNavbarExpandType implements ICSSClassProvider
   /**
    * @return The grid type to be used. Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public EBootstrapGridType getGridType ()
   {
     return m_eGridType;

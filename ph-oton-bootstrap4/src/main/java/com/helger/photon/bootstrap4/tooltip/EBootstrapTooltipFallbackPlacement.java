@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap4.tooltip;
 
-import com.helger.annotation.Nonempty;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.Nonempty;
 
 public enum EBootstrapTooltipFallbackPlacement
 {
@@ -28,12 +28,12 @@ public enum EBootstrapTooltipFallbackPlacement
 
   private final String m_sValue;
 
-  EBootstrapTooltipFallbackPlacement (@Nonnull @Nonempty final String sValue)
+  EBootstrapTooltipFallbackPlacement (@NonNull @Nonempty final String sValue)
   {
     m_sValue = sValue;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getValue ()
   {

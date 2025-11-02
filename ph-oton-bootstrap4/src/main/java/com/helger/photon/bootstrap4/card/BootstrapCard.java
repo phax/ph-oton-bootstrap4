@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap4.card;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap 4 card (replaces B3 panel, well and thumbnail).
@@ -35,21 +35,21 @@ public class BootstrapCard extends AbstractBootstrapDiv <BootstrapCard>
   public BootstrapCard ()
   {}
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public final BootstrapCardHeader createAndAddHeader ()
   {
     return addAndReturnChild (new BootstrapCardHeader ());
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public final BootstrapCardBody createAndAddBody ()
   {
     return addAndReturnChild (new BootstrapCardBody ());
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public final BootstrapCardFooter createAndAddFooter ()
   {
@@ -57,8 +57,8 @@ public class BootstrapCard extends AbstractBootstrapDiv <BootstrapCard>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.CARD);

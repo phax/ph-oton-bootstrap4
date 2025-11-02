@@ -18,13 +18,13 @@ package com.helger.photon.bootstrap4.grid;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.html.hc.html.IHCElement;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 @Immutable
 public final class BootstrapGridSpec implements Serializable
@@ -81,8 +81,8 @@ public final class BootstrapGridSpec implements Serializable
     return m_eXL;
   }
 
-  @Nonnull
-  public <T extends IHCElement <T>> T applyTo (@Nonnull final T aElement)
+  @NonNull
+  public <T extends IHCElement <T>> T applyTo (@NonNull final T aElement)
   {
     ValueEnforcer.notNull (aElement, "Element");
 
@@ -116,8 +116,8 @@ public final class BootstrapGridSpec implements Serializable
     return aElement;
   }
 
-  @Nonnull
-  public <T extends IHCElement <T>> T applyOffsetTo (@Nonnull final T aElement)
+  @NonNull
+  public <T extends IHCElement <T>> T applyOffsetTo (@NonNull final T aElement)
   {
     ValueEnforcer.notNull (aElement, "Element");
 
@@ -162,7 +162,7 @@ public final class BootstrapGridSpec implements Serializable
                                        .getToString ();
   }
 
-  @Nonnull
+  @NonNull
   public static BootstrapGridSpec create (final int nParts)
   {
     // The larger sizes inherit from the smaller sizes
@@ -173,7 +173,7 @@ public final class BootstrapGridSpec implements Serializable
                    IBootstrapGridElement.PARTS_NONE);
   }
 
-  @Nonnull
+  @NonNull
   public static BootstrapGridSpec create (final int nPartsXS,
                                           final int nPartsSM,
                                           final int nPartsMD,

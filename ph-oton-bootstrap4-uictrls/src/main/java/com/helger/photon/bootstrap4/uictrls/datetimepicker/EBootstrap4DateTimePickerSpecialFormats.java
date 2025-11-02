@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap4.uictrls.datetimepicker;
 
-import com.helger.annotation.Nonempty;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.Nonempty;
 
 /**
  * Defines the different today types of DTP.<br>
@@ -41,12 +41,12 @@ public enum EBootstrap4DateTimePickerSpecialFormats
 
   private final String m_sFormatString;
 
-  EBootstrap4DateTimePickerSpecialFormats (@Nonnull @Nonempty final String sFormatString)
+  EBootstrap4DateTimePickerSpecialFormats (@NonNull @Nonempty final String sFormatString)
   {
     m_sFormatString = sFormatString;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getFormatString ()
   {

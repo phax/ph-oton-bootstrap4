@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap.demo.secure.page;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.base.compare.ESortOrder;
 import com.helger.html.hc.html.tabular.HCTable;
 import com.helger.html.hc.impl.HCNodeList;
@@ -27,8 +29,6 @@ import com.helger.photon.uicore.page.WebPageExecutionContext;
 import com.helger.photon.uictrls.datatables.column.DTCol;
 import com.helger.photon.uictrls.datatables.column.EDTColType;
 
-import jakarta.annotation.Nonnull;
-
 public class PageSecureDataTables extends AbstractAppWebPage
 {
   public PageSecureDataTables (final String sID)
@@ -37,7 +37,7 @@ public class PageSecureDataTables extends AbstractAppWebPage
   }
 
   @Override
-  protected void fillContent (@Nonnull final WebPageExecutionContext aWPEC)
+  protected void fillContent (@NonNull final WebPageExecutionContext aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap4.badge;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.textlevel.AbstractHCA;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap4 badge link.
@@ -43,13 +43,13 @@ public class BootstrapBadgeLink extends AbstractHCA <BootstrapBadgeLink>
     setBadgeType (eType);
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapBadgeType getBadgeType ()
   {
     return m_eBadgeType;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapBadgeLink setBadgeType (@Nullable final EBootstrapBadgeType eType)
   {
     m_eBadgeType = eType;
@@ -61,7 +61,7 @@ public class BootstrapBadgeLink extends AbstractHCA <BootstrapBadgeLink>
     return m_bPill;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapBadgeLink setPill (final boolean bPill)
   {
     m_bPill = bPill;
@@ -69,8 +69,8 @@ public class BootstrapBadgeLink extends AbstractHCA <BootstrapBadgeLink>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClasses (CBootstrapCSS.BADGE, m_eBadgeType);
@@ -84,13 +84,13 @@ public class BootstrapBadgeLink extends AbstractHCA <BootstrapBadgeLink>
     return aNode == null ? null : new BootstrapBadgeLink ().addChild (aNode);
   }
 
-  @Nonnull
+  @NonNull
   public static BootstrapBadgeLink createNumeric (final int nValue)
   {
     return new BootstrapBadgeLink ().addChild (Integer.toString (nValue));
   }
 
-  @Nonnull
+  @NonNull
   public static BootstrapBadgeLink createNumeric (final long nValue)
   {
     return new BootstrapBadgeLink ().addChild (Long.toString (nValue));

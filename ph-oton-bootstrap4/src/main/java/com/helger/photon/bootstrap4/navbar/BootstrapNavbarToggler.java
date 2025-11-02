@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap4.navbar;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.IHCConversionSettingsToNode;
@@ -24,8 +26,6 @@ import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.forms.AbstractHCButton;
 import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap 4 NavBar toggler
@@ -36,13 +36,13 @@ public class BootstrapNavbarToggler extends AbstractHCButton <BootstrapNavbarTog
 {
   private final String m_sIDToToggle;
 
-  public BootstrapNavbarToggler (@Nonnull @Nonempty final String sIDToToggle)
+  public BootstrapNavbarToggler (@NonNull @Nonempty final String sIDToToggle)
   {
     ValueEnforcer.notEmpty (sIDToToggle, "IDToToggle");
     m_sIDToToggle = sIDToToggle;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public final String getIDToToggle ()
   {
@@ -50,8 +50,8 @@ public class BootstrapNavbarToggler extends AbstractHCButton <BootstrapNavbarTog
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClass (CBootstrapCSS.NAVBAR_TOGGLER);

@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap4.uictrls.ext;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.css.property.CCSSProperties;
@@ -43,9 +46,6 @@ import com.helger.security.authentication.credentials.ICredentialValidationResul
 import com.helger.url.SimpleURL;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * A special {@link SimpleLoginHTMLProvider} with Bootstrap UI.
  *
@@ -59,7 +59,7 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
   private boolean m_bShowLoginErrorDetails = DEFAULT_SHOW_LOGIN_ERROR_DETAILS;
 
   public BootstrapLoginHTMLProvider (final boolean bLoginError,
-                                     @Nonnull final ICredentialValidationResult aLoginResult,
+                                     @NonNull final ICredentialValidationResult aLoginResult,
                                      @Nullable final IHCNode aPageTitle)
   {
     super (bLoginError, aLoginResult);
@@ -79,7 +79,7 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
   @Override
   @Nullable
   @OverrideOnDemand
-  protected String getTextFieldUserName (@Nonnull final Locale aDisplayLocale)
+  protected String getTextFieldUserName (@NonNull final Locale aDisplayLocale)
   {
     return EPhotonCoreText.EMAIL_ADDRESS.getDisplayText (aDisplayLocale);
   }
@@ -87,8 +87,8 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
   @Override
   @Nullable
   @OverrideOnDemand
-  protected String getTextErrorMessage (@Nonnull final Locale aDisplayLocale,
-                                        @Nonnull final ICredentialValidationResult aLoginResult)
+  protected String getTextErrorMessage (@NonNull final Locale aDisplayLocale,
+                                        @NonNull final ICredentialValidationResult aLoginResult)
   {
     String ret = EPhotonCoreText.LOGIN_ERROR_MSG.getDisplayText (aDisplayLocale);
     if (m_bShowLoginErrorDetails)
@@ -105,7 +105,7 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
    *        The empty form.
    */
   @OverrideOnDemand
-  protected void onBeforeForm (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nonnull final BootstrapForm aForm)
+  protected void onBeforeForm (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final BootstrapForm aForm)
   {}
 
   /**
@@ -117,7 +117,7 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
    *        The pre-filled form.
    */
   @OverrideOnDemand
-  protected void onAfterForm (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nonnull final BootstrapForm aForm)
+  protected void onAfterForm (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final BootstrapForm aForm)
   {}
 
   /**
@@ -131,7 +131,7 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
    */
   @Nullable
   @OverrideOnDemand
-  protected IHCNode createPageHeader (@Nonnull final ISimpleWebExecutionContext aSWEC,
+  protected IHCNode createPageHeader (@NonNull final ISimpleWebExecutionContext aSWEC,
                                       @Nullable final IHCNode aPageTitle)
   {
     return BootstrapPageHeader.createOnDemand (aPageTitle);
@@ -145,7 +145,7 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
    * @return May be <code>null</code>
    */
   @Nullable
-  protected IHCNode createFormFooter (@Nonnull final ISimpleWebExecutionContext aSWEC)
+  protected IHCNode createFormFooter (@NonNull final ISimpleWebExecutionContext aSWEC)
   {
     return null;
   }
@@ -159,7 +159,7 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
    *        The span where the container resides in
    */
   @OverrideOnDemand
-  protected void onBeforeLoginContainer (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nonnull final HCSpan aSpan)
+  protected void onBeforeLoginContainer (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final HCSpan aSpan)
   {}
 
   /**
@@ -171,12 +171,12 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
    *        The span where the container resides in
    */
   @OverrideOnDemand
-  protected void onAfterLoginContainer (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nonnull final HCSpan aSpan)
+  protected void onAfterLoginContainer (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final HCSpan aSpan)
   {}
 
   @Override
   @OverridingMethodsMustInvokeSuper
-  protected void fillBody (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nonnull final HCHtml aHtml)
+  protected void fillBody (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final HCHtml aHtml)
   {
     final IRequestWebScopeWithoutResponse aRequestScope = aSWEC.getRequestScope ();
     final Locale aDisplayLocale = aSWEC.getDisplayLocale ();
@@ -236,7 +236,7 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
 
   @Override
   @OverridingMethodsMustInvokeSuper
-  protected void fillHead (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nonnull final HCHtml aHtml)
+  protected void fillHead (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final HCHtml aHtml)
   {
     super.fillHead (aSWEC, aHtml);
     if (m_aPageTitle != null)

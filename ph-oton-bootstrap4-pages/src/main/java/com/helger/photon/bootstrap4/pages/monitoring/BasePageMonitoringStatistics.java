@@ -20,6 +20,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,9 +62,6 @@ import com.helger.text.util.TextHelper;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.util.statistics.StatisticsExporter;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Page with all currently available in memory statistics.
@@ -106,7 +105,7 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -123,32 +122,32 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
     aAjaxResponse.xml (aDoc).setContentDispositionFilename ("ph-oton-statistics.xml").disableCaching ();
   });
 
-  public BasePageMonitoringStatistics (@Nonnull @Nonempty final String sID)
+  public BasePageMonitoringStatistics (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_MONITORING_STATISTICS.getAsMLT ());
   }
 
-  public BasePageMonitoringStatistics (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageMonitoringStatistics (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageMonitoringStatistics (@Nonnull @Nonempty final String sID,
-                                       @Nonnull final String sName,
+  public BasePageMonitoringStatistics (@NonNull @Nonempty final String sID,
+                                       @NonNull final String sName,
                                        @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageMonitoringStatistics (@Nonnull @Nonempty final String sID,
-                                       @Nonnull final IMultilingualText aName,
+  public BasePageMonitoringStatistics (@NonNull @Nonempty final String sID,
+                                       @NonNull final IMultilingualText aName,
                                        @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final IRequestWebScopeWithoutResponse aRequestScope = aWPEC.getRequestScope ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();
@@ -228,7 +227,7 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
     StatisticsVisitor.visitStatistics (new IStatisticsVisitorCallback ()
     {
       @Override
-      public void onTimer (@Nonnull final String sName, @Nonnull final IStatisticsHandlerTimer aHandler)
+      public void onTimer (@NonNull final String sName, @NonNull final IStatisticsHandlerTimer aHandler)
       {
         if (aHandler.getInvocationCount () > 0)
           aTableTimer.addBodyRow ()
@@ -242,7 +241,7 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
       }
 
       @Override
-      public void onSize (@Nonnull final String sName, @Nonnull final IStatisticsHandlerSize aHandler)
+      public void onSize (@NonNull final String sName, @NonNull final IStatisticsHandlerSize aHandler)
       {
         if (aHandler.getInvocationCount () > 0)
           aTableSize.addBodyRow ()
@@ -256,7 +255,7 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
       }
 
       @Override
-      public void onCounter (@Nonnull final String sName, @Nonnull final IStatisticsHandlerCounter aHandler)
+      public void onCounter (@NonNull final String sName, @NonNull final IStatisticsHandlerCounter aHandler)
       {
         if (aHandler.getInvocationCount () > 0)
           aTableCounter.addBodyRow ()
@@ -267,7 +266,7 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
       }
 
       @Override
-      public void onCache (@Nonnull final String sName, @Nonnull final IStatisticsHandlerCache aHandler)
+      public void onCache (@NonNull final String sName, @NonNull final IStatisticsHandlerCache aHandler)
       {
         if (aHandler.getInvocationCount () > 0)
         {
@@ -290,7 +289,7 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
       }
 
       @Override
-      public void onKeyedTimer (@Nonnull final String sName, @Nonnull final IStatisticsHandlerKeyedTimer aHandler)
+      public void onKeyedTimer (@NonNull final String sName, @NonNull final IStatisticsHandlerKeyedTimer aHandler)
       {
         for (final String sKey : aHandler.getAllKeys ())
         {
@@ -308,7 +307,7 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
       }
 
       @Override
-      public void onKeyedSize (@Nonnull final String sName, @Nonnull final IStatisticsHandlerKeyedSize aHandler)
+      public void onKeyedSize (@NonNull final String sName, @NonNull final IStatisticsHandlerKeyedSize aHandler)
       {
         for (final String sKey : aHandler.getAllKeys ())
         {
@@ -326,7 +325,7 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
       }
 
       @Override
-      public void onKeyedCounter (@Nonnull final String sName, @Nonnull final IStatisticsHandlerKeyedCounter aHandler)
+      public void onKeyedCounter (@NonNull final String sName, @NonNull final IStatisticsHandlerKeyedCounter aHandler)
       {
         for (final String sKey : aHandler.getAllKeys ())
         {
