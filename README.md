@@ -54,7 +54,10 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 ## News and noteworthy
 
-v10.0.1 - work in progress
+v10.1.0 - 2025-11-16
+* Updated to Jetty 12.1.4
+* Updated to ph-commons 12.1.0
+* Using JSpecify annotations
 * Slightly improved the page with the scheduled actions
 * Fixed an NPE in the "System Information / Security" page, if the file `{java.home}/lib/security/java.security` does not exist
 
