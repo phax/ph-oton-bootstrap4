@@ -1591,4 +1591,7 @@ public final class CBootstrapCSS
   public static final ICSSClassProvider BG_GRADIENT_SECONDARY = DefaultCSSClassProvider.create ("bg-gradient-secondary");
   public static final ICSSClassProvider BG_GRADIENT_SUCCESS = DefaultCSSClassProvider.create ("bg-gradient-success");
   public static final ICSSClassProvider BG_GRADIENT_WARNING = DefaultCSSClassProvider.create ("bg-gradient-warning");
+
+  // PH extension
+  public static final ICSSClassProvider STICKY_BOTTOM = DefaultCSSClassProvider.create ("sticky-bottom");
 }
