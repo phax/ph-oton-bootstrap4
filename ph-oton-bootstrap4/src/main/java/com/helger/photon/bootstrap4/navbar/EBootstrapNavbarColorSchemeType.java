@@ -22,15 +22,14 @@ import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrapCSS;
 
 /**
- * Navbar color schemes. See
- * https://getbootstrap.com/docs/4.1/components/navbar/#color-schemes
+ * Navbar color schemes. See https://getbootstrap.com/docs/4.1/components/navbar/#color-schemes
  *
  * @author Philip Helger
  */
 public enum EBootstrapNavbarColorSchemeType implements ICSSClassProvider
 {
   LIGHT (CBootstrapCSS.NAVBAR_LIGHT),
-  DARF (CBootstrapCSS.NAVBAR_DARK);
+  DARK (CBootstrapCSS.NAVBAR_DARK);
 
   private final ICSSClassProvider m_aCSSClass;
 
