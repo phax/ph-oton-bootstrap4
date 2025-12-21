@@ -40,6 +40,12 @@ import com.helger.photon.bootstrap4.badge.EBootstrapBadgeType;
 public interface IHCBootstrap4Trait extends IHCTrait
 {
   @NonNull
+  default BootstrapBadge badge ()
+  {
+    return new BootstrapBadge ();
+  }
+
+  @NonNull
   default BootstrapBadge badge (final int nValue)
   {
     return new BootstrapBadge ().addChild (Integer.toString (nValue));
