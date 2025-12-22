@@ -44,9 +44,9 @@ public final class Bootstrap4DateTimePickerSpecialNodeListModifier implements IH
     int nIndex = 0;
     for (final IHCNode aNode : aNodes)
     {
-      if (aNode instanceof Bootstrap4DateTimePickerJS)
+      if (aNode instanceof final Bootstrap4DateTimePickerJS aJS)
       {
-        aDTPs.add ((Bootstrap4DateTimePickerJS) aNode);
+        aDTPs.add (aJS);
         if (nFirstIndex < 0)
           nFirstIndex = nIndex;
       }

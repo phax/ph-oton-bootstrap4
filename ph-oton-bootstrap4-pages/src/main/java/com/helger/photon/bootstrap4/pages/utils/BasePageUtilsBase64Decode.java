@@ -88,7 +88,7 @@ public class BasePageUtilsBase64Decode <WPECTYPE extends IWebPageExecutionContex
       return getSessionSingleton (Decoded.class);
     }
 
-    public void setData (@Nullable final byte [] aData, @Nullable final IMimeType aMimeType)
+    public void setData (final byte @Nullable [] aData, @Nullable final IMimeType aMimeType)
     {
       m_aData = aData;
       m_aMimeType = aMimeType;
