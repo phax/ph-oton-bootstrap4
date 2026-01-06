@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.photon.bootstrap3.uictrls.supplementary.tools;
+package com.helger.photon.bootstrap4.uictrls.supplementary.tools;
 
 import java.io.File;
 import java.util.Locale;

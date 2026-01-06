@@ -22,7 +22,7 @@ import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.CBootstrap;
 
 /**
- * Bootstrap3 grid element
+ * Bootstrap4 grid element
  *
  * @author Philip Helger
  */

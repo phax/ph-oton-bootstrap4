@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.helger.photon.bootstrap3.uictrls;
+package com.helger.photon.bootstrap4.uictrls;
 
 import static org.junit.Assert.assertTrue;
 
@@ -22,25 +22,23 @@ import org.junit.Test;
 
 import com.helger.io.resource.ClassPathResource;
 import com.helger.io.resource.IReadableResource;
-import com.helger.photon.bootstrap4.uictrls.EBootstrapUICtrlsJSPathProvider;
 
 /**
- * Test class for class {@link EBootstrapUICtrlsJSPathProvider}.
+ * Test class for class {@link EBootstrapUICtrlsCSSPathProvider}.
  *
  * @author Philip Helger
  */
-public final class EBootstrapUICtrlsJSPathProviderTest
+public final class EBootstrapUICtrlsCSSPathProviderTest
 {
   @Test
   public void testBasic ()
   {
-    for (final EBootstrapUICtrlsJSPathProvider e : EBootstrapUICtrlsJSPathProvider.values ())
-      if (e.isBundlable ())
-      {
-        IReadableResource aRes = new ClassPathResource (e.getJSItemPath (true));
-        assertTrue (aRes.getPath (), aRes.exists ());
-        aRes = new ClassPathResource (e.getJSItemPath (false));
-        assertTrue (aRes.getPath (), aRes.exists ());
-      }
+    for (final EBootstrapUICtrlsCSSPathProvider e : EBootstrapUICtrlsCSSPathProvider.values ())
+    {
+      IReadableResource aRes = new ClassPathResource (e.getCSSItemPath (true));
+      assertTrue (aRes.getPath (), aRes.exists ());
+      aRes = new ClassPathResource (e.getCSSItemPath (false));
+      assertTrue (aRes.getPath (), aRes.exists ());
+    }
   }
 }

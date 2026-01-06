@@ -33,7 +33,7 @@ import com.helger.url.ISimpleURL;
 import com.helger.url.SimpleURL;
 
 /**
- * Bootstrap3 button toolbar. Should only be used to group button groups and not
+ * Bootstrap4 button toolbar. Should only be used to group button groups and not
  * simple buttons.
  *
  * @author Philip Helger
