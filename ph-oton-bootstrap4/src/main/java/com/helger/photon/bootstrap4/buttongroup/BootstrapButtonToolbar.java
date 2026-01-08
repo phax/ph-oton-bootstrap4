@@ -33,12 +33,12 @@ import com.helger.url.ISimpleURL;
 import com.helger.url.SimpleURL;
 
 /**
- * Bootstrap4 button toolbar. Should only be used to group button groups and not
- * simple buttons.
+ * Bootstrap4 button toolbar. Should only be used to group button groups and not simple buttons.
  *
  * @author Philip Helger
  */
-public class BootstrapButtonToolbar extends AbstractBootstrapDiv <BootstrapButtonToolbar> implements IButtonToolbar <BootstrapButtonToolbar>
+public class BootstrapButtonToolbar extends AbstractBootstrapDiv <BootstrapButtonToolbar> implements
+                                    IButtonToolbar <BootstrapButtonToolbar>
 {
   private final SimpleURL m_aSelfHref;
 
@@ -62,10 +62,10 @@ public class BootstrapButtonToolbar extends AbstractBootstrapDiv <BootstrapButto
 
   @NonNull
   public final BootstrapButton addAndReturnButton (@Nullable final String sCaption,
-                                                   @Nullable final IHasJSCode aJSCode,
+                                                   @Nullable final IHasJSCode aOnClick,
                                                    @Nullable final IIcon aIcon)
   {
-    return addAndReturnChild (new BootstrapButton ().setIcon (aIcon).addChild (sCaption).setOnClick (aJSCode));
+    return addAndReturnChild (new BootstrapButton ().setIcon (aIcon).addChild (sCaption).setOnClick (aOnClick));
   }
 
   @NonNull
@@ -73,6 +73,6 @@ public class BootstrapButtonToolbar extends AbstractBootstrapDiv <BootstrapButto
                                                          @Nullable final IHasJSCode aOnClick,
                                                          @Nullable final IIcon aIcon)
   {
-    return addAndReturnChild (new BootstrapSubmitButton ().setIcon (aIcon).setOnClick (aOnClick).addChild (sCaption));
+    return addAndReturnChild (new BootstrapSubmitButton ().setIcon (aIcon).addChild (sCaption).setOnClick (aOnClick));
   }
 }
