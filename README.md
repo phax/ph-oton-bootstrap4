@@ -54,8 +54,10 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 ## News and noteworthy
 
-v10.1.1 - work in progress
+v10.1.1 - 2026-01-10
+* Updated to ph-oton 10.1.2
 * Added `sticky-bottom` CSS class
+* Made sure all package names are "bootstrap4" and not just "bootstrap"
 
 v10.1.0 - 2025-11-16
 * Updated to Jetty 12.1.4
