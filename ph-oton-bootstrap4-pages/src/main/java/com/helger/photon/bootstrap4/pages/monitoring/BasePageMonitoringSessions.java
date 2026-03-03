@@ -23,6 +23,8 @@ import java.util.Map;
 
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
@@ -62,6 +64,8 @@ import com.helger.text.util.TextHelper;
 import com.helger.url.ISimpleURL;
 import com.helger.web.scope.ISessionWebScope;
 import com.helger.web.scope.mgr.WebScopeManager;
+
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Show information on all active sessions
@@ -111,6 +115,8 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
+
+  private static final Logger LOGGER = LoggerFactory.getLogger (BasePageMonitoringSessions.class);
 
   public BasePageMonitoringSessions (@NonNull @Nonempty final String sID)
   {
@@ -179,9 +185,8 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
     aViewForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.MSG_SCOPE_ATTRS.getDisplayText (aDisplayLocale))
                                                      .setCtrl (Integer.toString (aScope.attrs ().size ())));
 
-    if (aScope instanceof ISessionWebScope)
+    if (aScope instanceof final ISessionWebScope aWebScope)
     {
-      final ISessionWebScope aWebScope = (ISessionWebScope) aScope;
       final LocalDateTime aCreationDT = PDTFactory.createLocalDateTime (aWebScope.getSession ().getCreationTime ());
       final LocalDateTime aLastAccessDT = PDTFactory.createLocalDateTime (aWebScope.getSession ()
                                                                                    .getLastAccessedTime ());
@@ -215,7 +220,8 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
 
     final HCTable aTableAttrs = new HCTable (new DTCol (EText.MSG_NAME.getDisplayText (aDisplayLocale)).setInitialSorting (ESortOrder.ASCENDING),
                                              new DTCol (EText.MSG_TYPE.getDisplayText (aDisplayLocale)),
-                                             new DTCol (EText.MSG_VALUE.getDisplayText (aDisplayLocale))).setID ("sessionscope-" + aScope.getID ());
+                                             new DTCol (EText.MSG_VALUE.getDisplayText (aDisplayLocale))).setID ("sessionscope-" +
+                                                                                                                 aScope.getID ());
     for (final Map.Entry <String, Object> aEntry : aScope.attrs ().entrySet ())
     {
       final Object aValue = aEntry.getValue ();
@@ -297,8 +303,7 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
 
     for (final ISessionScope aSessionScope : ScopeSessionManager.getInstance ().getAllSessionScopes ())
     {
-      final ISessionWebScope aWebScope = aSessionScope instanceof ISessionWebScope ? (ISessionWebScope) aSessionScope
-                                                                                   : null;
+      final ISessionWebScope aWebScope = aSessionScope instanceof final ISessionWebScope aSWS ? aSWS : null;
       final ISimpleURL aViewLink = createViewURL (aWPEC, aSessionScope);
       final boolean bIsMySession = aSessionScope.getID ().equals (sMySessionID);
 
@@ -308,9 +313,19 @@ public class BasePageMonitoringSessions <WPECTYPE extends IWebPageExecutionConte
                                                                 : "")));
       aRow.addCell (Integer.toString (aSessionScope.attrs ().size ()));
       if (aWebScope != null)
-        aRow.addCell (PDTToString.getAsString (PDTFactory.createLocalDateTime (aWebScope.getSession ()
-                                                                                        .getLastAccessedTime ()),
-                                               aDisplayLocale));
+      {
+        final HttpSession aSession = aWebScope.getSession ();
+        try
+        {
+          aRow.addCell (PDTToString.getAsString (PDTFactory.createLocalDateTime (aSession.getLastAccessedTime ()),
+                                                 aDisplayLocale));
+        }
+        catch (final IllegalStateException ex)
+        {
+          LOGGER.error (ex.getMessage ());
+          aRow.addCell ("");
+        }
+      }
       else
         aRow.addCell ();
 
