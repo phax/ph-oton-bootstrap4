@@ -56,6 +56,9 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 ## News and noteworthy
 
+v10.1.4 - work in progress
+* Removed OSGI bundling
+
 v10.1.3 - 2026-04-12
 * Removed the `z-index` from CSS `.sticky-bottom`
 
