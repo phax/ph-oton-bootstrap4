@@ -55,7 +55,7 @@ import com.helger.photon.bootstrap4.inputgroup.BootstrapInputGroup;
 import com.helger.photon.bootstrap4.uictrls.EBootstrapUICtrlsCSSPathProvider;
 import com.helger.photon.bootstrap4.uictrls.EBootstrapUICtrlsJSPathProvider;
 import com.helger.photon.core.form.RequestField;
-import com.helger.photon.icon.fontawesome.EFontAwesome4Icon;
+import com.helger.photon.icon.fontawesome4.EFontAwesome4Icon;
 import com.helger.photon.uicore.EUICoreJSPathProvider;
 
 /**
@@ -102,17 +102,13 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
                                                    @NonNull final LocalDateTime aDT)
   {
     // Always format with ISO mode
-    switch (eMode)
+    return switch (eMode)
     {
-      case TIME:
-        return DateTimeFormatter.ISO_TIME.format (aDT.toLocalTime ());
-      case DATE:
-        return DateTimeFormatter.ISO_DATE.format (aDT.toLocalDate ());
-      case DATE_TIME:
-        return DateTimeFormatter.ISO_DATE_TIME.format (aDT);
-      default:
-        throw new IllegalStateException ("Unsupported mode " + eMode);
-    }
+      case TIME -> DateTimeFormatter.ISO_TIME.format (aDT.toLocalTime ());
+      case DATE -> DateTimeFormatter.ISO_DATE.format (aDT.toLocalDate ());
+      case DATE_TIME -> DateTimeFormatter.ISO_DATE_TIME.format (aDT);
+      default -> throw new IllegalStateException ("Unsupported mode " + eMode);
+    };
   }
 
   @Nullable
@@ -122,17 +118,13 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
   {
     if (aDT == null)
       return null;
-    switch (eMode)
+    return switch (eMode)
     {
-      case TIME:
-        return PDTToString.getAsString (aDT.toLocalTime (), aDisplayLocale);
-      case DATE:
-        return PDTToString.getAsString (aDT.toLocalDate (), aDisplayLocale);
-      case DATE_TIME:
-        return PDTToString.getAsString (aDT, aDisplayLocale);
-      default:
-        throw new IllegalStateException ("Unsupported mode " + eMode);
-    }
+      case TIME -> PDTToString.getAsString (aDT.toLocalTime (), aDisplayLocale);
+      case DATE -> PDTToString.getAsString (aDT.toLocalDate (), aDisplayLocale);
+      case DATE_TIME -> PDTToString.getAsString (aDT, aDisplayLocale);
+      default -> throw new IllegalStateException ("Unsupported mode " + eMode);
+    };
   }
 
   /**

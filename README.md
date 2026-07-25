@@ -58,7 +58,9 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 ## News and noteworthy
 
-v10.1.4 - work in progress
+v10.2.0 - 2026-07-27
+* Updated to ph-oton 10.3.0
+* Using ph-oton-icon 1.0.1
 * Removed OSGI bundling
 
 v10.1.3 - 2026-04-12

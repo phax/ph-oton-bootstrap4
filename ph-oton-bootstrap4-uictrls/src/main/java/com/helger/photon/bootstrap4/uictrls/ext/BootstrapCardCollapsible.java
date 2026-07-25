@@ -33,7 +33,7 @@ import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
 import com.helger.photon.bootstrap4.card.BootstrapCardBody;
 import com.helger.photon.bootstrap4.card.BootstrapCardHeader;
 import com.helger.photon.bootstrap4.uictrls.EBootstrapUICtrlsCSSPathProvider;
-import com.helger.photon.icon.fontawesome.EFontAwesome4Icon;
+import com.helger.photon.icon.fontawesome4.EFontAwesome4Icon;
 import com.helger.url.SimpleURL;
 
 /**
@@ -139,7 +139,8 @@ public class BootstrapCardCollapsible extends AbstractBootstrapDiv <BootstrapCar
   }
 
   @Override
-  protected void onRegisterExternalResources (final IHCConversionSettingsToNode aConversionSettings, final boolean bForcedRegistration)
+  protected void onRegisterExternalResources (final IHCConversionSettingsToNode aConversionSettings,
+                                              final boolean bForcedRegistration)
   {
     super.onRegisterExternalResources (aConversionSettings, bForcedRegistration);
     EFontAwesome4Icon.registerResourcesForThisRequest ();
