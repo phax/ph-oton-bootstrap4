@@ -58,6 +58,9 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 ## News and noteworthy
 
+v10.2.1 - work in progress
+* Updated to ph-oton 10.4.0 - contains DataTables 3.0.2 and the current plugin versions
+
 v10.2.0 - 2026-07-27
 * Updated to ph-oton 10.3.0
 * Using ph-oton-icon 1.0.1
