@@ -58,7 +58,7 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 ## News and noteworthy
 
-v10.2.2 - work in progress
+v10.2.2 - 2026-09-04
 * Updated to ph-oton 10.5.0
 
 v10.2.1 - 2026-08-30
