@@ -30,18 +30,18 @@ import com.helger.photon.bootstrap4.grid.BootstrapGridSpec;
  * @param <IMPLTYPE>
  *        Implementation type
  */
-public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGroupContainer <IMPLTYPE>> extends IHCElement <IMPLTYPE>
+public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGroupContainer <IMPLTYPE>> extends
+                                              IHCElement <IMPLTYPE>
 {
   /**
-   * @return The form type for aligning the form groups. Never <code>null</code>
-   *         .
+   * @return The form type for aligning the form groups. Never <code>null</code> .
    */
   @NonNull
   EBootstrapFormType getFormType ();
 
   /**
-   * Set the left part of a horizontal form. This implicitly sets the correct
-   * right parts (= CBootstrap.GRID_SYSTEM_MAX - left).
+   * Set the left part of a horizontal form. This implicitly sets the correct right parts (=
+   * CBootstrap.GRID_SYSTEM_MAX - left).
    *
    * @param nLeftParts
    *        The left parts. Must be &ge; 1 and &le; 12!
@@ -54,8 +54,8 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
   }
 
   /**
-   * Set the left part of a horizontal form. This implicitly sets the correct
-   * right parts (= CBootstrap.GRID_SYSTEM_MAX - left).
+   * Set the left part of a horizontal form. This implicitly sets the correct right parts (=
+   * CBootstrap.GRID_SYSTEM_MAX - left).
    *
    * @param nLeftPartsXS
    *        The left parts XS. Must be &ge; 1 and &le; 12!
@@ -77,16 +77,15 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
                     @Nonnegative int nLeftPartsXL);
 
   /**
-   * @return The left parts. Always &ge; 1 and &le; CBootstrap.GRID_SYSTEM_MAX.
-   *         Never <code>null</code>.
+   * @return The left parts. Always &ge; 1 and &le; CBootstrap.GRID_SYSTEM_MAX. Never
+   *         <code>null</code>.
    */
   @NonNull
   BootstrapGridSpec getLeft ();
 
   /**
-   * @return The right parts. Always
-   *         <code>CBootstrap.GRID_SYSTEM_MAX - getLeft ()</code> except left is
-   *         <code>CBootstrap.GRID_SYSTEM_MAX</code> than right is also
+   * @return The right parts. Always <code>CBootstrap.GRID_SYSTEM_MAX - getLeft ()</code> except
+   *         left is <code>CBootstrap.GRID_SYSTEM_MAX</code> than right is also
    *         <code>CBootstrap.GRID_SYSTEM_MAX</code>. Never <code>null</code>.
    */
   @NonNull
@@ -105,8 +104,7 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
   IMPLTYPE setSplitting (@NonNull BootstrapGridSpec aLeft, @NonNull BootstrapGridSpec aRight);
 
   /**
-   * @return The renderer used to convert form groups into HC nodes. Never
-   *         <code>null</code>.
+   * @return The renderer used to convert form groups into HC nodes. Never <code>null</code>.
    */
   @NonNull
   IBootstrapFormGroupRenderer getFormGroupRenderer ();
@@ -132,8 +130,8 @@ public interface IBootstrapFormGroupContainer <IMPLTYPE extends IBootstrapFormGr
   IMPLTYPE addFormGroup (@NonNull BootstrapFormGroup aFormGroup);
 
   /**
-   * Get the rendered form group based on the contained form group renderer. The
-   * form group is NOT added to this container!
+   * Get the rendered form group based on the contained form group renderer. The form group is NOT
+   * added to this container!
    *
    * @param aFormGroup
    *        The form group to be rendered. May not be <code>null</code>.

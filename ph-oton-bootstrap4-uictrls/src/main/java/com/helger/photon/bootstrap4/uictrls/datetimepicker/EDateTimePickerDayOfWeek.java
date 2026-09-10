@@ -52,8 +52,7 @@ public enum EDateTimePickerDayOfWeek
   }
 
   /**
-   * Get the enum entry matching the specified Java time {@link DayOfWeek}
-   * value.
+   * Get the enum entry matching the specified Java time {@link DayOfWeek} value.
    *
    * @param nJDKValue
    *        The JDK value.

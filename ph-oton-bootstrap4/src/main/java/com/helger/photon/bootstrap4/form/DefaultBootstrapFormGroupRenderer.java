@@ -45,9 +45,9 @@ import com.helger.photon.bootstrap4.grid.BootstrapRow;
 import com.helger.photon.uicore.html.formlabel.HCFormLabel;
 
 /**
- * This is the default implementation of {@link IBootstrapFormGroupRenderer}
- * which performs standard rendering. It offers the possibility to modify
- * certain styling by overriding the provided protected methods.
+ * This is the default implementation of {@link IBootstrapFormGroupRenderer} which performs standard
+ * rendering. It offers the possibility to modify certain styling by overriding the provided
+ * protected methods.
  *
  * @author Philip Helger
  */
@@ -87,8 +87,7 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
   }
 
   /**
-   * Modify the first control that is inserted. This method is only called when
-   * a label is present.
+   * Modify the first control that is inserted. This method is only called when a label is present.
    *
    * @param aLabel
    *        The label that was provided. Never <code>null</code>.
@@ -147,8 +146,8 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
   }
 
   /**
-   * Callback possibility to change the finally created node before it is
-   * returned. By default nothing happens in here.
+   * Callback possibility to change the finally created node before it is returned. By default
+   * nothing happens in here.
    *
    * @param aForm
    *        The source form. Never <code>null</code>.

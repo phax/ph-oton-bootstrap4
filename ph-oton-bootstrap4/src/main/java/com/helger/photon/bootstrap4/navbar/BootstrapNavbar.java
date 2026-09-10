@@ -123,8 +123,8 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
   }
 
   /**
-   * Shortcut for {@link #addToggler(String)} and
-   * {@link #addAndReturnToggleable(String)} with an automatically assigned ID.
+   * Shortcut for {@link #addToggler(String)} and {@link #addAndReturnToggleable(String)} with an
+   * automatically assigned ID.
    *
    * @return The toggleable to be filled
    */

@@ -23,8 +23,7 @@ import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.grid.EBootstrapGridType;
 
 /**
- * Navbar expansion type. See
- * https://getbootstrap.com/docs/4.1/components/navbar/
+ * Navbar expansion type. See https://getbootstrap.com/docs/4.1/components/navbar/
  *
  * @author Philip Helger
  */

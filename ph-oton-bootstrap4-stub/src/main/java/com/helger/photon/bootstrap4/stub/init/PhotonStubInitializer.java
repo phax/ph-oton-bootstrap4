@@ -51,8 +51,7 @@ import com.helger.web.scope.mgr.WebScopeManager;
 import com.helger.xservlet.requesttrack.RequestTrackerSettings;
 
 /**
- * This class triggers some default configuration to run ph-oton applications
- * more easy.
+ * This class triggers some default configuration to run ph-oton applications more easy.
  *
  * @author Philip Helger
  */

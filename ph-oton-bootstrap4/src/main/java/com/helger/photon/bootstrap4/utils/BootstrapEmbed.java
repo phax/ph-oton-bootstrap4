@@ -27,8 +27,7 @@ import com.helger.photon.bootstrap4.CBootstrapCSS;
 import com.helger.photon.bootstrap4.base.AbstractBootstrapDiv;
 
 /**
- * Bootstrap responsive embed. See
- * https://getbootstrap.com/docs/4.1/utilities/embed/
+ * Bootstrap responsive embed. See https://getbootstrap.com/docs/4.1/utilities/embed/
  * 
  * @author Philip Helger
  */

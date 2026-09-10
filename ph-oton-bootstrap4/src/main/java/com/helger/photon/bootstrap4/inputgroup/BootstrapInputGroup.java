@@ -35,9 +35,8 @@ import com.helger.photon.bootstrap4.dropdown.BootstrapDropdownMenu;
 /**
  * Bootstrap input group. Children must be added in the correct order. Use
  * {@link #addChildPrefix(String)}, {@link #addChildPrefix(IHCNode)},
- * {@link #addChildSuffix(String)} and {@link #addChildSuffix(IHCNode)} for the
- * prepends and appends. The API was reworked in 8.1.3 for correct parent/child
- * relationship management.
+ * {@link #addChildSuffix(String)} and {@link #addChildSuffix(IHCNode)} for the prepends and
+ * appends. The API was reworked in 8.1.3 for correct parent/child relationship management.
  *
  * @author Philip Helger
  */
@@ -90,9 +89,8 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
   }
 
   /**
-   * If an existing DIV with class "input-group-prepend" is present, reuse it.
-   * Else create a new one and append it. Elements in here are prepended to the
-   * date edit.
+   * If an existing DIV with class "input-group-prepend" is present, reuse it. Else create a new one
+   * and append it. Elements in here are prepended to the date edit.
    *
    * @return Never <code>null</code>.
    * @see #createGroupPrepend()
@@ -101,15 +99,15 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
   public HCDiv getOrCreateGroupPrepend ()
   {
     // Existing "prepend" present?
-    final HCDiv aDiv = (HCDiv) findFirstChild (x -> x instanceof HCDiv && ((HCDiv) x).containsClass (CBootstrapCSS.INPUT_GROUP_PREPEND));
+    final HCDiv aDiv = (HCDiv) findFirstChild (x -> x instanceof HCDiv &&
+                                                    ((HCDiv) x).containsClass (CBootstrapCSS.INPUT_GROUP_PREPEND));
     // Prepend group MUST always be the first child, so before any control
     return aDiv != null ? aDiv : addAndReturnChildAt (0, createGroupPrepend ());
   }
 
   /**
-   * If an existing DIV with class "input-group-append" is present, reuse it.
-   * Else create a new one and append it. Elements in here are appended to the
-   * date edit.
+   * If an existing DIV with class "input-group-append" is present, reuse it. Else create a new one
+   * and append it. Elements in here are appended to the date edit.
    *
    * @return Never <code>null</code>.
    * @see #createGroupAppend()
@@ -118,7 +116,8 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
   public HCDiv getOrCreateGroupAppend ()
   {
     // Existing "append" present?
-    final HCDiv aDiv = (HCDiv) findFirstChild (x -> x instanceof HCDiv && ((HCDiv) x).containsClass (CBootstrapCSS.INPUT_GROUP_APPEND));
+    final HCDiv aDiv = (HCDiv) findFirstChild (x -> x instanceof HCDiv &&
+                                                    ((HCDiv) x).containsClass (CBootstrapCSS.INPUT_GROUP_APPEND));
     return aDiv != null ? aDiv : addAndReturnChild (createGroupAppend ());
   }
 

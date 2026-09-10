@@ -70,8 +70,8 @@ public final class AppRendererSecure
     final BootstrapNavbar aNavbar = new BootstrapNavbar ();
     aNavbar.addBrand (new HCNodeList ().addChild (new HCSpan ().addClass (AppCommonUI.CSS_CLASS_LOGO1)
                                                                .addChild (CApp.getApplicationTitle ()))
-                                       .addChild (new HCSpan ().addClass (AppCommonUI.CSS_CLASS_LOGO2).addChild (" Administration")),
-                      aLinkToStartPage);
+                                       .addChild (new HCSpan ().addClass (AppCommonUI.CSS_CLASS_LOGO2)
+                                                               .addChild (" Administration")), aLinkToStartPage);
 
     final IUser aUser = aSWEC.getLoggedInUser ();
     aNavbar.addAndReturnText ()

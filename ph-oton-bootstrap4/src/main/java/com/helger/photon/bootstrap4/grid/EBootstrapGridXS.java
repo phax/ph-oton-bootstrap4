@@ -49,7 +49,9 @@ public enum EBootstrapGridXS implements IBootstrapGridElement
   private final ICSSClassProvider m_aCSSClass;
   private final ICSSClassProvider m_aCSSClassOffset;
 
-  EBootstrapGridXS (final int nParts, @NonNull final ICSSClassProvider aCSSClass, @Nullable final ICSSClassProvider aCSSClassOffset)
+  EBootstrapGridXS (final int nParts,
+                    @NonNull final ICSSClassProvider aCSSClass,
+                    @Nullable final ICSSClassProvider aCSSClassOffset)
   {
     m_nParts = nParts;
     m_aCSSClass = aCSSClass;

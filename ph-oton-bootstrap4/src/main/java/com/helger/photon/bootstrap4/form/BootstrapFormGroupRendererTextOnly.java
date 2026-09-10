@@ -40,8 +40,8 @@ import com.helger.photon.bootstrap4.grid.BootstrapRow;
 import com.helger.photon.uicore.html.formlabel.HCFormLabel;
 
 /**
- * This is an implementation of {@link IBootstrapFormGroupRenderer} for
- * displaying text controls only.
+ * This is an implementation of {@link IBootstrapFormGroupRenderer} for displaying text controls
+ * only.
  *
  * @author Philip Helger
  */
@@ -98,8 +98,8 @@ public class BootstrapFormGroupRendererTextOnly implements IBootstrapFormGroupRe
   }
 
   /**
-   * Callback possibility to change the finally created node before it is
-   * returned. By default nothing happens in here.
+   * Callback possibility to change the finally created node before it is returned. By default
+   * nothing happens in here.
    *
    * @param aForm
    *        The source form. Never <code>null</code>.
@@ -131,9 +131,9 @@ public class BootstrapFormGroupRendererTextOnly implements IBootstrapFormGroupRe
                                             @NonNull final Locale aDisplayLocale)
   {
     final HCFormLabel aLabel = aFormGroup.getLabel ();
-    final var aLabelRenderContent = aLabel == null ? null : aLabel.isTextLabel () ? new HCSpan ().addChild (aLabel
-                                                                                                                  .getPlainText ())
-                                                                                  : _toElement (aLabel.getFirstChild ());
+    final var aLabelRenderContent = aLabel == null ? null
+                                                   : aLabel.isTextLabel () ? new HCSpan ().addChild (aLabel.getPlainText ())
+                                                                           : _toElement (aLabel.getFirstChild ());
 
     final IHCNode aCtrls = aFormGroup.getCtrl ();
     final IHCNode aHelpText = aFormGroup.getHelpText ();

@@ -76,7 +76,11 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
   }
 
   @NonNull
-  public BootstrapCol createColumn (final int nPartsXS, final int nPartsSM, final int nPartsMD, final int nPartsLG, final int nPartsXL)
+  public BootstrapCol createColumn (final int nPartsXS,
+                                    final int nPartsSM,
+                                    final int nPartsMD,
+                                    final int nPartsLG,
+                                    final int nPartsXL)
   {
     return createColumn (BootstrapGridSpec.create (nPartsXS, nPartsSM, nPartsMD, nPartsLG, nPartsXL));
   }
@@ -171,7 +175,8 @@ public class BootstrapRow extends AbstractBootstrapDiv <BootstrapRow>
 
   @NonNull
   @ReturnsMutableCopy
-  public static BootstrapRow createRowWithOneColumn (@NonNull final BootstrapGridSpec aParts, @NonNull final IHCNode aCtrl)
+  public static BootstrapRow createRowWithOneColumn (@NonNull final BootstrapGridSpec aParts,
+                                                     @NonNull final IHCNode aCtrl)
   {
     final BootstrapRow aRow = new BootstrapRow ();
     aRow.createColumn (aParts).addChild (aCtrl);

@@ -21,8 +21,7 @@ import org.jspecify.annotations.NonNull;
 import com.helger.annotation.Nonempty;
 
 /**
- * Defines the possible tokens for the moments.js format. Works for JS and Java
- * 1.8.
+ * Defines the possible tokens for the moments.js format. Works for JS and Java 1.8.
  *
  * @author Philip Helger
  */
@@ -48,7 +47,8 @@ public enum EMomentsDateTimePickerFormatToken
   private final String m_sJSToken;
   private final String m_sJavaToken;
 
-  EMomentsDateTimePickerFormatToken (@NonNull @Nonempty final String sJSToken, @NonNull @Nonempty final String sJavaToken)
+  EMomentsDateTimePickerFormatToken (@NonNull @Nonempty final String sJSToken,
+                                     @NonNull @Nonempty final String sJavaToken)
   {
     m_sJSToken = sJSToken;
     m_sJavaToken = sJavaToken;

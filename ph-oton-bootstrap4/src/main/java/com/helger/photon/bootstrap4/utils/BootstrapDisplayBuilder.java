@@ -25,8 +25,8 @@ import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap4.grid.EBootstrapGridType;
 
 /**
- * Utility class to build a display class based on {@link EBootstrapGridType}
- * and {@link EBootstrapDisplayType}.
+ * Utility class to build a display class based on {@link EBootstrapGridType} and
+ * {@link EBootstrapDisplayType}.
  *
  * @author Philip Helger
  */

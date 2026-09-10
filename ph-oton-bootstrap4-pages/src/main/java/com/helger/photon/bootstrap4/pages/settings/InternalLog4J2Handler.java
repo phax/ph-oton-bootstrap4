@@ -49,8 +49,7 @@ import com.helger.photon.uicore.html.select.HCExtSelect;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 
 /**
- * Keep in separate class, so that the stuff is only loaded once we checked
- * Log4J is present.
+ * Keep in separate class, so that the stuff is only loaded once we checked Log4J is present.
  *
  * @author Philip Helger
  */
@@ -89,8 +88,7 @@ final class InternalLog4J2Handler implements IHCBootstrap4Trait
     DEBUG (Level.DEBUG),
 
     /**
-     * A fine-grained debug message, typically capturing the flow through the
-     * application.
+     * A fine-grained debug message, typically capturing the flow through the application.
      */
     TRACE (Level.TRACE),
 
@@ -187,7 +185,8 @@ final class InternalLog4J2Handler implements IHCBootstrap4Trait
         if (eNewLevel == eExistingLevel)
         {
           LOGGER.info ("No change in log levels. Sticking with " + eExistingLevel);
-          aNodeList.addChild (info (EText.MSG_NO_CHANGE.getDisplayTextWithArgs (aDisplayLocale, eExistingLevel.getDisplayName ())));
+          aNodeList.addChild (info (EText.MSG_NO_CHANGE.getDisplayTextWithArgs (aDisplayLocale,
+                                                                                eExistingLevel.getDisplayName ())));
         }
         else
         {
@@ -195,7 +194,9 @@ final class InternalLog4J2Handler implements IHCBootstrap4Trait
           // info
           LOGGER.info ("Changing log levels from " + eExistingLevel + " to " + eNewLevel);
           Configurator.setRootLevel (eNewLevel.getLevel ());
-          AuditHelper.onAuditExecuteSuccess ("change-log-level", eExistingLevel.getDisplayName (), eNewLevel.getDisplayName ());
+          AuditHelper.onAuditExecuteSuccess ("change-log-level",
+                                             eExistingLevel.getDisplayName (),
+                                             eNewLevel.getDisplayName ());
           aNodeList.addChild (info (EText.MSG_CHANGE_SUCCESS.getDisplayTextWithArgs (aDisplayLocale,
                                                                                      eExistingLevel.getDisplayName (),
                                                                                      eNewLevel.getDisplayName ())));

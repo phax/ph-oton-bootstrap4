@@ -55,7 +55,8 @@ public class BootstrapSelect2 extends HCSelect2
   }
 
   @Override
-  protected void onRegisterExternalResources (final IHCConversionSettingsToNode aConversionSettings, final boolean bForcedRegistration)
+  protected void onRegisterExternalResources (final IHCConversionSettingsToNode aConversionSettings,
+                                              final boolean bForcedRegistration)
   {
     super.onRegisterExternalResources (aConversionSettings, bForcedRegistration);
     PhotonCSS.registerCSSIncludeForThisRequest (EUICtrlsCSSPathProvider.SELECT2_BOOTSTRAP4);
