@@ -58,6 +58,9 @@ See the submodule `ph-oton-bootstrap4-demo` for a working example project with B
 
 ## News and noteworthy
 
+v10.2.3 - work in progress
+* The module `ph-oton-bootstrap4-demo` is no longer published to Maven Central
+
 v10.2.2 - 2026-09-04
 * Updated to ph-oton 10.5.0
 
