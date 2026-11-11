@@ -33,11 +33,13 @@ import com.helger.photon.bootstrap4.CBootstrap;
 @IsSPIImplementation
 public final class ThirdPartyModuleProvider_ph_oton_bootstrap4 implements IThirdPartyModuleProviderSPI
 {
-  public static final IThirdPartyModule BOOTSTRAP4 = new ThirdPartyModule ("Bootstrap",
-                                                                           "Bootstrap",
-                                                                           ELicense.MIT,
-                                                                           CBootstrap.BOOTSTRAP_VERSION_46,
-                                                                           "https://getbootstrap.com/docs/4.6");
+  public static final IThirdPartyModule BOOTSTRAP4 = ThirdPartyModule.builder ()
+                                                                     .displayName ("Bootstrap")
+                                                                     .copyrightOwner ("Bootstrap")
+                                                                     .license (ELicense.MIT)
+                                                                     .version (CBootstrap.BOOTSTRAP_VERSION_46)
+                                                                     .webSiteUrl ("https://getbootstrap.com/docs/4.6")
+                                                                     .build ();
 
   @Nullable
   public IThirdPartyModule [] getAllThirdPartyModules ()
