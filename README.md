@@ -15,6 +15,7 @@ Contained subprojects are:
 * ph-oton-bootstrap4-pages - predefined UI pages with Bootstrap 4 styling
 * ph-oton-bootstrap4-stub - Servlet stub for Bootstrap 4 web applications
 * ph-oton-bootstrap4-demo - a standalone demo web application to be run in Tomcat or in provided Jetty
+* ph-oton-bootstrap4-bom - Bill of Materials (BOM) containing all ph-oton-bootstrap4 artifacts (since 10.2.5)
 
 # Requirements
 
@@ -32,7 +33,7 @@ Replace `x.y.z` with the effective version number.
     <dependencies>
       <dependency>
         <groupId>com.helger.photon</groupId>
-        <artifactId>ph-oton-bootstrap4-parent-pom</artifactId>
+        <artifactId>ph-oton-bootstrap4-bom</artifactId>
         <version>x.y.z</version>
         <type>pom</type>
         <scope>import</scope>
@@ -40,6 +41,8 @@ Replace `x.y.z` with the effective version number.
     </dependencies>
   </dependencyManagement>
 ```
+
+Note: prior to v10.2.5 there was no dedicated BOM and `ph-oton-bootstrap4-parent-pom` had to be imported instead.
 
 ### Bootstrap 4
 
@@ -57,6 +60,11 @@ To use Bootstrap 4 front end use:
 See the submodule `ph-oton-bootstrap4-demo` for a working example project with Bootstrap 4 UI.
 
 ## News and noteworthy
+
+v10.2.5 - 2026-11-14
+* Added the new BOM artifact `ph-oton-bootstrap4-bom` that contains only the ph-oton-bootstrap4 artifacts.
+  It should be used instead of `ph-oton-bootstrap4-parent-pom` for importing.
+* Importing `ph-commons-bom`, `ph-web-bom`, `ph-oton-bom` and `ph-oton-icon-bom` instead of the respective parent POMs
 
 v10.2.4 - 2026-11-11
 * Requires at least ph-oton 10.8.0
